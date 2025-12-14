@@ -126,6 +126,8 @@
 
 <template>
 
+  <div class="timelineWrapper">
+
    <TimelapseFrame :date="focusDate" :current-play-time="currentTimeSeconds" :cam="activeCam" :image-url="imageUrl"/>
 
     <div class="controlPanel">
@@ -147,11 +149,17 @@
     <source :src="audioPath" type="audio/mp3">
   </audio> 
 
+</div>
+
 </template>
 
 
 
 <style scoped>
+
+  .timelineWrapper{
+    background-color: rgb(112 111 87);
+  }
 
   audio{
     display:none;
@@ -167,11 +175,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inconsolata', monospace;
+/*    font-family: 'Inconsolata', monospace;*/
     font-weight: 300;
     font-size:120%;
     opacity: 0.8;
     background: #111;
+    color:white;
   }
 
   button.playButton {

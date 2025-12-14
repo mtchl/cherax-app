@@ -328,7 +328,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 
   .big{

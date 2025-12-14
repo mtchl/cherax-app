@@ -30,12 +30,14 @@ export default {
 <style lang="css" scoped>
 
 	img{
-		height:623px;
-		width:860px;
+		
+		max-width:100%;
+		aspect-ratio: 1.38;
+		max-height: 80vh;
 		object-fit:cover;
 		object-position: 50% top;
 		display: block;
-		margin: 1rem auto;
+		margin: 0 auto;
 	}
 
 </style>

@@ -18,7 +18,7 @@
   nav{
     background-color: black;
     padding:0.5rem;
-    margin:0 0 2rem;
+    margin:0;
   }
 
   nav a{
