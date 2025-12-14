@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 386 242" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-423.417,-381.347)">
+        <g transform="matrix(0.78928,0,0,0.753794,146.923,130.369)">
+            <rect x="350.312" y="332.953" width="488.336" height="320.883" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="350.312" y="332.953" width="488.336" height="320.883"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.26698,0,0,1.32662,-187.623,-168.862)">
+                    <path d="M612.187,224.019C601.273,228.759 589.414,232.141 580.251,239.642C552.044,262.732 522.311,299.576 525.694,338.752C528.325,369.226 545.846,400.863 557.733,428.086C567.039,449.398 572.278,474.069 583.904,494.294C592.83,509.822 597.217,533.269 606.919,548.283C615.197,561.092 621.136,569.956 635.004,581.509C647.268,591.726 666.959,598.931 676.577,609.783C692.602,627.863 711.365,635.476 730.253,650.841C741.451,659.95 752.429,671.68 764.674,679.289C787.074,693.21 829.46,700.527 855.436,695.289C868.658,692.623 898.265,676.838 911.996,670.02C921.744,665.18 932.124,660.809 941.112,654.575C950.902,647.785 958.507,638.476 967.365,630.623C975.349,623.546 984.113,617.094 990.724,608.604C997.267,600.199 1001.62,589.913 1007.15,580.822C1017.27,564.199 1026.2,547.127 1030.37,527.986C1032.93,516.231 1032.52,503.752 1032.54,491.826C1032.58,479.637 1033.65,466.704 1031.83,454.626C1026.2,417.335 1008.3,381.866 991.509,348.56C974.072,313.975 963.025,290.305 935.153,262.16C926.067,252.985 914.967,245.773 904.032,239.011C885.477,227.535 864.112,215.989 842.88,210.304C813.195,202.356 782.358,202.014 751.841,202.005C733.186,201.999 713.793,201.445 695.316,204.411C680.865,206.73 667.758,213.493 653.547,216.422C639.974,219.219 625.683,222.114 612.187,224.019Z" style="fill:url(#_Radial2);"/>
+                    <path d="M461.593,321.742C470.277,346.984 476.827,373.029 486.723,397.856C498.267,426.818 512.183,455.069 525.269,483.351C541.695,518.849 557.502,552.451 583.518,582.513C601.138,602.875 623.232,621.082 646.373,634.544C666.458,646.228 709.122,659.951 702.427,690.944C697.236,714.971 675.867,744.83 651.533,752.086C632.439,757.78 611.101,756.757 591.433,760.833C556.736,768.024 521.834,767.45 486.891,770.734C427.078,776.355 384.196,789.591 320.113,782.849C297.236,780.443 275.956,771.909 253.734,766.659C219.787,758.64 158.829,735.909 142.65,703.459C131.793,681.682 129.471,656.931 122.278,633.982C116.355,615.084 103.007,599.732 96.978,581.051C90.575,561.209 92.201,508.281 96.836,486.33C103.177,456.301 121.178,428.882 135.093,402.022C155.012,363.575 175.13,326.722 200.711,291.654C214.804,272.335 234.261,259.678 256.407,251.49C314.294,230.09 347.832,248.226 399.03,274.112C417.91,283.657 451.079,303.369 461.342,321.754" style="fill:url(#_Radial3);"/>
+                    <g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,110.018,-247.628)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:rgb(145,206,207);stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,77.3456,-205.184)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">A</text>
+                            </g>
+                        </g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,58.4297,-354.185)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:rgb(210,183,170);stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,26.0354,-311.117)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">C</text>
+                            </g>
+                        </g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,133.693,-325.365)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:rgb(210,183,170);stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,102.028,-282.703)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">B</text>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,0,5.66929)">
+                            <g transform="matrix(1,0,0,1,196.891,-280.734)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:rgb(145,206,207);stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,165.034,-237.478)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">E</text>
+                            </g>
+                        </g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,238.685,-258.391)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:white;stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,206.685,-216.384)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">D</text>
+                            </g>
+                        </g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,302.849,-316.984)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:white;stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,270.601,-274.696)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">G</text>
+                            </g>
+                        </g>
+                        <g>
+                            <g transform="matrix(1,0,0,1,228.734,-365.768)">
+                                <circle cx="439.719" cy="796.865" r="18.458" style="fill:white;stroke:black;stroke-width:1px;"/>
+                            </g>
+                            <g transform="matrix(1,0,0,1,197.093,-322.931)">
+                                <text x="465.892px" y="762.116px" style="font-family:'Inconsolata-Regular_Bold', 'Inconsolata', monospace;font-size:24px;">F</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(338.055,-64.9187,64.9187,338.055,611.618,500.203)"><stop offset="0" style="stop-color:rgb(126,128,128);stop-opacity:0.2"/><stop offset="1" style="stop-color:rgb(5,110,31);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-201.845,93.5748,-93.5748,-201.845,504.95,487.05)"><stop offset="0" style="stop-color:rgb(167,132,118);stop-opacity:0.26"/><stop offset="1" style="stop-color:rgb(77,77,77);stop-opacity:0"/></radialGradient>
+    </defs>
+</svg>

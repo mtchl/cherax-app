@@ -1,0 +1,280 @@
+[
+	{	"tag": "Pelican",
+		"fullName": "Australian pelican",
+		"scientificName": "Pelecanus conspicillatus",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/43abe3ea-7ccc-41cc-920f-d9cfa107207e",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "White-necked heron",
+		"fullName": "White-necked heron",
+		"scientificName": "Ardea pacifica",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/cf8e02dd-2a6e-41dc-b14b-0e446444250a",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "Ibis",
+		"fullName": "Australian white ibis",
+		"scientificName": "Threskiornis moluccus",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/f5f5ddd8-ae6a-431b-9e08-3e992b12fa64",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "Straw-necked ibis",
+		"fullName": "Straw-necked ibis",
+		"scientificName": "Threskiornis spinicollis",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c319dbaf-a363-4853-b333-75f14c47fc82",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "Great cormorant",
+		"fullName": "Great cormorant",
+		"scientificName": "Phalacrocorax (Phalacrocorax) carbo",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/29472c00-22e3-42c3-b562-107bd28d1bdc",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "Yellow-billed spoonbill",
+		"fullName": "Yellow-billed spoonbill",
+		"scientificName": "Platalea (Platibis) flavipes",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/3dd39f84-1293-4c04-ac87-2474f5c887b0",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "Royal spoonbill",
+		"fullName": "Royal spoonbill",
+		"scientificName": "Platalea (Platalea) regia",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/24c21411-d78c-415d-a848-f0abb83b615a",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+
+	},
+
+	{	"tag": "White-faced heron",
+		"fullName": "White-faced heron",
+		"scientificName": "Egretta novaehollandiae",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/8fd1977b-9edf-4ddf-b6cf-24a09db4d18c",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Black duck",
+		"fullName": "Pacific black duck",
+		"scientificName": "Anas (Anas) superciliosa",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/241dd5c6-1235-4eb9-b3d5-a44af6b0d444",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Moorhen",
+		"fullName": "Common moorhen",
+		"scientificName": "RALLIDAE Rafinesque",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/5ef46261-e9ab-4c9e-ad26-46e1bd084c5a",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Native hen",
+		"fullName": "Black-tailed native hen",
+		"scientificName": "Tribonyx ventralis",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/4491debc-214f-46a2-95cf-572fe0150d0d",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Great egret",
+		"fullName": "Great egret",
+		"scientificName": "Ardea alba",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/143cc9f0-bc3c-45b7-8e1c-21fbe9319bba",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Intermediate egret",
+		"fullName": "Intermediate egret",
+		"scientificName": "Ardea intermedia",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/82bed74a-c22a-4c65-8fe7-ac335f199708",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Black swan",
+		"fullName": "Black swan",
+		"scientificName": "Cygnus atratus",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/e848916c-5f2d-43ef-8cba-8e32a9034377",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Black-fronted dotterel",
+		"fullName": "Black-fronted dotterel",
+		"scientificName": "Elseyornis melanops",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/29cbe213-85a4-46b7-b373-4c503231f299",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{	"tag": "Wood duck",
+		"fullName": "Australian wood duck",
+		"scientificName": "Chenonetta jubata",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/31944e98-202b-4c14-b480-6508740dde58",
+		"feral": false,
+		"livestock": false,
+		"group": "waterbird"
+	},
+
+	{
+		"tag": "Peewee",
+		"fullName": "Magpie-lark",
+		"scientificName": "Grallina cyanoleuca",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/ce17b284-d607-496a-992f-f3129bfd3997",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{
+		"tag": "Chough",
+		"fullName": "White-Winged Chough",
+		"scientificName": "Corcorax melanorhamphos",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/7bd5c7ad-9cfa-46d1-9a72-090f2961fe70",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+
+	{
+		"tag": "Willie wagtail",
+		"fullName": "Willie wagtail",
+		"scientificName": "Rhipidura (Sauloprocta) leucophrys",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/1c4dce12-16f6-49ab-b578-0673551214fd",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{	"tag": "Emu",
+		"fullName": "Emu",
+		"scientificName": "Dromaius novaehollandiae",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/2a4e373b-913a-4e2a-a53f-74828f6dae7e",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+	
+	{	"tag": "Raven",
+		"fullName": "Australian raven",
+		"scientificName": "Corvus coronoides",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/8117f68b-5460-4626-8400-e171464e08ad",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{	"tag": "Apostlebird",
+		"fullName": "Apostlebird",
+		"scientificName": "Struthidea cinerea",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/99efa69d-fd48-48c4-a3e1-57b6da92352b",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{	"tag": "Whistling kite",
+		"fullName": "Whistling kite",
+		"scientificName": "Haliastur sphenurus",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/31113d80-ed4f-4bb0-9a65-48080e4c6dd1",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{	"tag": "Swamp harrier",
+		"fullName": "Swamp harrier",
+		"scientificName": "Circus approximans",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c568921e-f800-4a6e-b88c-6d409def1e20",
+		"feral": false,
+		"livestock": false,
+		"group": "bird"
+	},
+
+	{	"tag": "Kangaroo",
+		"fullName": "Eastern Grey Kangaroo",
+		"scientificName": "Macropus giganteus",
+		"alaUrl":"https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/f2f43ef9-89fd-4f89-8b06-0842e86cfe06",
+		"feral": false,
+		"livestock": false,
+		"group": "mammal"
+	},
+
+	{	"tag": "Fox",
+		"fullName": "Fox",
+		"scientificName": "Vulpes vulpes",
+		"alaUrl":"https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/2869ce8a-8212-46c2-8327-dfb7fabb8296",
+		"feral": true,
+		"livestock": false,
+		"group": "mammal"
+	},
+
+	{	"tag": "Rabbit",
+		"fullName": "Rabbit",
+		"scientificName": "Oryctolagus cuniculus",
+		"alaUrl":"https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/692effa3-b719-495f-a86f-ce89e2981652",
+		"feral": true,
+		"livestock": false,
+		"group": "mammal"
+	},
+
+
+	{	"tag": "Cat",
+		"fullName": "Cat",
+		"scientificName": "Felis catus",
+		"alaUrl":"https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/7de6b16a-f854-4b4b-88cf-81868ce74ad8",
+		"feral": true,
+		"livestock": false,
+		"group": "mammal"
+	},
+
+	{	"tag": "Pig",
+		"fullName": "Pig",
+		"scientificName": "Sus scrofa",
+		"feral": true,
+		"livestock": false,
+		"group": "mammal"
+	},
+
+	{	"tag": "Sheep",
+		"fullName": "Sheep",
+		"scientificName": "",
+		"feral": false,
+		"livestock": true,
+		"group": "mammal"
+	}
+]
