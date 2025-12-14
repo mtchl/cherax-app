@@ -32,22 +32,11 @@
         this.setFilterState(this.$route.query)
       },
 
-      watch: {
-        '$route.query': {
-          handler(newQuery, oldQuery) {
-            // React to changes in query parameters
-            console.log('Query parameters changed:', newQuery);
-           // this.setFilterState(newQuery)
-          },
-          deep: true, // Watch for changes within the query object
-        },
-      },
-
 
     methods: {
     
       setFilterState(filter){
-        console.log(filter)
+       
         if (this.filterState[filter.key] == filter.value ) {
           delete this.filterState[filter.key];
         } else {
@@ -60,18 +49,12 @@
 
       loadMore(){
         this.viewItems += 20;
-        // console.log(this.viewItems)
+
       },
 
       changeCamFilter(){
         this.viewItems = 20;
       },
-
-      // matrixCellColour(value){
-      //   // let lerp = interpolateRgb("#b1cee0","#f8d7bc");
-      //   let lerp = interpolateRgb("#8fcece","#e0b2a3");
-      //   return lerp(value)
-      // }
 
       convertTimestampToDate(timestampString) {
         // Ensure the input string has the correct format and length
@@ -272,7 +255,7 @@
 
 
   <div class="captures">
-    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl">
+    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilterState">
 
     </CaptureItem>
     <div class="loadMore" v-if="filteredCaptures.length > viewItems" >

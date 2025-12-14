@@ -13,7 +13,7 @@
         // dateRange: ["20241029","20241030","20241031","20241101"],
         dateRange: ["20241031","20241101"],
         focusDate: "20241102",
-        currentTimeSeconds:0,
+        currentTimeSeconds:23400,
         audioDuration:0,
         playing:false,
         timelapseCams:["cam1","cam2"],
@@ -82,6 +82,11 @@
         return `${dayWithSuffix} ${monthName} ${year}`;
       }
 
+    },
+
+    mounted(){
+      this.$refs.audio.currentTime = this.currentTimeSeconds;
+     //this.seekAudio({date:this.focusDate,time:this.currentTimeSeconds})
     },
 
     methods:{

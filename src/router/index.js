@@ -10,7 +10,6 @@ const router = createRouter({
   routes: [
     { path: '/', component: homePage },
     { path: '/captures', component: captureBrowser },
-    { path: '/captures/species/:species', component: captureBrowser },
     { path: '/timeline', component: Timeline },
   ]
 })

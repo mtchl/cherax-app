@@ -164,7 +164,12 @@ export default {
 	cursor:pointer;
    }
 
-   .col.label span:hover, .col.label span.active{
+   .col.label span.inactive{
+   	cursor:default;
+   	
+   }
+
+   .col.label span:not(.inactive):hover, .col.label span.active{
    	background-color: black;
    	color:white;
    }

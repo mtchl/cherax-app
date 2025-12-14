@@ -105,6 +105,11 @@
       }
     },
 
+    // mounted(){
+    //   this.playSeconds = this.currentPlayTime;
+    //     this.playPos = this.currentPlayTime / this.audioDuration; // convert from seconds to %
+    // },
+
     watch:{
       currentPlayTime(seconds){
         this.playSeconds = seconds;
@@ -149,7 +154,7 @@
 
   .spectro{
     position:relative;
-    height:420px;
+    height:1420px;
     user-select: none;
     background-color: #111;
   }

@@ -5,7 +5,7 @@
         <source :src="baseUrl + capture.path + '#t=0.5'" type="video/mp4">
       </video>
       <p>day {{capture.dayIndex}} &bull; Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}} month: {{capture.month}}</p>
-      <p><span v-for="t in capture.tags" class="itemTag">{{t}}</span> </p>
+      <p><span v-for="t in localTags" class="itemTag" @click="setFilter({key:'species',value:t.routeTag})">{{t.tag}}</span> </p>
   </div>
 </template>
 
@@ -17,9 +17,23 @@ export default {
 
     }
   },
-   props: ['capture','baseUrl']
 
-}
+  computed:{
+    localTags(){
+      return this.capture.tags.map(t => { return {tag:t, routeTag: t.toLowerCase().replace(" ","-")}})
+    }
+
+  },
+
+  methods:{
+    setFilter(filter){
+        this.$emit('set-filter',filter)
+      }
+
+  },
+   props: ['capture','baseUrl']
+  }
+
 </script>
 
 <style lang="css" scoped>
