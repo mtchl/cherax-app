@@ -59,7 +59,7 @@
 	  						fullSpecies:s, 
 	  						detections: this.annotations.filter(a => a.species == s)}
 	  					});
-	  			speciesData.forEach(sd => { console.log(sd.commonName +"\t"+sd.scientificName)})
+	  			// speciesData.forEach(sd => { console.log(sd.commonName +"\t"+sd.scientificName)})
 	  			return speciesData
 	  		},
 

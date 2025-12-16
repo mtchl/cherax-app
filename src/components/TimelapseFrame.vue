@@ -33,7 +33,7 @@ export default {
 		
 		max-width:100%;
 		aspect-ratio: 1.38;
-		max-height: 80vh;
+		max-height: 65vh;
 		object-fit:cover;
 		object-position: 50% top;
 		display: block;

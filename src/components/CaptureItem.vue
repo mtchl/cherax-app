@@ -1,11 +1,13 @@
 <template>
 	<div class="item">
-      <img v-if="capture.type =='image'" :src="baseUrl + capture.path " />
-      <video v-if="capture.type =='video'" preload="metadata" controls>
-        <source :src="baseUrl + capture.path + '#t=0.5'" type="video/mp4">
+      <img v-if="capture.type =='image'" :src="baseUrl + capture.path " loading="lazy"/>
+      <video v-if="capture.type =='video'" :poster="baseUrl + posterPath" loading="lazy" controls>
+        <source :src="baseUrl + capture.path" type="video/mp4">
       </video>
-      <p>day {{capture.dayIndex}} &bull; Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}} month: {{capture.month}}</p>
-      <p><span v-for="t in localTags" class="itemTag" @click="setFilter({key:'species',value:t.routeTag})">{{t.tag}}</span> </p>
+      <div class="metadata">
+        <div class="col left">Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}}</div>
+        <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter({key:'species',value:t.routeTag})">{{t.tag}}</span> </div>
+      </div>
   </div>
 </template>
 
@@ -21,6 +23,12 @@ export default {
   computed:{
     localTags(){
       return this.capture.tags.map(t => { return {tag:t, routeTag: t.toLowerCase().replace(" ","-")}})
+    },
+    posterPath(){
+      let filename = this.capture.path.split("/")[1];
+      let dir = this.capture.path.split("/")[0];
+      let stripped = filename.replace(".mp4","")
+      return dir + "/thumbnails/thumb_" + stripped + ".jpg" 
     }
 
   },
@@ -64,5 +72,21 @@ export default {
 
   .item p{
     margin:0.25rem;
+  }
+
+  .metadata{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .metadata .col.left{
+    margin:0.5rem 0;
+    
+  }
+
+  .metadata .col.right{
+    text-align: right;
   }
 </style>

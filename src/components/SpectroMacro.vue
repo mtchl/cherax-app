@@ -17,14 +17,12 @@
         dragging:false,
       }
     },
-    props: ['date','currentPlayTime','audioDuration','playing','timelapseCam','imageUrl'],
+    props: ['date','initPlayTime','audioDuration', 'currentPlayTime', 'playing','timelapseCam','imageUrl'],
 
     methods:{
 
       seekAudio(time){
-        const playSeconds = this.audioDuration * this.playPos;
-        const seekTime = time ? time : playSeconds; 
-        this.$emit('seek-audio',{date:this.date, time:seekTime})
+        this.$emit('seek-audio',{date:this.date, time:time})
       },
 
       jumpAudio(payload){
@@ -37,17 +35,6 @@
         this.$emit('stop-audio')
       },
       
-      // clickSpectro(evt){
-      //   const el = evt.currentTarget;
-      //   const rect = el.getBoundingClientRect();
-      //   this.playPos = (evt.clientX - rect.left) / rect.width;
-      //   if (!this.playing) {
-      //     this.playAudio()
-      //   } else {
-      //     this.stopAudio();
-      //   }
-      // },
-
       spectroDragStart(evt){
         console.log("drag - start")
         let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
@@ -68,12 +55,8 @@
       },
 
       spectroDragging(evt){
-        //console.log("dragging")
         let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
         this.spectroDragOffset = pointerx - this.dragSpectroDiff;
-
-        //this.playPos = ((this.bigSpectroWidth*this.playPos) - this.spectroDragOffset)/this.bigSpectroWidth;
-        // console.log("dragging " + this.spectroDragOffset)
       },
 
       spectroDragEnd(evt){
@@ -83,37 +66,36 @@
         this.$refs.spectro.removeEventListener("mouseup", this.spectroDragEnd);
         this.$refs.spectro.removeEventListener("mouseleave", this.spectroDragEnd);
         this.playPos = ((this.bigSpectroWidth*this.playPos) - this.spectroDragOffset)/this.bigSpectroWidth;
+        this.playSeconds = this.audioDuration * this.playPos;
         this.spectroDragOffset = 0;
         this.dragging = false;
-        this.seekAudio();
+        this.seekAudio(this.playSeconds);
         if (this.resumeAfterDrag) this.$emit('play-audio');
       },
 
       timelapseImagePath(f){
         // in the form {storage URL}/cam1/20241101/cam1-20241101-{frameNum}-thumb.JPG
-
         return new URL(`${this.imageUrl}/${this.timelapseCam}/${this.date}/${this.timelapseCam}-${this.date}-${f}-thumb.JPG`, import.meta.url).href
       }
-
-
     },
 
     computed:{
-
       spectroUrl() {
         return new URL(`@/assets/img/${this.date}.jpg`, import.meta.url).href
       }
     },
 
-    // mounted(){
-    //   this.playSeconds = this.currentPlayTime;
-    //     this.playPos = this.currentPlayTime / this.audioDuration; // convert from seconds to %
-    // },
+    mounted(){
+      this.playSeconds = this.initPlayTime;
+    },
 
     watch:{
-      currentPlayTime(seconds){
+      currentPlayTime(seconds){ // watch the time as it is updated by audio playback
         this.playSeconds = seconds;
         this.playPos = seconds / this.audioDuration; // convert from seconds to %
+      },
+      audioDuration(duration){
+          this.playPos = this.initPlayTime / duration; 
       }
     }
   }

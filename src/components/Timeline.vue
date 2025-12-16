@@ -14,6 +14,7 @@
         dateRange: ["20241031","20241101"],
         focusDate: "20241102",
         currentTimeSeconds:23400,
+        initialTimeSeconds:23400,
         audioDuration:0,
         playing:false,
         timelapseCams:["cam1","cam2"],
@@ -84,10 +85,10 @@
 
     },
 
-    mounted(){
-      this.$refs.audio.currentTime = this.currentTimeSeconds;
-     //this.seekAudio({date:this.focusDate,time:this.currentTimeSeconds})
-    },
+    // mounted(){
+    //   //this.$refs.audio.currentTime = this.currentTimeSeconds;
+    //  //this.seekAudio({date:this.focusDate,time:this.currentTimeSeconds})
+    // },
 
     methods:{
       playAudio(play){
@@ -115,7 +116,7 @@
 
       audioLoaded(){
         this.audioDuration = this.$refs.audio.duration;
-        // console.log("audio duration " + this.audioDuration)
+        console.log("audio duration " + this.audioDuration)
       },
 
       toggleAudio(){
@@ -144,7 +145,7 @@
         </select>  
       </div>
 
-    <SpectroMacro :date="focusDate" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" /> 
+    <SpectroMacro :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" /> 
 
     <!-- <AudioAnnotationsCurrent :date="focusDate" :current-play-time="currentTimeSeconds" @seekAudio="seekAudio">  </AudioAnnotationsCurrent> -->
 

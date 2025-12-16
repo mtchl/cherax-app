@@ -340,16 +340,26 @@
 
 
   .loadMore{
-    min-width: 100px;
-    max-width:180px;
-    padding:1rem;
-    background-color: white;
+/*    min-width: 100px;
+    max-width:180px;*/
+/*    padding:1rem;*/
+/*    background-color: white;*/
     text-align: center;
     margin:0.5rem;
+    flex-basis: 100%;
   }
 
   .loadMore a{
+    display: inline-block;
+    padding:0.5rem 1rem;
+    background-color: white;
     cursor:pointer;
+    border-radius: 1rem;
+  }
+
+  .loadMore a:hover{
+    background-color: black;
+    color:white;
   }
 
 
