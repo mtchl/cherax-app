@@ -13,17 +13,10 @@
     data(){
       return {
         captureData: jsonData,
-        // tags: tagData,
-        tagFilters: [],
-        filterState:{},
-        camFilter: "All",
         cams: ["A","B","C","D","E","F","G"],
         months: [{label:"nov", dayrange:[0,35]}, {label:"dec", dayrange:[36,67]},{label:"jan", dayrange: [68,98]},{label:"feb", dayrange:[99,122]} ],
         baseUrl: "https://storage.googleapis.com/cherax-media/",
-        // currentPage: 1,
-        // itemsPerPage:20,
         viewItems: 20,
-        overviewMode: "histo"
       }
     },
 
@@ -75,6 +68,11 @@
 
     },
     computed: {
+
+      filterState(){
+        return {species: this.filterSpecies, cam: this.filterCam, month: this.filterMonth}
+      },
+
       tags(){
         // make route friendly tags
         return tagData.map(t => {return {...t, routeTag: t.tag.toLowerCase().replace(" ","-")}})
@@ -198,30 +196,7 @@
       monthContextHisto(){
         let monthHistoSet = this.speciesFilteredSet.intersection(this.camFilteredSet)
         return [...monthHistoSet]
-      },
-
-      camMatrix(){
-        let m = [];
-        for (var d=0; d<123; d++){
-          let col = []; // 
-          for (const cam of this.cams){
-            let caps = this.camItems.filter(c => c.dayIndex == d && c.cam == cam);
-            let mammalcount = 0;
-            let focus = false
-            caps.forEach(c => {
-              c.tags.forEach(t => {
-                if (this.tagMap[t].group == "mammal") mammalcount++;
-                if (this.tagFilters[0] && t == this.tagFilters[0]) focus = true;
-              })
-            })
-            col.push({day:d, cam: cam, count: caps.length, mix: mammalcount/caps.length, focus: focus});
-          }
-          m.push(col)
-        }
-        //console.log(m)
-        return m;
-      },
-
+      }
 
     }
 
@@ -233,8 +208,8 @@
 
 <template>
   <div class="controlWrapper">
-  <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-month="filterMonth" @set-filter="setFilter"></CaptureHisto>
-  <CamMap :cam-data="camData" :cam-filter="filterCam" @set-filter="setFilter"></CamMap>
+  <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-state="filterState" @set-filter="setFilter"></CaptureHisto>
+  <CamMap :cam-data="camData" :filter-state="filterState" @set-filter="setFilter"></CamMap>
 </div>
 
   <div class="headerTags">

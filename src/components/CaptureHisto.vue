@@ -9,7 +9,7 @@
 	    <div class="row up">
 	      <div class="col-space" v-for="(d, index) in histoData" >
 	        <div class="col" v-if="d.birdTags > 0" :style="{height: (histoYScale*Math.sqrt(d.birdTags))+'px'}" ></div>
-	        <div class="col context" v-if="d.contextBirdTags > 0" :style="{height: (histoYScale*Math.sqrt(d.contextBirdTags))+'px'}" :class="{'focus':filterMonth == monthLabels[index]}"></div>
+	        <div class="col context" v-if="filterState.month == monthLabels[index] || (filterState.cam || filterState.species)" :style="{height: (histoYScale*Math.sqrt(d.contextBirdTags))+'px'}" :class="{'focus':filterState.month == monthLabels[index]}"></div>
 	        <!-- <div class="col focus" v-if="d.focusBirdTags > 0" :style="{height: histoYScale*Math.sqrt(d.focusBirdTags)+'px'}"></div> -->
 	      </div>
 	    </div>
@@ -17,7 +17,7 @@
 	    <div class="row label">
 	    	<div class="col-space" v-for="(m,index) in monthLabels">
 	    		<div class="col label">
-	    			<span :class="{'active': filterMonth==m, 'inactive': histoData[index].binTags == 0 }" 
+	    			<span :class="{'active': filterState.month==m, 'inactive': histoData[index].binTags == 0 }" 
 	    			@click="setMonthFilter(m,histoData[index].contextTags)">{{m}}</span>
 	    		</div>
 	    	</div>
@@ -26,7 +26,7 @@
 	    <div class="row down">
 	        <div class="col-space" v-for="(d,index) in histoData">
 	          <div class="col" v-if="d.mammalTags > 0" :style="{height: (histoYScale*Math.sqrt(d.mammalTags))+'px'}"></div>
-	          <div class="col context" v-if="d.contextMammalTags > 0" :style="{height: (histoYScale*Math.sqrt(d.contextMammalTags))+'px'}" :class="{'focus':filterMonth == monthLabels[index]}"></div>
+	          <div class="col context" v-if="filterState.month == monthLabels[index] || (filterState.cam || filterState.species)" :style="{height: (histoYScale*Math.sqrt(d.contextMammalTags))+'px'}" :class="{'focus':filterState.month == monthLabels[index]}"></div>
 	          <!-- <div class="col focus" v-if="d.focusMammalTags > 0" :style="{height: histoYScale*Math.sqrt(d.focusMammalTags)+'px'}"></div> -->
 	        </div>
 	    </div>
@@ -45,7 +45,7 @@ export default {
     }
   },
 
-  props: ['captureData','contextCaptures','tagMap','filterMonth'],
+  props: ['captureData','contextCaptures','tagMap','filterState'],
 
   methods: {
 

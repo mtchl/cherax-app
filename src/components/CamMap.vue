@@ -30,7 +30,7 @@
 	                    <path d="M461.593,321.742C470.277,346.984 476.827,373.029 486.723,397.856C498.267,426.818 512.183,455.069 525.269,483.351C541.695,518.849 557.502,552.451 583.518,582.513C601.138,602.875 623.232,621.082 646.373,634.544C666.458,646.228 709.122,659.951 702.427,690.944C697.236,714.971 675.867,744.83 651.533,752.086C632.439,757.78 611.101,756.757 591.433,760.833C556.736,768.024 521.834,767.45 486.891,770.734C427.078,776.355 384.196,789.591 320.113,782.849C297.236,780.443 275.956,771.909 253.734,766.659C219.787,758.64 158.829,735.909 142.65,703.459C131.793,681.682 129.471,656.931 122.278,633.982C116.355,615.084 103.007,599.732 96.978,581.051C90.575,561.209 92.201,508.281 96.836,486.33C103.177,456.301 121.178,428.882 135.093,402.022C155.012,363.575 175.13,326.722 200.711,291.654C214.804,272.335 234.261,259.678 256.407,251.49C314.294,230.09 347.832,248.226 399.03,274.112C417.91,283.657 451.079,303.369 461.342,321.754" style="fill:url(#_Radial3);"/>
 	                    <g>
 	                        <g id="camA"  class="camMarker" @click="setFilter('A')"
-	                        :class="{'inactive': camHistoMap['A'] == 0, 'active':camFilter == 'A'}">
+	                        :class="{'inactive': camHistoMap['A'] == 0, 'active':filterState.cam == 'A'}">
 	                            <g transform="matrix(1,0,0,1,110.018,-247.628)">
 	                                <circle cx="439.719" cy="796.865" r="18.458" />
 	                            </g>
@@ -39,7 +39,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camC" class="camMarker" @click="setFilter('C')"
-	                        :class="{'inactive': camHistoMap['C'] == 0, 'active':camFilter == 'C'}">
+	                        :class="{'inactive': camHistoMap['C'] == 0, 'active':filterState.cam == 'C'}">
 	                            <g transform="matrix(1,0,0,1,58.4297,-354.185)">
 	                                <circle cx="439.719" cy="796.865" r="18.458" />
 	                            </g>
@@ -48,7 +48,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camB" class="camMarker" @click="setFilter('B')"
-	                        :class="{'inactive': camHistoMap['B'] == 0, 'active':camFilter == 'B'}">
+	                        :class="{'inactive': camHistoMap['B'] == 0, 'active':filterState.cam == 'B'}">
 	                            <g transform="matrix(1,0,0,1,133.693,-325.365)">
 	                                <circle cx="439.719" cy="796.865" r="18.458" />
 	                            </g>
@@ -57,7 +57,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camE" class="camMarker" @click="setFilter('E')"
-	                        :class="{'inactive': camHistoMap['E'] == 0, 'active':camFilter == 'E'}" transform="matrix(1,0,0,1,0,5.66929)">
+	                        :class="{'inactive': camHistoMap['E'] == 0, 'active':filterState.cam == 'E'}" transform="matrix(1,0,0,1,0,5.66929)">
 	                            <g transform="matrix(1,0,0,1,196.891,-280.734)">
 	                                <circle cx="439.719" cy="796.865" r="18.458" />
 	                            </g>
@@ -66,7 +66,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camD" class="camMarker" @click="setFilter('D')"
-	                        :class="{'inactive': camHistoMap['D'] == 0, 'active':camFilter == 'D'}">
+	                        :class="{'inactive': camHistoMap['D'] == 0, 'active':filterState.cam == 'D'}">
 	                            <g transform="matrix(1,0,0,1,238.685,-258.391)">
 	                                <circle cx="439.719" cy="796.865" r="18.458"/>
 	                            </g>
@@ -75,7 +75,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camG" class="camMarker" @click="setFilter('G')"
-	                        :class="{'inactive': camHistoMap['G'] == 0, 'active':camFilter == 'G'}">
+	                        :class="{'inactive': camHistoMap['G'] == 0, 'active':filterState.cam == 'G'}">
 	                            <g transform="matrix(1,0,0,1,302.849,-316.984)">
 	                                <circle cx="439.719" cy="796.865" r="18.458"/>
 	                            </g>
@@ -84,7 +84,7 @@
 	                            </g>
 	                        </g>
 	                        <g id="camF" class="camMarker" @click="setFilter('F')"
-	                        :class="{'inactive': camHistoMap['F'] == 0, 'active':camFilter == 'F'}">
+	                        :class="{'inactive': camHistoMap['F'] == 0, 'active':filterState.cam == 'F'}">
 	                            <g transform="matrix(1,0,0,1,228.734,-365.768)">
 	                                <circle cx="439.719" cy="796.865" r="18.458"/>
 	                            </g>
@@ -117,7 +117,7 @@ export default {
     }
   },
 
-  props: ['camData', 'camFilter'],
+  props: ['camData', 'filterState'],
 
   computed:{
 

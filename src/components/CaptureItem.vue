@@ -6,7 +6,7 @@
       </video>
       <div class="metadata">
         <div class="col left">Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}}</div>
-        <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter({key:'species',value:t.routeTag})">{{t.tag}}</span> </div>
+        <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
       </div>
   </div>
 </template>
@@ -34,8 +34,8 @@ export default {
   },
 
   methods:{
-    setFilter(filter){
-        this.$emit('set-filter',filter)
+    setFilter(key,value){
+        this.$emit('set-filter',key,value)
       }
 
   },
