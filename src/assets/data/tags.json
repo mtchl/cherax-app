@@ -86,10 +86,10 @@
 		"group": "waterbird"
 	},
 
-	{	"tag": "Moorhen",
-		"fullName": "Common moorhen",
-		"scientificName": "RALLIDAE Rafinesque",
-		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/5ef46261-e9ab-4c9e-ad26-46e1bd084c5a",
+	{	"tag": "Dusky moorhen",
+		"fullName": "Dusky moorhen",
+		"scientificName": "Gallinula (Gallinula) tenebrosa",
+		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/b5e44fea-a0a2-412b-a1f7-476b3c1e8e03",
 		"feral": false,
 		"livestock": false,
 		"group": "waterbird"
