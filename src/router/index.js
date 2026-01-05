@@ -9,7 +9,11 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: homePage },
-    { path: '/captures', component: captureBrowser },
+    { path: '/captures', 
+      component: captureBrowser ,
+      props: route => ({ filterSpecies: route.query.species, filterCam: route.query.cam, filterMonth: route.query.month })
+    },
+
     { path: '/timeline', component: Timeline },
   ]
 })

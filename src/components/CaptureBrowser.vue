@@ -27,26 +27,23 @@
       }
     },
 
-    created() {
-        console.log(this.$route.query); // Access all query parameters as an object
-        this.setFilterState(this.$route.query)
-      },
-
+    props: ['filterSpecies','filterCam','filterMonth'],
 
     methods: {
-    
-      setFilterState(filter){
-       
-        if (this.filterState[filter.key] == filter.value ) {
-          delete this.filterState[filter.key];
-        } else {
-          this.filterState[filter.key] = filter.value;
-        }
-        
-        this.$router.push({path: '/captures', query: this.filterState})
+
+      setFilter(key,value){
+        console.log("setfilter")
+        const f = {species:this.filterSpecies, cam: this.filterCam, month: this.filterMonth}
+        f[key] = value;
+        if (key == 'species' && this.filterSpecies == value) delete f.species;
+        if (key == 'cam' && this.filterCam == value) delete f.cam;
+        if (key == 'month' && this.filterMonth == value) delete f.month;
+
+        console.log(f)
+        this.$router.push({path: '/captures', query: f})
         this.viewItems = 20;
       },
-
+    
       loadMore(){
         this.viewItems += 20;
 
@@ -75,7 +72,6 @@
         // Create and return the new Date object
         return new Date(year, month, day, hours, minutes, seconds);
       },
-
 
     },
     computed: {
@@ -128,41 +124,33 @@
         })
 
          caps =  caps.filter(c => !c.blank).sort((a,b) => { return a.datetime - b.datetime})
-         //console.log(caps.length + " captures loaded")
          return caps
-         //return new Set(caps);
       },
 
-      
-      // camItems(){
-      //     let filtered = this.captures;
-      //     if (this.camFilter != "All") filtered = filtered.filter(c => c.cam == this.camFilter) // apply cam filter if set
-      //     return filtered;
-      // },
 
       allCapturesSet(){
         return new Set(this.captures)
       },
 
       monthFilteredSet(){
-        if (this.$route.query.month){
-          return new Set(this.captures.filter(c => c.month == this.$route.query.month))
+        if (this.filterMonth){
+          return new Set(this.captures.filter(c => c.month == this.filterMonth))
         } else {
           return this.allCapturesSet;
         }
       },
 
       camFilteredSet(){
-        if (this.$route.query.cam){
-          return new Set(this.captures.filter(c => c.camLabel == this.$route.query.cam))
+        if (this.filterCam){
+          return new Set(this.captures.filter(c => c.camLabel == this.filterCam))
         } else {
           return this.allCapturesSet;
         }
       },
 
       speciesFilteredSet(){
-        if (this.$route.query.species) {
-            let matchingTag = this.tags.find(t => t.routeTag == this.$route.query.species)
+        if (this.filterSpecies) {
+            let matchingTag = this.tags.find(t => t.routeTag == this.filterSpecies)
             return new Set(this.captures.filter(c => c.tags.indexOf(matchingTag.tag) > -1))
         } else {
             return this.allCapturesSet;
@@ -245,17 +233,19 @@
 
 <template>
   <div class="controlWrapper">
-  <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-state="filterState" @set-filter="setFilterState"></CaptureHisto>
-  <CamMap :cam-data="camData" :filter-state="filterState" @set-filter="setFilterState"></CamMap>
+  <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-month="filterMonth" @set-filter="setFilter"></CaptureHisto>
+  <CamMap :cam-data="camData" :cam-filter="filterCam" @set-filter="setFilter"></CamMap>
 </div>
 
   <div class="headerTags">
-      <span v-for="t in allTags" class="itemTag big" :class="{'active': filterState.species == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilterState({key:'species',value:t.routeTag})">{{t.tag}} <span v-if="t.count > 0">({{t.count}})</span></span>
+    <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag)">{{t.tag}} 
+          <span v-if="t.count > 0">({{t.count}})</span>
+      </span>
   </div>
 
 
   <div class="captures">
-    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilterState">
+    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter">
 
     </CaptureItem>
     <div class="loadMore" v-if="filteredCaptures.length > viewItems" >
