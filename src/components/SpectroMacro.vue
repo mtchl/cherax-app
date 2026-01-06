@@ -79,12 +79,6 @@
       }
     },
 
-    computed:{
-      spectroUrl() {
-        return new URL(`@/assets/img/${this.date}.jpg`, import.meta.url).href
-      }
-    },
-
     mounted(){
       this.playSeconds = this.initPlayTime;
     },

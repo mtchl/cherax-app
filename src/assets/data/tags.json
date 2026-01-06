@@ -40,7 +40,7 @@
 
 	{	"tag": "Great cormorant",
 		"fullName": "Great cormorant",
-		"scientificName": "Phalacrocorax (Phalacrocorax) carbo",
+		"scientificName": "Phalacrocorax carbo",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/29472c00-22e3-42c3-b562-107bd28d1bdc",
 		"feral": false,
 		"livestock": false,
@@ -50,7 +50,7 @@
 
 	{	"tag": "Yellow-billed spoonbill",
 		"fullName": "Yellow-billed spoonbill",
-		"scientificName": "Platalea (Platibis) flavipes",
+		"scientificName": "Platalea flavipes",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/3dd39f84-1293-4c04-ac87-2474f5c887b0",
 		"feral": false,
 		"livestock": false,
@@ -60,7 +60,7 @@
 
 	{	"tag": "Royal spoonbill",
 		"fullName": "Royal spoonbill",
-		"scientificName": "Platalea (Platalea) regia",
+		"scientificName": "Platalea egia",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/24c21411-d78c-415d-a848-f0abb83b615a",
 		"feral": false,
 		"livestock": false,
@@ -79,7 +79,7 @@
 
 	{	"tag": "Black duck",
 		"fullName": "Pacific black duck",
-		"scientificName": "Anas (Anas) superciliosa",
+		"scientificName": "Anas superciliosa",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/241dd5c6-1235-4eb9-b3d5-a44af6b0d444",
 		"feral": false,
 		"livestock": false,
@@ -88,7 +88,7 @@
 
 	{	"tag": "Dusky moorhen",
 		"fullName": "Dusky moorhen",
-		"scientificName": "Gallinula (Gallinula) tenebrosa",
+		"scientificName": "Gallinula tenebrosa",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/b5e44fea-a0a2-412b-a1f7-476b3c1e8e03",
 		"feral": false,
 		"livestock": false,
@@ -173,7 +173,7 @@
 	{
 		"tag": "Willie wagtail",
 		"fullName": "Willie wagtail",
-		"scientificName": "Rhipidura (Sauloprocta) leucophrys",
+		"scientificName": "Rhipidura leucophrys",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/1c4dce12-16f6-49ab-b578-0673551214fd",
 		"feral": false,
 		"livestock": false,
@@ -272,7 +272,7 @@
 
 	{	"tag": "Sheep",
 		"fullName": "Sheep",
-		"scientificName": "",
+		"scientificName": "Ovis aries",
 		"feral": false,
 		"livestock": true,
 		"group": "mammal"

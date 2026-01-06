@@ -2,6 +2,7 @@
      import CaptureItem from '@/components/CaptureItem.vue'
      import CaptureHisto from '@/components/CaptureHisto.vue'
      import CamMap from '@/components/CamMap.vue'
+     import SpeciesInfo from '@/components/SpeciesInfo.vue'
 </script>
 
 <script type="text/javascript">
@@ -25,25 +26,17 @@
     methods: {
 
       setFilter(key,value){
-        console.log("setfilter")
         const f = {species:this.filterSpecies, cam: this.filterCam, month: this.filterMonth}
         f[key] = value;
         if (key == 'species' && this.filterSpecies == value) delete f.species;
         if (key == 'cam' && this.filterCam == value) delete f.cam;
         if (key == 'month' && this.filterMonth == value) delete f.month;
-
-        console.log(f)
         this.$router.push({path: '/captures', query: f})
         this.viewItems = 20;
       },
     
       loadMore(){
         this.viewItems += 20;
-
-      },
-
-      changeCamFilter(){
-        this.viewItems = 20;
       },
 
       convertTimestampToDate(timestampString) {
@@ -76,6 +69,31 @@
       tags(){
         // make route friendly tags
         return tagData.map(t => {return {...t, routeTag: t.tag.toLowerCase().replace(" ","-")}})
+      },
+
+      focusedSpecies(){ // full tag data for the focused species
+        let s = null;
+        if (this.filterSpecies) s = this.tags.find(t => t.routeTag == this.filterSpecies)
+        return s;
+      },
+
+
+      allTags(){
+        let tagData = this.monthFilteredSet.intersection(this.camFilteredSet)
+        let tagArray = [...tagData]
+        let ft = this.tags.map(t => {
+          let c = tagArray.filter(c => c.tags.indexOf(t.tag) > -1)
+          return {...t, count:c.length }
+        })
+        // to filter out tags with no count
+        // return ft.filter(c => c.count > 0)
+        return ft
+      },
+
+      tagMap(){
+        let m = {};
+        this.tags.forEach(t => m[t.tag] = t);
+        return m;
       },
 
       captures(){
@@ -166,26 +184,6 @@
         return p
       },
 
-
-      allTags(){
-        let tagData = this.monthFilteredSet.intersection(this.camFilteredSet)
-        let tagArray = [...tagData]
-
-        let ft = this.tags.map(t => {
-          let c = tagArray.filter(c => c.tags.indexOf(t.tag) > -1)
-          return {...t, count:c.length }
-        })
-        // to filter out tags with no count
-        // return ft.filter(c => c.count > 0)
-        return ft
-      },
-
-      tagMap(){
-        let m = {};
-        this.tags.forEach(t => m[t.tag] = t);
-        return m;
-      },
-
       camData(){
         // use sets to find the intersection of two other filters
         let camHistoData = this.speciesFilteredSet.intersection(this.monthFilteredSet)
@@ -217,6 +215,8 @@
           <span v-if="t.count > 0">({{t.count}})</span>
       </span>
   </div>
+
+  <SpeciesInfo v-if="focusedSpecies" :species-name="focusedSpecies.scientificName" context="captures"/>
 
 
   <div class="captures">
@@ -255,6 +255,7 @@
 
   .captures{
     column-gap: 2rem;
+    margin-bottom: 320px;
   }
 
   .itemTag{
