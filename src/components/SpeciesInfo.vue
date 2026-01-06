@@ -8,7 +8,8 @@
 				<h4>{{speciesInfo.scientificName}}</h4>
 				<p>{{speciesInfo.description}}</p>
 
-				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline'}">Listen in timeline</router-link>
+				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline', hash: '#annotations', query:{species: speciesInfo.routeTag}}">Listen in timeline</router-link>
+
 				<a v-if="speciesInfo.alaUrl" :href="speciesInfo.alaUrl" target="_blank">Learn more</a>
 			</div>
 			<div class="col right">
@@ -39,6 +40,7 @@
 	  	
 	  	speciesInfo(){
 	  		let s = speciesDataSource.find(sd => sd.scientificName == this.speciesName)
+	  		s.routeTag = s.commonName.toLowerCase().replace(" ","-")
 	  		return s;
 	  	},
 
@@ -55,6 +57,7 @@
 	.wrapper{
 		position: fixed;
 		bottom:0;
+		left:0;
 		z-index: 5;
 		width:100%;
 	}

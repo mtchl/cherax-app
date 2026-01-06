@@ -1,12 +1,16 @@
+<script setup>
+		import SpeciesInfo from '@/components/SpeciesInfo.vue'
+</script>
+
 <template>
-	<div class="annotations">	
+	<div class="annotations" id="annotations">	
 		<div class="annotationRow" v-for="s in speciesAnnotations">
-			<div class="speciesLabel-outer">
-				<span class="speciesLabel-inner" >
-					<img class="prevButton" :class="{'active': s.prevDetection != null}" src="@/assets/img/TriangleLeft.svg" @click.stop="jumpPrev(s)"/>
+			<div class="speciesLabel-outer" @click="clickSpecies(s.routeTag)">
+				<span class="speciesLabel-inner" :class="{'focus': focusSpecies == s.routeTag}" >
+					<img v-if="focusSpecies == s.routeTag" class="prevButton" :class="{'active': s.prevDetection != null}" src="@/assets/img/TriangleLeft.svg" @click.stop="jumpPrev(s)"/>
 					{{s.commonName}} 
-					<img class="nextButton" :class="{'active': s.nextDetection != null}" src="@/assets/img/TriangleRight.svg" @click.stop="jumpNext(s)"/>
-				</span>
+					<img v-if="focusSpecies == s.routeTag" class="nextButton" :class="{'active': s.nextDetection != null}" src="@/assets/img/TriangleRight.svg" @click.stop="jumpNext(s)"/>
+				</span> 
 			</div>
 
 			<!-- <div class="annotationChunk" v-for="c in s.chunks" :style="{'left': ((c.startTime*99.88) / dayLenSeconds)+'%', 'width': (chunkLen*0.1067)+'px', 'opacity': 0.2 + 0.1*Math.sqrt(c.detections.length)}"> -->
@@ -15,24 +19,27 @@
 			<div class="detect" v-for="d in s.detections" :class="{'playing': audioTime > d.startTime && audioTime < d.endTime }" :style="{'left': ((d.startTime*100) / dayLenSeconds)+'%'}"></div>
 		</div>
 	</div>
-
+	<SpeciesInfo v-if="focusedSpeciesFull" :species-name="focusedSpeciesFull.scientificName" context="timeline"/>
 
 </template>
 
 <script>
 
 	import annotationData from '@/assets/data/20241102.json';
+
 	export default {
 
 	  name: 'AudioAnnotations',
-	  props: ['date','audioTime'],
+	  props: ['date','audioTime','focusSpecies'],
+	  emits: ['jumpAudio','stopAudio'],
 
 	  	data () {
 	  	  return {
 	  	  		error:null,
 	  	  		dayLenSeconds: 86275,
 	  	  		chunkLen:150,
-	  	  		minConfidence:0.5
+	  	  		minConfidence:0.5,
+
 	    	}
 	  	},
 
@@ -55,7 +62,8 @@
 
 	  			let speciesData = sp.map(s => {
 	  				return { commonName: s.split("_")[1], 
-	  						scientificName: s.split("_")[0], 
+	  						scientificName: s.split("_")[0],
+	  						routeTag: s.split("_")[1].toLowerCase().replace(" ","-"),
 	  						fullSpecies:s, 
 	  						detections: this.annotations.filter(a => a.species == s)}
 	  					});
@@ -75,45 +83,32 @@
 	  				sp.prevDetection = prevD ? prevD : null;
 	  				return sp;
 	  			})
-	  		}
+	  		},
 
-/*	  		
-			annotationChunks(){
-			  	let allchunks = [];
-				this.species.forEach(b => {
-			    	let birdDetections = this.annotations.filter(d => d.species == b.fullSpecies)
-			    	let speciesRow = {commonName:b.commonName, scientificName: b.scientificName, fullSpecies:b.fullSpecies, chunks:[]}
-			    	// aggregate into chunks of chunkLen seconds
-				    for (let s = 0; s<(24*3595); s+= this.chunkLen){
-				      let chunkDetections = birdDetections.filter(d =>  d.startTime > s &&  d.endTime <= (s+this.chunkLen))
-				      if (chunkDetections.length > 0){
-				        let c = {startTime: s, endTime: s+this.chunkLen, detections: chunkDetections}
-				        speciesRow.chunks.push(c)
-				      }
-				    }
-				    allchunks.push(speciesRow)
-				})
-				return allchunks;
-	  		}
-*/
+	  		focusedSpeciesFull(){ // full tag data for the focused species
+		        let s = null;
+		        if (this.focusSpecies) s = this.species.find(sp => sp.routeTag == this.focusSpecies)
+		       	console.log(s);
+		        return s;
+		    },
+
 
 
 	  	},
 
 	  	methods: {
 
-	  		// loadAnnotations(date){
-	  		// 	console.log("loading annotations for "+date)
-	  		// 	// const dataPath = new URL(`@/assets/data/${date}.json`, import.meta.url).href
-	  		// 	axios.get('@/assets/data/${date}.json')
-			//       .then(response => {
-			//       	console.log(response)
-			//       	this.annotations = response.data.detections
-			//       	.filter(d => d.conf > this.minConfidence)
-			//       	.sort((a,b) => a.startTime - b.startTime);
-			//       	})
-			// },
-
+	  		clickSpecies(routeTag){
+	  			//console.log(this.focusSpecies)
+	  			if (this.focusSpecies == routeTag){
+	  				//this.focusSpecies = null;
+	  				this.$router.push({path: '/timeline', query: {}})
+	  				this.$emit('stop-audio')
+	  			} else {
+	  				//this.focusSpecies = routeTag
+	  				this.$router.push({path: '/timeline', query: {species:routeTag}})
+	  			}
+	  		},
 
 			jumpNext(speciesRow){
 				if (!speciesRow.nextDetection) return
@@ -125,12 +120,23 @@
 				this.$emit('jump-audio',{time:speciesRow.prevDetection.startTime})
 			}
 	  	},
+
+	  	watch: {
+	  		// focusSpecies(n,o){
+	  		// 	console.log(n)
+	  		// }
+	  	}
 	}
 
 
 </script>
 
 <style lang="css" scoped>
+
+	.annotations{
+/*		margin-bottom:320px;*/
+/*		padding-bottom:320px;*/
+	}
 	.annotationChunk{
 		height:18px;
 		background-color: #b2711f;
@@ -151,16 +157,17 @@
 	.speciesLabel-outer{
 		display: inline-block;
 		position: sticky;
-		left:50%;
+		left:calc(50% - 3px);
 		font-size: 90%;
 		z-index:1;
 		text-align: right;
 		color:#fff;
+
 		
 	}
 
 	.speciesLabel-inner{
-		font-family: 'Inconsolata', monospace;
+		font-weight: 400;
 		text-shadow: 0px 0px 6px rgba(0,0,0,0.5);
 		padding:0.2em 0.6em;
 		margin:0.2em 0.2em 0 0;
@@ -168,12 +175,27 @@
 		border-radius:0.5em;
 		position: relative;
 		left:-100%;
+		cursor:pointer;
+		border: 1px solid #333;
+	}
 
+	.speciesLabel-inner:hover{
+		border: 1px solid rgba(255,255,255,0.5);
+	}
+
+	.speciesLabel-inner.focus:hover{
+		border: 1px solid #333;
+	}
+
+	.speciesLabel-inner.focus{
+		filter: invert();
 	}
 
 	.nextButton, .prevButton{
 		width:12px;
 		opacity:0.2;
+		position:relative;
+		top:1px;
 	}
 
 	.nextButton.active, .prevButton.active{

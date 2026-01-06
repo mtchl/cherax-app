@@ -17,7 +17,7 @@
         dragging:false,
       }
     },
-    props: ['date','initPlayTime','audioDuration', 'currentPlayTime', 'playing','timelapseCam','imageUrl'],
+    props: ['date','initPlayTime','audioDuration', 'currentPlayTime', 'playing','timelapseCam','imageUrl','focusSpecies'],
 
     methods:{
 
@@ -36,7 +36,7 @@
       },
       
       spectroDragStart(evt){
-        console.log("drag - start")
+        // console.log("drag - start")
         let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
         let dx = pointerx - evt.target.offsetLeft;
         this.dragSpectroDiff = dx;
@@ -60,7 +60,7 @@
       },
 
       spectroDragEnd(evt){
-         console.log("drag - end")
+         // console.log("drag - end")
         let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
         this.$refs.spectro.removeEventListener("mousemove", this.spectroDragging);
         this.$refs.spectro.removeEventListener("mouseup", this.spectroDragEnd);
@@ -113,7 +113,7 @@
         <span>{{h-1}}:00</span>
       </div>
 
-      <AudioAnnotations :date="date" :audio-time="playSeconds" @jump-audio="jumpAudio"> </AudioAnnotations>
+      <AudioAnnotations :date="date" :audio-time="playSeconds" @jump-audio="jumpAudio" @stop-audio="stopAudio" :focus-species="focusSpecies"> </AudioAnnotations>
     </div>
 
     <div class="play-marker">
@@ -130,7 +130,8 @@
 
   .spectro{
     position:relative;
-    height:1420px;
+    height:1620px;
+
     user-select: none;
     background-color: #111;
   }
@@ -143,7 +144,7 @@
   .spectro .wrapper{
     position:absolute;
     cursor: grab;
-    margin-bottom:60px;
+/*    margin-bottom:60px;*/
   }
 
   .spectro .wrapper.dragging{

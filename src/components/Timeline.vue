@@ -24,6 +24,8 @@
       }
     },
 
+    props: ['focusSpecies'],
+
     computed: {
       audioPath(){
         // return new URL(`./assets/audio/${this.focusDate}.mp3`, import.meta.url).href
@@ -116,7 +118,7 @@
 
       audioLoaded(){
         this.audioDuration = this.$refs.audio.duration;
-        console.log("audio duration " + this.audioDuration)
+        //console.log("audio duration " + this.audioDuration)
       },
 
       toggleAudio(){
@@ -134,6 +136,7 @@
 
   <div class="timelineWrapper">
 
+
    <TimelapseFrame :date="focusDate" :current-play-time="currentTimeSeconds" :cam="activeCam" :image-url="imageUrl"/>
 
     <div class="controlPanel">
@@ -145,11 +148,7 @@
         </select>  
       </div>
 
-    <SpectroMacro :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" /> 
-
-    <!-- <AudioAnnotationsCurrent :date="focusDate" :current-play-time="currentTimeSeconds" @seekAudio="seekAudio">  </AudioAnnotationsCurrent> -->
-
-
+    <SpectroMacro  :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" :focus-species="focusSpecies" /> 
 
   <audio @timeupdate="updateCurrentTime" ref="audio" controls @canplay="audioLoaded">
     <source :src="audioPath" type="audio/mp3">
@@ -165,6 +164,7 @@
 
   .timelineWrapper{
     background-color: rgb(112 111 87);
+    overflow-x:hidden;
   }
 
   audio{
