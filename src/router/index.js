@@ -39,8 +39,11 @@ const router = createRouter({
 
 
     }
-    // Otherwise, scroll to the top of the page
-    return { top: 0};
+
+    if (to.path != from.path){ // scroll to top when returning to captures
+      // but not when staying on timeline 
+          return { top: 0};
+    }
   },
 });
 

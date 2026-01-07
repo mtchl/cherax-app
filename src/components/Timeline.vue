@@ -87,10 +87,10 @@
 
     },
 
-    // mounted(){
-    //   //this.$refs.audio.currentTime = this.currentTimeSeconds;
-    //  //this.seekAudio({date:this.focusDate,time:this.currentTimeSeconds})
-    // },
+     mounted(){
+       this.$refs.audio.currentTime = this.currentTimeSeconds;
+       this.seekAudio({date:this.focusDate,time:this.currentTimeSeconds})
+     },
 
     methods:{
       playAudio(play){
@@ -142,10 +142,10 @@
     <div class="controlPanel">
         <span>Cherax Swamp, {{focusDateNice}}, {{currentTimeStamp.h}}:{{currentTimeStamp.m}}:{{currentTimeStamp.s}}</span>
         <button class="playButton" :class="{'paused': playing}" @click="toggleAudio"></button>
-        cam: 
-        <select v-model="activeCam">
+        <!-- cam:  -->
+<!--         <select v-model="activeCam">
           <option v-for="c in timelapseCams" :value="c">{{c}}</option> 
-        </select>  
+        </select>   -->
       </div>
 
     <SpectroMacro  :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" :focus-species="focusSpecies" /> 

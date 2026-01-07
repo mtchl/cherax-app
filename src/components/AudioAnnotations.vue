@@ -88,7 +88,6 @@
 	  		focusedSpeciesFull(){ // full tag data for the focused species
 		        let s = null;
 		        if (this.focusSpecies) s = this.species.find(sp => sp.routeTag == this.focusSpecies)
-		       	console.log(s);
 		        return s;
 		    },
 
@@ -103,7 +102,7 @@
 	  			if (this.focusSpecies == routeTag){
 	  				//this.focusSpecies = null;
 	  				this.$router.push({path: '/timeline', query: {}})
-	  				this.$emit('stop-audio')
+	  				this.$emit('stopAudio')
 	  			} else {
 	  				//this.focusSpecies = routeTag
 	  				this.$router.push({path: '/timeline', query: {species:routeTag}})
@@ -112,12 +111,12 @@
 
 			jumpNext(speciesRow){
 				if (!speciesRow.nextDetection) return
-				this.$emit('jump-audio',{time:speciesRow.nextDetection.startTime})
+				this.$emit('jumpAudio',{time:speciesRow.nextDetection.startTime})
 			},
 
 			jumpPrev(speciesRow){
 				if (!speciesRow.prevDetection) return
-				this.$emit('jump-audio',{time:speciesRow.prevDetection.startTime})
+				this.$emit('jumpAudio',{time:speciesRow.prevDetection.startTime})
 			}
 	  	},
 
