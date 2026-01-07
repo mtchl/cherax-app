@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <img src="@/assets/img/20241102.jpg" draggable="false" :style="{width: bigSpectroWidth+'px'}">
+      <img class="fcs" src="@/assets/img/20241102.jpg" draggable="false" :style="{width: bigSpectroWidth+'px'}">
 
       <div class="tick" v-for="h in 24" :style="{left: 100*((h-1)/24)+'%'}">
         <span>{{h-1}}:00</span>
@@ -141,6 +141,10 @@
     user-select: none;
   }
 
+  .spectro .fcs{
+    margin-top:2px;
+  }
+
   .spectro .wrapper{
     position:absolute;
     cursor: grab;
@@ -154,9 +158,12 @@
   .spectro .play-marker{
     position: absolute;
     height:95%;
-    top:-1%;
+    top:0px;
     left:50%;
     border-left:1px solid white;
+/*    z-index:2;*/
+    box-shadow: 0px 0px 4px 6px rgba(0,0,0,0.1);
+
   }
 
   .timelapse{
@@ -172,6 +179,7 @@
   .timelapse .frame img{
     height:100%;
     user-select: none;
+    opacity:0.9;
   }
 
 
@@ -211,6 +219,7 @@
       border-bottom: 8px solid white;
       bottom:0;
       left:-8.5px;
+  
     }
 
     .arrow-down {
@@ -221,6 +230,7 @@
       border-top: 8px solid white;
       top:0;
       left:-8.5px;
+
     }
 
 

@@ -140,8 +140,12 @@
    <TimelapseFrame :date="focusDate" :current-play-time="currentTimeSeconds" :cam="activeCam" :image-url="imageUrl"/>
 
     <div class="controlPanel">
-        <span>Cherax Swamp, {{focusDateNice}}, {{currentTimeStamp.h}}:{{currentTimeStamp.m}}:{{currentTimeStamp.s}}</span>
-        <button class="playButton" :class="{'paused': playing}" @click="toggleAudio"></button>
+        <span class="date">{{focusDateNice}}</span> 
+ 
+          <button class="playButton" :class="{'playing': playing}" @click="toggleAudio"></button> 
+
+        <span class="timestamp">{{currentTimeStamp.h}}:{{currentTimeStamp.m}}:{{currentTimeStamp.s}}</span>
+        
         <!-- cam:  -->
 <!--         <select v-model="activeCam">
           <option v-for="c in timelapseCams" :value="c">{{c}}</option> 
@@ -176,36 +180,69 @@
     top:0;
     z-index:2;
     width:100%;
+    height:20px;
     padding: 1rem 0;
     
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
 /*    font-family: 'Inconsolata', monospace;*/
     font-weight: 300;
     font-size:120%;
-    opacity: 0.8;
+/*    opacity: 0.8;*/
     background: #111;
     color:white;
   }
 
-  button.playButton {
-    border: 0;
+  button.playButton{
+    display:inline-block;
+    width:36px;
+    height:36px;
+    background-image: url('@/assets/img/playbutton.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: black;
+/*    border-style: solid;*/
+    border:none;
+    border-radius: 50%;
+    margin:0.5 0rem;
+    cursor:pointer;
+    position:absolute;
+    left:calc(50% - 18px);
+    top:8px;
+    z-index: 5;
+  }
+
+  button.playButton:hover{
+    background-color: #222;
+    transform: scale(1.05);
+    transition: scale 0.5s;
+  }
+
+  button.playButton.playing{
+    background-image: url('@/assets/img/pausebutton.png');
+  }
+
+  span.date{
+    position:absolute;
+    right:calc(50% + 32px);
+  }
+
+  span.timestamp{
+    position:absolute;
+    left:calc(50% + 32px);
+  }
+
+  /*button.playButton {
     background: transparent;
     box-sizing: border-box;
     width: 20px;
     height: 20px;
-
     border-color: transparent transparent transparent #fff;
-/*    transition: 100ms all ease;*/
     cursor: pointer;
-
     border-style: solid;
     border-width: 9px 0 9px 15px;
-
-/*    transform:scale(0.35);*/
-    margin:0 2rem;
-
   }
 
   .playButton.paused {
@@ -215,6 +252,14 @@
 
   .playButton:hover {
     border-color: transparent transparent transparent #aaa;
-  }
+  }*/
+
+/*  .buttonContainer{
+    width:25px;
+    height:25px;
+    margin:0 2rem;
+    border: 1px solid white;
+    border-radius:50%;
+  }*/
 
 </style>
