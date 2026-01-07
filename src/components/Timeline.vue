@@ -113,11 +113,11 @@
       },
 
       updateCurrentTime() {
-        this.currentTimeSeconds = this.$refs.audio.currentTime;
+         if (this.$refs.audio) this.currentTimeSeconds = this.$refs.audio.currentTime;
       },
 
       audioLoaded(){
-        this.audioDuration = this.$refs.audio.duration;
+        if (this.$refs.audio) this.audioDuration = this.$refs.audio.duration;
         //console.log("audio duration " + this.audioDuration)
       },
 
@@ -164,7 +164,7 @@
 
   .timelineWrapper{
     background-color: rgb(112 111 87);
-    overflow-x:hidden;
+    overflow-x:clip;
   }
 
   audio{
@@ -174,7 +174,7 @@
   .controlPanel{
     position:sticky;
     top:0;
-    z-index:1;
+    z-index:2;
     width:100%;
     padding: 1rem 0;
     

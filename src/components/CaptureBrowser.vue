@@ -167,6 +167,11 @@
       speciesFilteredSet(){
         if (this.filterSpecies) {
             let matchingTag = this.tags.find(t => t.routeTag == this.filterSpecies)
+            if (!matchingTag) {
+              console.log(" no matching tag ")
+              console.log(this.filterSpecies)
+              return this.allCapturesSet
+            };
             return new Set(this.captures.filter(c => c.tags.indexOf(matchingTag.tag) > -1))
         } else {
             return this.allCapturesSet;
@@ -255,7 +260,7 @@
 
   .captures{
     column-gap: 2rem;
-    margin-bottom: 320px;
+    padding-bottom: 240px;
   }
 
   .itemTag{

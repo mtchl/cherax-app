@@ -23,13 +23,24 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     // If a hash fragment exists in the 'to' route, scroll to that element
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      };
+      // return {
+      //   el: to.hash,
+      //   // top:-640,
+      //   behavior: 'smooth',
+      // };
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ 
+            el:to.hash, 
+            behavior: 'smooth' 
+          })
+        }, 500)
+      })
+
+
     }
     // Otherwise, scroll to the top of the page
-    return { x: 0, y: 0 };
+    return { top: 0};
   },
 });
 

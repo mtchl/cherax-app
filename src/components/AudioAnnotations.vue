@@ -5,7 +5,7 @@
 <template>
 	<div class="annotations" id="annotations">	
 		<div class="annotationRow" v-for="s in speciesAnnotations">
-			<div class="speciesLabel-outer" @click="clickSpecies(s.routeTag)">
+			<div class="speciesLabel-outer" @click="clickSpecies(s.routeTag)" :id="s.routeTag">
 				<span class="speciesLabel-inner" :class="{'focus': focusSpecies == s.routeTag}" >
 					<img v-if="focusSpecies == s.routeTag" class="prevButton" :class="{'active': s.prevDetection != null}" src="@/assets/img/TriangleLeft.svg" @click.stop="jumpPrev(s)"/>
 					{{s.commonName}} 
@@ -63,7 +63,7 @@
 	  			let speciesData = sp.map(s => {
 	  				return { commonName: s.split("_")[1], 
 	  						scientificName: s.split("_")[0],
-	  						routeTag: s.split("_")[1].toLowerCase().replace(" ","-"),
+	  						routeTag: s.split("_")[1].toLowerCase().replaceAll(" ","-").replaceAll("'",""),
 	  						fullSpecies:s, 
 	  						detections: this.annotations.filter(a => a.species == s)}
 	  					});

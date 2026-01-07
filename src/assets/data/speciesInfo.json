@@ -206,7 +206,7 @@
   {
     "commonName": "Pacific Black Duck",
     "scientificName": "Anas superciliosa",
-    "description": "A large, dark duck with a distinctive facial stripe, found in wetlands, rivers, and lakes across Australia.",
+    "description": "A large, dark duck with a distinctive facial stripe, found in wetlands, rivers, and lakes across Australia. It feeds mainly on the seeds of aquatic plants.",
     "alaUrl": "https://bie.ala.org.au/species/anas+%28anas%29+superciliosa",
     "xenoCantoUrl": "https://xeno-canto.org/species/Anas-superciliosa",
     "imgFilename": "black-duck.jpeg",
@@ -242,7 +242,7 @@
   {
     "commonName": "White-faced Heron",
     "scientificName": "Egretta novaehollandiae",
-    "description": "A medium-sized, grey heron with a distinctive white face. It is widespread in wetlands, estuaries, and coastal areas, feeding on fish, frogs, and insects.",
+    "description": "A medium-sized, grey heron with a distinctive white face. It is widespread in Australian wetlands, estuaries, and coastal areas, feeding on fish, frogs, and insects.",
     "alaUrl": "https://bie.ala.org.au/species/Egretta+novaehollandiae",
     "xenoCantoUrl": "https://xeno-canto.org/species/Egretta-novaehollandiae",
     "imgFilename": "white-faced-heron.jpeg",
@@ -456,7 +456,7 @@
     "capture": true
   },
   {
-    "commonName": "Yellow-billed spoonbill",
+    "commonName": "Yellow-billed Spoonbill",
     "scientificName": "Platalea flavipes",
     "description": "This waterbird is found in freshwater wetlands and swamps in eastern and western Australia. It hunts for crustaceans, insects and small fish, sweeping its sensitive bill back and forth in shallow water.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/3dd39f84-1293-4c04-ac87-2474f5c887b0",
@@ -468,7 +468,7 @@
     "capture": true
   },
   {
-    "commonName": "Royal spoonbill",
+    "commonName": "Royal Spoonbill",
     "scientificName": "Platalea regia",
     "description": "Found in freshwater and saltwater wetlands, swamps and coastal areas throughout Australia, this species feeds on invertebrates, crustaceans and fish, sweeping its broad bill from side to side. When breeding, they grow long white plumes from the back of their heads.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/24c21411-d78c-415d-a848-f0abb83b615a",
@@ -480,7 +480,7 @@
     "capture": true
   },
   {
-    "commonName": "Moorhen",
+    "commonName": "Dusky moorhen",
     "scientificName": "Gallinula tenebrosa",
     "description": "Found in wetlands throughout eastern Australia, as well as India and south-east Asia, this species prefers open water with reeds or other vegetation for cover. It is omnivorous, eating seeds and shoots as well as  fruit, worms and molluscs.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/b5e44fea-a0a2-412b-a1f7-476b3c1e8e03#overview",
@@ -492,7 +492,7 @@
     "capture": true
   },
   {
-    "commonName": "Native hen",
+    "commonName": "Native Hen",
     "scientificName": "Tribonyx ventralis",
     "description": "Found near fresh and brackish water throughout Australia, this bird moves in small flocks like a domestic hen. It eats insects, plants and seeds.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/4491debc-214f-46a2-95cf-572fe0150d0d",
@@ -552,7 +552,7 @@
     "capture": true
   },
   {
-    "commonName": "Swamp harrier",
+    "commonName": "Swamp Harrier",
     "scientificName": "Circus approximans",
     "description": "Found in wetlands around Australia, this slim raptor hunts waterbirds, rabbits, reptiles, frogs and fish. It nests on the ground, often in reeds or other cover.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c568921e-f800-4a6e-b88c-6d409def1e20",

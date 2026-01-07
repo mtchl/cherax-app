@@ -60,7 +60,7 @@
 
 	{	"tag": "Royal spoonbill",
 		"fullName": "Royal spoonbill",
-		"scientificName": "Platalea egia",
+		"scientificName": "Platalea regia",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/24c21411-d78c-415d-a848-f0abb83b615a",
 		"feral": false,
 		"livestock": false,
@@ -77,7 +77,7 @@
 		"group": "waterbird"
 	},
 
-	{	"tag": "Black duck",
+	{	"tag": "Pacific black duck",
 		"fullName": "Pacific black duck",
 		"scientificName": "Anas superciliosa",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/241dd5c6-1235-4eb9-b3d5-a44af6b0d444",
@@ -150,7 +150,7 @@
 	},
 
 	{
-		"tag": "Peewee",
+		"tag": "Magpie-lark",
 		"fullName": "Magpie-lark",
 		"scientificName": "Grallina cyanoleuca",
 		"alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/ce17b284-d607-496a-992f-f3129bfd3997",

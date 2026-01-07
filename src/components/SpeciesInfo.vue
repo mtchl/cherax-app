@@ -2,15 +2,28 @@
 <template>
 
 	<div class="wrapper">
-		<div id="speciesInfo">
+		<div id="speciesInfo" >
 			<div class="col left">
 				<h3>{{speciesInfo.commonName}}</h3>
 				<h4>{{speciesInfo.scientificName}}</h4>
 				<p>{{speciesInfo.description}}</p>
 
-				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline', hash: '#annotations', query:{species: speciesInfo.routeTag}}">Listen in timeline</router-link>
+				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline', 
+				hash: '#annotations', 
+				hash: '#' + speciesInfo.routeTag,
+				query:{species: speciesInfo.routeTag}}">Listen in timeline</router-link>
 
-				<a v-if="speciesInfo.alaUrl" :href="speciesInfo.alaUrl" target="_blank">Learn more</a>
+				<router-link v-if="context == 'timeline' && speciesInfo.capture" :to="{path:'/captures',  query:{species: speciesInfo.routeTag}}">
+				Explore Captures
+			</router-link>
+
+				<a v-if="speciesInfo.alaUrl" :href="speciesInfo.alaUrl" target="_blank" class=
+				"newtab">Learn more: ALA</a>
+
+				<a v-if="speciesInfo.xenoCantoUrl" :href="speciesInfo.xenoCantoUrl" target="_blank" class=
+				"newtab">Listen: Xeno Canto</a>
+
+
 			</div>
 			<div class="col right">
 				<img :src="imageUrl">
@@ -40,7 +53,7 @@
 	  	
 	  	speciesInfo(){
 	  		let s = speciesDataSource.find(sd => sd.scientificName == this.speciesName)
-	  		s.routeTag = s.commonName.toLowerCase().replace(" ","-")
+	  		s.routeTag = s.commonName.toLowerCase().replaceAll(" ","-").replaceAll("'","")
 	  		return s;
 	  	},
 
@@ -73,6 +86,7 @@
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		background-color: white;
+		border: 1px solid rgba(0, 0, 0, 0.3);
 		border-radius: 1rem 1rem 0 0;
 		box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
 	}
@@ -80,6 +94,7 @@
 	h3{
 		margin:0 0 0.25rem;
 		font-weight: 600;
+		font-size:1.3rem;
 	}
 	h4{
 		margin:0;
@@ -94,8 +109,11 @@
 	}
 
 	p{
-		font-weight: 300;
-		font-size:90%;
+		font-family: Lato, sans-serif;
+		font-weight: 400;
+/*		font-size:90%;*/
+		margin:0.5rem 0;
+
 	}
 
 	.col.left{
@@ -106,6 +124,44 @@
 		font-size: 80%;
 		margin:0.25rem 0;
 		color:#888;
+	}
+
+	
+	a {
+	  display:inline-block;
+	  padding: 4px 9px 4px 9px;
+	  margin:0.5rem 1rem 0 0;
+	  color:black;
+	  text-decoration:none;
+	  background-color: #e0b2a3;
+	  border-radius: 0.66rem;
+	  border:1px solid #e0b2a3;
+	  cursor: pointer;
+	}
+
+	a.newtab{
+	  padding: 4px 27px 4px 9px;
+	  background-color: rgba(226, 227, 216, 1);
+	  border:1px solid rgba(226, 227, 216, 1);
+	}
+
+	 a:hover{
+	 	border:1px solid black;
+	 }
+
+
+	a.newtab::after{
+	    content: " ";
+	    background-image: url(@/assets/img/newtab.png);
+	    background-size: contain;
+	    background-repeat: no-repeat;
+	    background-position:20% 0;
+	    display: inline-block;
+	    height: 0.9em;
+	    width: 2em;
+	    margin-right: -2em;
+	    position: relative;
+	    top: 2px;
 	}
 
 </style>
