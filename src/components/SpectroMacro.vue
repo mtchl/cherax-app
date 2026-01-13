@@ -117,7 +117,7 @@
     </div>
 
     <div class="play-marker">
-        <div class="arrow arrow-down"></div>
+        <!-- <div class="arrow arrow-down"></div> -->
         <div class="arrow arrow-up"></div>
     </div>
     

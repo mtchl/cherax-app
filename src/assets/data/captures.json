@@ -4185,7 +4185,8 @@
     "tags": [
       "White ibis",
       "Straw-necked ibis",
-      "Great cormorant"
+      "Great cormorant",
+      "White-necked heron"
     ],
     "is_tagged": true
   },
@@ -15663,7 +15664,7 @@
     "path": "cam4/cam4-20241101-174548.mp4",
     "type": "video",
     "tags": [
-      "White ibis"
+      "Dusky moorhen"
     ],
     "is_tagged": true
   },
@@ -16653,7 +16654,7 @@
     "tags": [
       "Black swan",
       "Magpie-lark",
-      "Wood duck",
+      "Maned duck",
       "Pacific black duck",
       "Black-fronted dotterel"
     ],
@@ -16664,7 +16665,7 @@
     "path": "cam4/cam4-20250131-132634.mp4",
     "type": "video",
     "tags": [
-      "Wood duck",
+      "Maned duck",
       "Black swan",
       "Pacific black duck",
       "Black-fronted dotterel"
@@ -16796,7 +16797,7 @@
     "type": "image",
     "tags": [
       "Pacific black duck",
-      "Wood duck",
+      "Maned duck",
       "Magpie-lark",
       "Black swan",
       "White-necked heron"
@@ -16811,7 +16812,7 @@
       "White-necked heron",
       "Black swan",
       "Pacific black duck",
-      "Wood duck"
+      "Maned duck"
     ],
     "is_tagged": true
   },
@@ -16820,7 +16821,7 @@
     "path": "cam4/cam4-20250212-094740.JPG",
     "type": "image",
     "tags": [
-      "Wood duck",
+      "Maned duck",
       "Pacific black duck"
     ],
     "is_tagged": true
@@ -16853,7 +16854,8 @@
       "Pelican",
       "Black swan",
       "Pacific black duck",
-      "Wood duck"
+      "Maned duck",
+      "Magpie-lark"
     ],
     "is_tagged": true
   },
@@ -16962,7 +16964,7 @@
     "path": "cam4/cam4-20250217-184208.JPG",
     "type": "image",
     "tags": [
-      "Wood duck"
+      "Maned duck"
     ],
     "is_tagged": true
   },
@@ -16971,7 +16973,7 @@
     "path": "cam4/cam4-20250217-184220.mp4",
     "type": "video",
     "tags": [
-      "Wood duck"
+      "Maned duck"
     ],
     "is_tagged": true
   },
@@ -17050,7 +17052,7 @@
     "path": "cam4/cam4-20250220-163614.JPG",
     "type": "image",
     "tags": [
-      "Wood duck"
+      "Maned duck"
     ],
     "is_tagged": true
   },
@@ -17059,7 +17061,7 @@
     "path": "cam4/cam4-20250220-163626.mp4",
     "type": "video",
     "tags": [
-      "Wood duck"
+      "Maned duck"
     ],
     "is_tagged": true
   },

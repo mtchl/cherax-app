@@ -196,32 +196,32 @@
 
   button.playButton{
     display:inline-block;
-    width:36px;
-    height:36px;
-    background-image: url('@/assets/img/playbutton.png');
+    width:40px;
+    height:64px;
+    background-image: url('@/assets/img/playbutton-teardrop.png');
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 0% 50%;
     background-size: contain;
-    background-color: black;
+    background-color: transparent;
 /*    border-style: solid;*/
     border:none;
-    border-radius: 50%;
+/*    border-radius: 50%;*/
     margin:0.5 0rem;
     cursor:pointer;
     position:absolute;
-    left:calc(50% - 18px);
-    top:8px;
+    left:calc(50% - 20px);
+    top:0px;
     z-index: 5;
   }
 
   button.playButton:hover{
-    background-color: #222;
+/*    background-color: #222;*/
     transform: scale(1.05);
     transition: scale 0.5s;
   }
 
   button.playButton.playing{
-    background-image: url('@/assets/img/pausebutton.png');
+    background-image: url('@/assets/img/pausebutton-teardrop.png');
   }
 
   span.date{
