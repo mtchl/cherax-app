@@ -3,7 +3,7 @@
    import TimelapseFrame from '@/components/TimelapseFrame.vue'
    import SlideShow from '@/components/SlideShow.vue'
    // import 'intersection-observer' // for cross-browser support
-   import VueScrollama from "vue3-scrollama";
+   import VueScrollama from "@/lib/VueScrollama.vue";
    import { ImgComparisonSlider } from '@img-comparison-slider/vue';
 </script>
 <script>
@@ -30,6 +30,10 @@
 
           stepProgressHandler({ element, progress, index }){
             console.log("step-progress", { element, progress, index });
+          },
+
+          stepExitHandler({ element, index }){
+            console.log("step exit", {element, index})
           }
       }
    }
@@ -49,8 +53,9 @@
         <VueScrollama
             :debug="true"
             :offset="0.8"
-            @step-enter="stepEnterHandler"
-            @step-progress="stepProgressHandler"
+            :progress="true"
+            @step-enter="stepEnterHandler" @step-progress="stepProgressHandler" 
+            @step-exit="stepExitHandler"
             class="main__scrollama">
 
 
@@ -65,12 +70,13 @@
             data-type="img">
                 The water is high in early November 
             </div>
+            
             <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam4/cam4-20241102-060724.JPG" 
-            data-type="img" data-offset="0.8">
+            data-type="img" >
                 At dawn, a <router-link :to="'/captures?species=pelican'">pelican</router-link> touches down at the edge of the flooded Crop Paddock 
             </div>
            
-           <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam7/cam7-20241106-103414.mp4" data-type="vid" data-offset="0.8">
+           <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam7/cam7-20241106-103414.mp4" data-type="vid" >
                 A <router-link :to="'/captures?species=yellow-billed-spoonbill'">yellow-billed spoonbill</router-link> and a flock of <router-link :to="'/captures?species=native-hen'">native hens</router-link> feed around the nearby snag... 
             </div>
             
