@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@img-comparison-slider/vue": "^8.0.0",
     "axios": "^1.13.2",
     "d3-interpolate": "^3.0.1",
     "intersection-observer": "^0.12.2",

@@ -9,7 +9,7 @@
     <RouterLink to="/timeline">Timeline</RouterLink>
   </nav>
   <main>
-    <RouterView />
+    <RouterView/>
   </main>
 </template>
 
@@ -19,10 +19,20 @@
     background-color: black;
     padding:0.5rem;
     margin:0;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:2;
   }
 
   nav a{
     margin:0 1rem;
+    font-weight:600;
     color:white;
+    text-decoration: none;
+  }
+
+  main{
+    padding-top:2rem;
   }
 </style>
