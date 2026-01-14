@@ -36,7 +36,7 @@
 </template>
 
 <script>
-	import speciesDataSource from '@/assets/data/speciesinfo.json';
+	import speciesDataSource from '@/assets/data/speciesInfo.json';
 
 	export default {
 
