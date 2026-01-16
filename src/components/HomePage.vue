@@ -50,15 +50,10 @@
 
       <div class="steps">
 
-        <VueScrollama
-            :debug="true"
-            :offset="0.8"
-            :progress="true"
+        <VueScrollama offset="0.8" progress     
             @step-enter="stepEnterHandler" @step-progress="stepProgressHandler" 
             @step-exit="stepExitHandler"
             class="main__scrollama">
-
-
 
   
             <div class="step section-head">

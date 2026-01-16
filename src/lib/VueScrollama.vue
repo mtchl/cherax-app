@@ -6,7 +6,7 @@
 
 <script setup>
 /* eslint-disable */
-import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watchEffect, useAttrs } from 'vue';
 import scrollama from "scrollama";
 
 const props = defineProps({
@@ -41,13 +41,7 @@ const emit = defineEmits(["step-progress","step-enter","step-exit"]);
 
 let rootElement = ref(null);
 const _scroller = ref(null);
-const attrs = new Proxy(
-  {},
-  {
-    get: (_, prop) => rootElement.value.getAttribute(prop),
-    has: (_, prop) => rootElement.value.hasAttribute(prop),
-  }
-);
+const attrs = useAttrs();
 
 onMounted(() => {
   _scroller.value = scrollama();
@@ -73,9 +67,8 @@ function setup() {
   if (rootElement.value) {
     const opts = {
       step: Array.from(rootElement.value.children),
-      //progress: "step-progress" in attrs, // this is stopping step-progress from firing
-      progress: true, // this forces step-progress to fire
-      ...attrs,
+       progress: props.progress ?? "onStepProgress" in attrs,
+      ...props,
     };
 
     _scroller.value = scrollama()
