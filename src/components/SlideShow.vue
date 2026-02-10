@@ -3,17 +3,22 @@
 
 	<div class="outer-wrapper" :class="{'hide':hideWrapper}">
 		
-			<div class="slide back" :class="{'show': show =='back'&&backLoaded, 'nopad':back.class=='nopad', 'contain': back.layout == 'contain', 'noaspect':back.aspect=='false'}">
+			<div class="slide back" 
+				:class="{'show': show == 'back' && backLoaded, 
+									'nopad':back.class == 'nopad', 
+									'contain': back.layout == 'contain', 
+									'noaspect':back.aspect== 'false' }"
+									>
 				
-				<img v-if="back.type == 'img' && back.url" :src="back.url" @load="onLoad('back')">
+				<img v-if="back.type == 'img' && back.url" :src="back.url" @load="onLoad('back')" :class="[back.animate ? back.animate : '']">
 				
 				<video v-if="back.type == 'vid' && back.url" :src="back.url" @play="onLoad('back')" autoplay muted loop></video>
 				
 			</div>
 
-			<div class="slide front" :class="{'show': show=='front'&&frontLoaded, 'nopad':front.class=='nopad', 'contain': front.layout == 'contain', 'noaspect':front.aspect=='false'}">
+			<div class="slide front" :class="{'show': show=='front'&&frontLoaded, 'nopad':front.class=='nopad', 'contain': front.layout == 'contain', 'noaspect':front.aspect=='false' }">
 				
-				<img v-if="front.type == 'img' && front.url" :src="front.url" @load="onLoad('front')" > 
+				<img v-if="front.type == 'img' && front.url" :src="front.url" @load="onLoad('front')" :class="[front.animate ? front.animate : '']"> 
 				
 				<video v-if="front.type == 'vid' && front.url" :src="front.url" @play="onLoad('front')"  autoplay muted loop></video>
 				
@@ -34,7 +39,7 @@
 export default {
 
   name: 'SlideShow',
-  props: ['slide','initSlide','hidden'],
+  props: ['slide','initSlide','hidden','animate'],
 
   data () {
     return {
@@ -99,18 +104,25 @@ export default {
   	hidden(newvalue,oldvalue){
   		console.log("hidden " + newvalue)
   		this.hideWrapper = newvalue;
-  		if (this.hideWrapper){ // turn off any showing slides so they don't reappear
-  			this.frontLoaded = false;
-  			this.backLoaded = false;
+  		if (this.show == "front"){
+  			this.show = "back"
+  		} else if (this.show == "back"){
+  			this.show = "front"
+  		}  
+  	},
+
+  	animate(newAnimate,oldAnimate){
+  		if (this.show == "front") {
+  			this.front.animate = newAnimate;
+  			// this.back.animate = ""
   		}
-
+  		if (this.show == "back") {
+  			this.back.animate = newAnimate;
+  			// this.front.animate = "";
+  		}
+  		console.log('front', this.front.animate)
+  		console.log('back', this.back.animate)
   	}
-
-  	// animate(newAnimate,oldAnimate){
-  	// 	if (this.show == "front") this.front.animate = JSON.parse(newAnimate);
-  	// 	if (this.show == "back") this.back.animate = JSON.parse(newAnimate);
-  	// 	console.log(JSON.parse(newAnimate))
-  	// }
   }
 }
 </script>
@@ -146,7 +158,7 @@ export default {
 	    height: auto;
 	    max-height:90vh;
 
-	    transition: opacity 1.5s;
+	  transition: opacity 1.5s ease-out;
 		opacity:0;
 
 		border: 1px solid black;
@@ -156,9 +168,9 @@ export default {
 
 	}
 
-/*	.slide.back{
-		opacity:1;
-	}*/
+	.slide.back{
+/*		transition:none;*/
+	}
 
 	.slide.show{
 		opacity:1;
@@ -173,10 +185,18 @@ export default {
 
 	}
 
-
 	.slide img{
 		aspect-ratio: 4 / 2.8;
 		transition: all 2s;
+	}
+
+	.slide img.zoom-200-right{
+		transform:scale(2.5) translate(-30%,5%);
+	}
+
+	.slide img.reset{
+		transform:scale(1.0);
+		transform:translate(0,0);
 	}
 
 	.slide.contain img{

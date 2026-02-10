@@ -35,6 +35,11 @@ const props = defineProps({
     required: false,
     default: () => false,
   },
+  step:{
+    type: String,
+    required:false,
+    default:".step"
+  }
 });
 
 const emit = defineEmits(["step-progress","step-enter","step-exit"]);
@@ -66,7 +71,7 @@ function setup() {
 
   if (rootElement.value) {
     const opts = {
-      step: Array.from(rootElement.value.children),
+      //step: Array.from(rootElement.value.children),
        progress: props.progress ?? "onStepProgress" in attrs,
       ...props,
     };

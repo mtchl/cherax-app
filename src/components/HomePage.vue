@@ -12,7 +12,8 @@
       data(){
          return {
             currentSlide: null,
-            hidden:false
+            hidden:false,
+            animate:null
             // currentAnimation:null
          }
       },
@@ -20,20 +21,27 @@
       methods: {
           stepEnterHandler ({element, index, direction}) {
             if (element.dataset.url) this.currentSlide = element.dataset;
+            
+            if (element.dataset.animate) {
+               this.animate = element.dataset.animate; 
+               console.log(this.animate)
+            } else {
+               this.animate = null
+            }
+
             if (element.dataset.hide) {
                this.hidden = true
             } else {
                this.hidden = false
             }
-            // if (element.dataset.animate) this.currentAnimation = element.dataset.animate;
           },
 
           stepProgressHandler({ element, progress, index }){
-            console.log("step-progress", { element, progress, index });
+            //console.log("step-progress", { element, progress, index });
           },
 
           stepExitHandler({ element, index }){
-            console.log("step exit", {element, index})
+            //console.log("step exit", {element, index})
           }
       }
    }
@@ -45,7 +53,7 @@
 <template>
 
    <div class="sticky">
-      <SlideShow :slide="currentSlide" :initSlide="'https://storage.googleapis.com/cherax-media/cam1/20241102/cam1-20241102-40.JPG'" :hidden="hidden"></SlideShow>
+      <SlideShow :slide="currentSlide" :animate="animate" :initSlide="'https://storage.googleapis.com/cherax-media/cam1/20241102/cam1-20241102-40.JPG'" :hidden="hidden"></SlideShow>
    </div>
 
       <div class="steps">
@@ -140,19 +148,21 @@
                   <h3>3. Raptors</h3>
             </div>
 
-            <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam7/cam7-20241230-155324.JPG" data-type="img" data-offset="0.8">
+            <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam7/cam7-20241230-155324.JPG" data-type="img" data-offset="0.8" data-animate="reset">
                 As well as waterbirds, wetlands like this are havens for birds of prey 
             </div>
 
-             <div class="step">
-                <p>Hiding in this frame is a <router-link :to="'/captures?species=whistling-kite'">whistling kite,</router-link> an Australian raptor often found near water.</p>
-                <p>[ zoom in animation ]</p>  
+             <div class="step" data-animate="zoom-200-right">
+                <p>Hiding in this frame is a <router-link :to="'/captures?species=whistling-kite'">whistling kite,</router-link> an Australian raptor often found near water.</p> 
             </div> 
 
-            <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam3/cam3-20250109-105800.JPG" data-type="img" data-offset="0.8">
-                This capture from <router-link :to="'/captures?cam=A'">Camera A</router-link> shows the distinctive ‘fingers’ on the whistling kite’s wingtips 
-                <p>[ zoom in animation ]</p>  
+
+            <div class="step" data-url="https://storage.googleapis.com/cherax-media/cam3/cam3-20250109-105800.JPG" data-type="img" data-offset="0.8" >
+                This capture from <router-link :to="'/captures?cam=A'">Camera A</router-link> shows the distinctive ‘fingers’ on the whistling kite’s wingtips  
             </div> 
+
+            <div class="step trigger" data-animate="zoom-200"></div>
+
 
             <div class="step">
                Whistling kites are named for their piercing call. [Listen] here, or find it in the <router-link :to="'/timeline?species=whistling-kite'">Timeline</router-link>
