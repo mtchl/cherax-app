@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 
-  import homePage from '@/components/HomePageStack.vue'
+  import homePage from '@/components/HomePage.vue'
   import captureBrowser from '@/components/CaptureBrowser.vue'
   import Timeline from '@/components/Timeline.vue'
 
