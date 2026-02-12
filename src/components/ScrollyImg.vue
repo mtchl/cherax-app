@@ -4,7 +4,7 @@
 		<div class="outer-wrapper">
 			<div class="slide" :class="[slideclass]">
 				<img v-if="type == 'img'" :src="src" :class="[animate]"/>
-				<video v-if="type == 'video'" :src="src" loop muted ref="vid" />
+				<video v-if="type == 'video'" :src="src" loop ref="vid" />
 			</div>
 		</div>
 
@@ -14,7 +14,7 @@
 export default {
 
   name: 'ScrollyImg',
-  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass'],
+  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass', 'inactive','muteVideo'],
 
   data () {
     return {
@@ -29,12 +29,26 @@ export default {
   watch:{
   	playtrigger(newvalue,oldvalue){
   		if (newvalue){
+
   			if (this.rate){
   				this.$refs.vid.playbackRate = this.rate;
   				console.log("rate " + this.rate)
   			}
+  			if (this.muteVideo){
+  				this.$refs.vid.muted = true;
+  				console.log("video muted by prop")
+  			}
   			this.$refs.vid.play()
-  			console.log("watched trigger play")
+  			.then(() => { 
+  				console.log("watched trigger play") 
+  			})
+  			.catch(error => {
+  				console.error("Playback failed: " + error.message + " retrying muted");
+  				this.$refs.vid.muted = true;
+  				this.$refs.vid.play();
+  			}
+  				);
+  			
   		} else {
   			this.$refs.vid.pause()
   			this.$refs.vid.currentTime = 0;
@@ -45,14 +59,16 @@ export default {
 
   	progress(newvalue,oldvalue){
   		if (!this.$refs.vid.paused) this.$refs.vid.pause();
-  		this.$refs.vid.currentTime = newvalue*this.$refs.vid.duration*0.2;
+  		this.$refs.vid.currentTime = newvalue*this.$refs.vid.duration*0.3;
   	},
 
-  	// videokeyframe(newvalue,oldvalue){
-  	// 	console.log("keyframe " + newvalue)
-  	// 	this.$refs.vid.currentTime = newvalue;
-  	// 	if (this.$refs.vid.paused) this.$refs.vid.play();
-  	// }
+  	inactive(newvalue,oldvalue){
+  		// pause videos once they are inactive
+  		if (newvalue && this.$refs.vid){
+  			console.log("inactive, pausing video")
+  			this.$refs.vid.pause()
+  		}
+  	}
 
   }
 }
@@ -90,7 +106,7 @@ export default {
 	.slide img, .slide video{
 		width:100%;
 		height:auto;
-/*		object-fit: cover;*/
+		object-fit: cover;
 		display: block;
 /*		box-sizing: border-box;*/
 /*		border:1vw solid black;*/
