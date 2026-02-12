@@ -1,9 +1,8 @@
 
 
 <template>
-
 		<div class="outer-wrapper">
-			<div class="slide">
+			<div class="slide" :class="[slideclass]">
 				<img v-if="type == 'img'" :src="src" :class="[animate]"/>
 				<video v-if="type == 'video'" :src="src" loop muted ref="vid" />
 			</div>
@@ -15,7 +14,7 @@
 export default {
 
   name: 'ScrollyImg',
-  props: ['src','type','playtrigger','animate','progress','videoScroll'],
+  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass'],
 
   data () {
     return {
@@ -29,7 +28,11 @@ export default {
 
   watch:{
   	playtrigger(newvalue,oldvalue){
-  		if (newvalue){ 
+  		if (newvalue){
+  			if (this.rate){
+  				this.$refs.vid.playbackRate = this.rate;
+  				console.log("rate " + this.rate)
+  			}
   			this.$refs.vid.play()
   			console.log("watched trigger play")
   		} else {
@@ -43,7 +46,13 @@ export default {
   	progress(newvalue,oldvalue){
   		if (!this.$refs.vid.paused) this.$refs.vid.pause();
   		this.$refs.vid.currentTime = newvalue*this.$refs.vid.duration*0.2;
-  	}
+  	},
+
+  	// videokeyframe(newvalue,oldvalue){
+  	// 	console.log("keyframe " + newvalue)
+  	// 	this.$refs.vid.currentTime = newvalue;
+  	// 	if (this.$refs.vid.paused) this.$refs.vid.play();
+  	// }
 
   }
 }
@@ -72,7 +81,7 @@ export default {
 
 /*	  	transition: opacity 1.5s ease-out;*/
 
-		border: 1px solid black;
+		border: 1vw solid black;
 		box-shadow: 0px 0px 4rem 0rem rgba(0,0,0,0.2);
 		box-sizing: border-box;
 		overflow: hidden;
@@ -81,10 +90,10 @@ export default {
 	.slide img, .slide video{
 		width:100%;
 		height:auto;
-		object-fit: cover;
+/*		object-fit: cover;*/
 		display: block;
-		box-sizing: border-box;
-		border:1vw solid black;
+/*		box-sizing: border-box;*/
+/*		border:1vw solid black;*/
 	}
 
 	.slide video{
@@ -93,9 +102,31 @@ export default {
 
 	}
 
+	.slide.nopad video{
+		padding:0;
+	}
+
+	.slide.histograb{
+		border:none;
+		width:auto;
+		box-shadow: none;
+/*		height:60vh;*/
+	}
+	.slide.histograb img{
+		aspect-ratio: 0;
+		object-fit: contain;
+		width: auto;
+		height:auto;
+		max-height:70vh;
+	}
+
 	.slide img{
 		aspect-ratio: 4 / 2.8;
 		transition: all 2s ease-out;
+	}
+
+	.slide.noaspect img{
+		aspect-ratio: 0;
 	}
 
 	img.zoom-200-right{
