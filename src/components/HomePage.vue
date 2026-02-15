@@ -5,6 +5,14 @@
    // import 'intersection-observer' // for cross-browser support
    import VueScrollama from "@/lib/VueScrollama.vue";
    import { ImgComparisonSlider } from '@img-comparison-slider/vue';
+   import 'vue3-carousel/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+
+    const carouselConfig = {
+      itemsToShow: 1.5,
+      wrapAround: true,
+    // height:420
+    }
 </script>
 <script>
 
@@ -15,6 +23,8 @@
             triggers:{},
             animations:{},
             progress:{},
+            introParallax:0,
+            introFade:false,
             audio:{
                 intro: {
                     src: "https://storage.googleapis.com/cherax-media/narrative/intro-faded.mp3",
@@ -25,7 +35,15 @@
                     playing:false
                 }
             },
-            audioEnabled:false
+            audioEnabled:false,
+            carouselSlides:[
+                {src: "aust-bittern-1600.jpg", caption:"Australian Bittern"},
+                {src: "major-mitchell-1600.jpg", caption:" Major Mitchell Cockatoo"},
+                {src: "painted-snipe-1600.jpg", caption: "Painted Snipe"},
+                {src: "regent-parrot-1620.jpg",caption: "Regent Parrot"},
+                {src: "snipe-swamp-1600.jpg", caption:""},
+                ]
+            
          }
       },
 
@@ -54,7 +72,12 @@
           stepProgressHandler({ element, progress, index }){
             if (element.dataset.progress){
                 this.progress[element.dataset.progress] = progress;
-                // console.log(progress)
+                //console.log(progress)
+            }
+
+            if (element.dataset.parallax){
+                this.introParallax = progress;
+                //console.log(progress)
             }
           },
 
@@ -88,7 +111,7 @@
                 const fadeInterval = setInterval(() => {
                     if (audio.volume > 0.05) {
                         audio.volume -= 0.05;
-                        console.log(audio.volume)
+                        //console.log(audio.volume)
                     } else {
                         clearInterval(fadeInterval);
                         audio.volume = 0;
@@ -106,37 +129,85 @@
 
 <template>
 
+    <VueScrollama offset="0.5" progress     
+         @step-enter="stepEnterHandler" @step-progress="stepProgressHandler" 
+         @step-exit="stepExitHandler"
+         class="main__scrollama">
+
+    <div class="splash" :style="{'top': introParallax * -40 + 'vh'}" :class="{'fade': triggers.introFade}">
+
+            <div class="sky-extender"></div>
+            <img src="@/assets/img/splash-aerial.webp">
+
+    </div>
+
 
      <section class="intro">
-        <h3>Title and Intro</h3>
-        <p>In south-western New South Wales, on Mutthi Mutthi country, the Murrumbidgee River reaches the western lakes.</p>
-        <p>This is a mosaic of temporary and permanent wetlands, actively managed by the Commonwealth in collaboration with local landholders.</p>
 
-        <p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p>
+        <h1>Title</h1>
 
-        <p>Peter Morton’s photos and videos inspired us to see how we could use sound, images and data to share a portrait of life in these places.</p>
+        
+        
+            
+            <div class="story no-bottom-margin"><p>In south-western New South Wales, on Mutthi Mutthi country, the Murrumbidgee River reaches the western lakes.</p>
 
-        <p>So over four months from November 2024, we set out cameras and recorders between two wetland areas.</p>  
+            </div>
 
-        <p>This website shares what we found:</p>
-        <ul>
+            
+            <div class="step parallax" data-parallax="true">
 
-        <li>Explore thousands of images and videos in <router-link :to="'/captures'">Captures</router-link></li> 
+                <div class="map">
+                    <img src="@/assets/img/mini-map-45.svg"/>
+                </div>
 
-        <li>Dive into 24 hours of sound in the <router-link :to="'/timeline'">Timeline</router-link></li>
+                <div class="story"><p>This is a mosaic of temporary and permanent wetlands, actively managed by the Commonwealth in collaboration with local landholders.</p></div>
 
-        <li>Scroll on for a guided tour</li>
-        </ul>
+                <div class="story less-bottom-margin less-top-margin"><p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p></div>
+
+
+                <div class="story step less-bottom-margin" data-playTrigger="introFade" ><p>Landholder Peter Morton’s photos and videos inspired us to create a portrait of life in the western lakes.</p></div>
+            </div>
+
+            <Carousel v-bind="carouselConfig" :gap="40">
+                    <Slide v-for="(s,idx) in carouselSlides" :key="idx">
+                      <div class="carousel__item">
+                          <img :src="'https://storage.googleapis.com/cherax-media/narrative/'+s.src">
+                          <div class="caption"><p>{{s.caption}}</p></div>
+                      </div>
+                    </Slide>
+
+                    <template #addons>
+                      <Navigation />
+                    </template>
+            </Carousel>
+
+
+        <div class="story less-top-margin less-bottom-margin"><p>So over four months from November 2024, we set out cameras and recorders to gather sound, images and data. This website shares what we found.</p></div>  
+
+
+        <div class="inline-nav">
+            
+            <div class="col captures" @click="$router.push('/captures')">
+                <h2>Captures</h2>
+                <p>Browse over 1500 images and videos</p>
+            </div>
+            <div class="col timeline" @click="$router.push('/timeline')">
+                <h2>Timeline</h2>
+                <p>Dive into 24 hours<br/> of wetland soundscape</p>
+            </div>
+        </div>
+
+         <div class="story less-top-margin less-bottom-margin">
+                <p>Or <strong>scroll on</strong> for a guided tour of these western wetlands...</p>
+         </div>
+
     </section>
 
 
     <audio ref="audioPlayer" :src="null"></audio>
 
 
-     <VueScrollama offset="0.5" progress     
-         @step-enter="stepEnterHandler" @step-progress="stepProgressHandler" 
-         @step-exit="stepExitHandler"
-         class="main__scrollama">
+
         <section>
              <div class="section-head">
                    <h3>1. Waterbirds</h3>
@@ -199,7 +270,7 @@
                    This shot captures  <router-link :to="'/captures?species=white-ibis'">white ibis,</router-link> <router-link :to="'/captures?species=straw-necked-ibis'">straw-necked ibis</router-link> and <router-link :to="'/captures?species=white-necked-heron'">white-necked herons</router-link> in flight 
             </div>
 
-            <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" class="step"  type="video" :playtrigger="triggers.greatCormorant" src="https://storage.googleapis.com/cherax-media/cam3/cam3-20241216-093850.mp4"></ScrollyImg>
+            <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" class="step"  type="video" :playtrigger="triggers.greatCormorant" mute-video="true" src="https://storage.googleapis.com/cherax-media/cam3/cam3-20241216-093850.mp4"></ScrollyImg>
 
             <div class="story step" data-playtrigger="greatCormorant" data-offset="0.8">
                    The <router-link :to="'/captures?species=great-cormorant'">great cormorant</router-link> follows them a second later  
@@ -281,7 +352,7 @@
             </div>
 
             <div class="story less-bottom-margin">
-                <p><strong>Scroll</strong> to see the moment the crayfish splashes down to safety</p>
+                <p><strong>Scroll slowly</strong> to see the moment the crayfish splashes down to safety</p>
             </div>
 
             <div class="step scroller" data-progress="kiteTussle"></div> 
@@ -356,7 +427,7 @@
 
             <ScrollyImg class="step" data-slide="23" :class="{'hide':currentSlide > 23}" :inactive="currentSlide > 23" type="video" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-hopping.mov" :playtrigger="triggers.bellFrogHopping" ></ScrollyImg>
 
-            <div class="story" data-playtrigger="bellFrogHopping" data-offset="0.8">
+            <div class="story step" data-playtrigger="bellFrogHopping" data-offset="0.8">
                <p>Landholder Peter Morton shared this southern bell frog with us.</p> 
 
                <p>Check out <a class="newtab" href="https://media.flow-mer.org.au/napnap/" target="_blank">The Sound of Water</a> to learn more about frogs in Murrumbidgee wetlands.</p>
@@ -470,6 +541,140 @@
     padding-bottom: 1vh;
    }
 
+   .splash{
+        position:fixed;
+        top:0;
+        transition: opacity 2s;
+   }
+
+   .splash.fade{
+    opacity:0;
+   }
+
+   .splash img{
+    width:100%;
+    height:auto;
+    min-height:120vh;
+    object-fit:cover;
+    object-position: 50% 50%;
+    margin-top:-8vh;
+   }
+
+   .sky-extender{
+    width:100%;
+    height:40vh;
+    background: #91bac4;
+background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 224, 1) 80%, rgba(195, 218, 224, 0) 100%);
+    position:relative;
+    z-index:1;
+   }
+
+   .intro{
+    margin: 10vh auto;
+    position:relative;
+    z-index:2;
+   }
+
+   .intro h1{
+    margin: 0 auto;
+    font-size:400%;
+    text-align: center;
+   }
+
+   .intro .story{
+    margin:30vh auto;
+   }
+
+   .intro .map{
+    width: 30%;
+    height:250px;
+    max-width:460px;
+    min-width: 240px;
+    margin: 10vh auto;
+/*    display: block;*/
+   }
+
+   .intro .map img{
+    width:100%;
+    object-fit: contain;
+    object-position: 50% 50%;
+   }
+
+   .inline-nav{
+    width:50%;
+    min-width:320px;
+    max-width:580px;
+/*    height:120px;*/
+/*    height:80px;*/
+    margin: 0 auto;
+    display: flex;
+   }
+
+   .inline-nav a{
+    
+   }
+
+   .inline-nav .col{
+/*    height:100%;*/
+    width:50%;
+    margin:0;
+    padding:2rem 1rem;
+    position:relative;
+    opacity:0.7;
+    cursor: pointer;
+    transition: transform 0.5s;
+   }
+
+   .inline-nav .col:hover{
+    opacity:1;
+    transform:scale(1.05);
+   }
+
+   .inline-nav .col h2{
+    
+    margin:0.5rem 0;
+    width:100%;
+    font-size: 2rem;
+    height:2rem;
+   }
+
+   .inline-nav .col p{
+    font-family: 'Lato', sans-serif;
+    font-size:1.3rem;
+    margin:0 0 1rem;
+/*    max-width:120px;*/
+/*    position:absolute;*/
+/*    width:180px;*/
+   }
+
+   .col.captures{
+    text-align: right;
+    background-color: #8fcece;
+    background: linear-gradient(270deg,rgba(143, 206, 206, 1) 0%, rgba(143, 206, 206, 0) 80%);
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+    padding-right:3rem;
+    margin-right:-0.25rem;
+   }
+
+   .col.captures p{
+/*    position:absolute;*/
+/*    right:0;*/
+   }
+
+   .col.timeline{
+    text-align: left;
+    background-color: #e0b2a3;
+    background: linear-gradient(90deg,rgba(224, 178, 163, 1) 0%, rgba(224, 178, 163, 0) 80%);;
+    clip-path: polygon(20px 0%, 100% 0%, 90% 100%, 0% 100%);
+    padding-left:3rem;
+    margin-left:-0.25rem;
+
+   }
+
+
+
+
+
    .story{
       margin: -10vh auto 60vh;
       width:50%;
@@ -484,7 +689,11 @@
    .story, .story p{
       font-family: Lato, sans-serif;
       font-size: 1.3rem;
-      line-height: 2rem;
+      line-height: 1.8rem;
+   }
+
+   .story p{
+    margin:0;
    }
 
    .story.no-bottom-margin{
@@ -492,8 +701,12 @@
    }
 
    .story.less-bottom-margin{
-    margin-top:5vh;
+/*    margin-top:5vh;*/
     margin-bottom:10vh;
+   }
+
+   .story.less-top-margin{
+    margin-top:10vh;
    }
 
 
@@ -570,18 +783,18 @@
       border:1px solid black;
     }
 
-   a.newtab{
+   .story a.newtab{
      padding: 4px 27px 4px 9px;
      background-color: rgba(226, 227, 216, 1);
      border:1px solid rgba(226, 227, 216, 1);
    }
 
-    a:hover{
+    .story a:hover{
       border:1px solid black;
     }
 
 
-   a.newtab::after{
+   .story a.newtab::after{
        content: " ";
        background-image: url(@/assets/img/newtab.png);
        background-size: contain;
@@ -595,39 +808,55 @@
        top: 2px;
    }
 
-   button{
+   .listen-button button{
     font-size: 18px;
     padding:9px 12px;
     display: block;
     margin:0 auto;
    }
 
-   .intro{
-    width:50%;
-    max-width:400px;
-    min-width:300px;
-    margin: 10rem auto;
-/*    text-align: center;*/
+
+</style>
+
+
+
+<style>
+    
+    .carousel__item img{
+        width: 100%;
+        height: 100%;
+/*        object-fit: contain;*/
    }
 
-   .fade-enter-from,
-    .fade-leave-to {
-      opacity: 0;
+   .carousel__item .caption{
+    position:absolute;
+    bottom:0;
+    z-index:1;
+    color:white;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    width:100%;
+    font-size:1.2rem;
+   }
+
+   .carousel {
+      --vc-pgn-background-color: rgba(255, 255, 255, 0.7);
+      --vc-pgn-active-color: rgba(255, 255, 255, 1);
+      --vc-nav-background: rgba(255, 255, 255, 0.7);
+      --vc-nav-border-radius: 100%;
+      background-color: black;
+      padding:1rem 0;
+      max-width:1280px;
+      margin: 0 auto;
+    /*  height:460px;*/
     }
 
-    /* The active state during the entire transition duration */
-    .fade-enter-active,
-    .fade-leave-active {
-      transition: opacity 0.5s ease;
+    .carousel__next{
+        margin-right:0.5rem;
     }
 
-    /* The element's state at the end of the enter transition and beginning of the leave transition (optional, often default styles) */
-    .fade-enter-to,
-    .fade-leave-from {
-      opacity: 1;
+    .carousel__prev{
+        margin-left:0.5rem;
     }
-
-
-
-
 </style>
