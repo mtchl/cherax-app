@@ -198,7 +198,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         </div>
 
          <div class="story less-top-margin less-bottom-margin">
-                <p>Or <strong>scroll on</strong> for a guided tour of these western wetlands...</p>
+                <p>Or <strong>scroll on</strong> for a tour of our highlights from these western wetlands...</p>
          </div>
 
     </section>
@@ -545,6 +545,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         position:fixed;
         top:0;
         transition: opacity 2s;
+        pointer-events: none;
    }
 
    .splash.fade{
@@ -611,7 +612,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
    }
 
    .inline-nav a{
-    
+
    }
 
    .inline-nav .col{
