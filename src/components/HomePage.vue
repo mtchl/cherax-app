@@ -61,7 +61,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
             if (element.dataset.slide){
                 this.currentSlide = element.dataset.slide;
-                console.log(this.currentSlide)
+                //console.log(this.currentSlide)
             }
 
             if (element.dataset.fadeaudio){
@@ -427,21 +427,23 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
             <ScrollyImg class="step" data-slide="23" :class="{'hide':currentSlide > 23}" :inactive="currentSlide > 23" type="video" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-hopping.mov" :playtrigger="triggers.bellFrogHopping" ></ScrollyImg>
 
-            <div class="story step" data-playtrigger="bellFrogHopping" data-offset="0.8">
+            <div class="story step final" data-playtrigger="bellFrogHopping" data-offset="0.8">
                <p>Landholder Peter Morton shared this southern bell frog with us.</p> 
 
                <p>Check out <a class="newtab" href="https://media.flow-mer.org.au/napnap/" target="_blank">The Sound of Water</a> to learn more about frogs in Murrumbidgee wetlands.</p>
             </div>
+            
+            <!-- <div class="step" data-slide="24"></div> -->
 
         </section>
 
         <section>
 
-            <div class="section-head">
+            <div class="section-head step" data-slide="24">
                   <h3>5. Farmland / Wetland</h3>
             </div>
 
-            <div class="story less-bottom-margin" >
+            <div class="story less-bottom-margin less-top-margin" >
                <p>The landscape changes as the wetland dries out. Slide to see the difference between November and January on <router-link :to="'captures?cam=D'">Camera D</router-link></p> 
             </div>
           
@@ -460,29 +462,29 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <!-- eslint-enable -->
             </ImgComparisonSlider>
 
-            <ScrollyImg class="step" data-slide="24" :class="{'hide':currentSlide > 24}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/histo-grab.jpg" slideclass="histograb"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/histo-grab.jpg" slideclass="histograb"></ScrollyImg>
 
             <div class="story">
                <p>In the <router-link :to="'/captures'">Captures</router-link> we see fewer waterbirds, and more mammals, including <router-link :to="'/captures?species=kangaroo'">roos,</router-link> <router-link :to="'/captures?species=sheep'">sheep</router-link> and feral species as the water recedes </p>
             </div>
 
-            <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="video" :inactive="currentSlide > 25" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20241128-203050.mp4" :playtrigger="triggers.sheepGrazing" rate="0.5" slideclass="nopad"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="video" :inactive="currentSlide > 26" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20241128-203050.mp4" :playtrigger="triggers.sheepGrazing" rate="0.5" slideclass="nopad"></ScrollyImg>
 
             <div class="story step" data-playtrigger="sheepGrazing">
                <p>It may seem strange to see <router-link :to="'/captures?species=sheep'">sheep</router-link> on a wetland, but this is also farmland, and the work of landholders like Peter Morton is essential in sustaining it.</p> 
             </div>
 
-            <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-at-carp-screen.jpg" slideclass="noaspect"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="27" :class="{'hide':currentSlide > 27}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-at-carp-screen.jpg" slideclass="noaspect"></ScrollyImg>
 
              <div class="story" data-layout="contain" data-aspect="false">
                <p>Peter has installed screens to exclude European carp from these wetlands, improving water quality and helping native frogs, fish and birds to thrive.</p>
             </div>
 
-            <ScrollyImg class="step" data-slide="27" :class="{'hide':currentSlide > 27}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-screen-midshot.jpg" slideclass="noaspect"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="28" :class="{'hide':currentSlide > 28}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-screen-midshot.jpg" slideclass="noaspect"></ScrollyImg>
 
-            <ScrollyImg class="step" data-slide="28" :class="{'hide':currentSlide > 28}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-closeup.jpg" slideclass="noaspect"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="29" :class="{'hide':currentSlide > 29}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-closeup.jpg" slideclass="noaspect"></ScrollyImg>
 
-            <ScrollyImg class="step" data-slide="29" :class="{'hide':currentSlide > 29}" :inactive="currentSlide > 29" type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.harrierSettlingFinal" slideclass="nopad"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="30" :class="{'hide':currentSlide > 30}" :inactive="currentSlide > 30" type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.harrierSettlingFinal" slideclass="nopad"></ScrollyImg>
 
             <div class="step story" data-playtrigger="harrierSettlingFinal" data-offset="0.8">
                
@@ -490,7 +492,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
             </div>
 
-            <ScrollyImg class="step" data-slide="30" :class="{'hide':currentSlide > 30}" :inactive="currentSlide > 30"  type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-fox.mov" :playtrigger="triggers.harrierNestFox" slideclass="nopad"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="31" :class="{'hide':currentSlide > 31}" :inactive="currentSlide > 31"  type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-fox.mov" :playtrigger="triggers.harrierNestFox" slideclass="nopad"></ScrollyImg>
 
               <div class="step story" data-playtrigger="harrierNestFox" data-offset="0.8">
                
@@ -498,7 +500,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
             </div>
 
-            <ScrollyImg class="step" data-slide="31" :class="{'hide':currentSlide > 31}" :inactive="currentSlide > 31" type="video" src="https://storage.googleapis.com/cherax-media/narrative/exclusion-fence-causeway.mov" :playtrigger="triggers.exclusionFence" slideclass="nopad"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" :inactive="currentSlide > 32" type="video" src="https://storage.googleapis.com/cherax-media/narrative/exclusion-fence-causeway.mov" :playtrigger="triggers.exclusionFence" slideclass="nopad" mute-video="true"></ScrollyImg>
 
              <div class="step story" data-playtrigger="exclusionFence" data-offset="0.8">
                <p>Seeing this, and the impacts from other ferals, prompted Peter to install an exclusion fence in 2025</p>
@@ -508,13 +510,13 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                <p>This ten-kilometre fence will keep out goats, <router-link :to="'/captures?species=fox'">foxes</router-link>, <router-link :to="'/captures?species=cat'">cats</router-link> and other feral species.</p>
             </div>
 
-            <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-upper-cherax.jpg" slideclass="noaspect"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-upper-cherax.jpg" slideclass="noaspect"></ScrollyImg>
 
             <div class="story">
-               <p>For Peter, this work and these wetlands will be his legacy.</p>
+               <p>For the Morton family, this work and these wetlands will be their legacy.</p>
             </div>
 
-            <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>
 
             <div class="story">
                <p>It’s a legacy that benefits all of us.</p>
@@ -761,6 +763,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
       --divider-width: 2px;
       --default-handle-width: 100px;
       border:1vw solid black;
+      cursor: pointer;
    }
 
    .slider:focus{
