@@ -468,7 +468,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                <p>In the <router-link :to="'/captures'">Captures</router-link> we see fewer waterbirds, and more mammals, including <router-link :to="'/captures?species=kangaroo'">roos,</router-link> <router-link :to="'/captures?species=sheep'">sheep</router-link> and feral species as the water recedes </p>
             </div>
 
-            <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="video" :inactive="currentSlide > 26" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20241128-203050.mp4" :playtrigger="triggers.sheepGrazing" rate="0.5" slideclass="nopad"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="video" :inactive="currentSlide > 26" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20241128-203050.mp4" :playtrigger="triggers.sheepGrazing"></ScrollyImg>
 
             <div class="story step" data-playtrigger="sheepGrazing">
                <p>It may seem strange to see <router-link :to="'/captures?species=sheep'">sheep</router-link> on a wetland, but this is also farmland, and the work of landholders like Peter Morton is essential in sustaining it.</p> 
@@ -693,6 +693,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
       font-family: Lato, sans-serif;
       font-size: 1.3rem;
       line-height: 1.8rem;
+      color:#222;
    }
 
    .story p{
@@ -762,7 +763,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
       max-height: 80vh;
       --divider-width: 2px;
       --default-handle-width: 100px;
-      border:1vw solid black;
+      border:1vw solid #222;
       cursor: pointer;
    }
 
@@ -774,7 +775,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
      display:inline-block;
      padding: 2px 9px;
      margin:0.2rem 0.2rem ;
-     color:black;
+     color:#222;
      text-decoration:none;
      background-color: #e0b2a3ba;
      border-radius: 0.66rem;
@@ -849,7 +850,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
       --vc-pgn-active-color: rgba(255, 255, 255, 1);
       --vc-nav-background: rgba(255, 255, 255, 0.7);
       --vc-nav-border-radius: 100%;
-      background-color: black;
+      background-color: #222;
       padding:1rem 0;
       max-width:1280px;
       margin: 0 auto;

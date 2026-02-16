@@ -304,7 +304,7 @@
   }
 
   .itemTag.active{
-    background-color: black;
+    background-color: #222;
     color:white;
 
   }
@@ -329,7 +329,7 @@
   }
 
   .loadMore a:hover{
-    background-color: black;
+    background-color: #222;
     color:white;
   }
 

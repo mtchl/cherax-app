@@ -97,7 +97,7 @@ export default {
 
 /*	  	transition: opacity 1.5s ease-out;*/
 
-		border: 1vw solid black;
+		border: 1vw solid #222;
 		box-shadow: 0px 0px 4rem 0rem rgba(0,0,0,0.2);
 		box-sizing: border-box;
 		overflow: hidden;
@@ -114,7 +114,7 @@ export default {
 
 	.slide video{
       padding:6.9% 0;
-      background-color: black;
+      background-color: #222;
 
 	}
 

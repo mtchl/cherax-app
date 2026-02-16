@@ -16,7 +16,7 @@
 <style scoped>
   
   nav{
-    background-color: black;
+    background-color: #222;
     padding:0.5rem;
     margin:0;
     position:fixed;
