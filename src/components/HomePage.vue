@@ -236,14 +236,14 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             </div>
 
             
-            <ScrollyImg :class="{'hide':currentSlide > 3}" :inactive="currentSlide > 3" class="step" type="video" :playtrigger="triggers.spoonbillHenSnag" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241106-103414.mp4" data-slide="3" data-offset="0.8"></ScrollyImg>
+            <ScrollyImg :class="{'hide':currentSlide > 3}" :inactive="currentSlide > 3" class="step" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHenSnag" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241106-103414.mp4" data-slide="3" data-offset="0.8"></ScrollyImg>
            
 
             <div class="story step" data-playtrigger="spoonbillHenSnag" data-fadeaudio="1" data-offset="0.8">
                     A <router-link :to="'/captures?species=yellow-billed-spoonbill'">yellow-billed spoonbill</router-link> and a flock of <router-link :to="'/captures?species=native-hen'">native hens</router-link> feed around the nearby snag... 
             </div>
 
-             <ScrollyImg :class="{'hide':currentSlide > 4}" :inactive="currentSlide > 4" class="step" type="video"  :playtrigger="triggers.spearMorsel" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241109-072636.mp4" data-slide="4" data-offset="0.8"></ScrollyImg>
+             <ScrollyImg :class="{'hide':currentSlide > 4}" :inactive="currentSlide > 4" class="step" type="video" crop="cropleft" :playtrigger="triggers.spearMorsel" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241109-072636.mp4" data-slide="4" data-offset="0.8"></ScrollyImg>
 
 
             <div class="story step" data-playtrigger="spearMorsel" data-offset="0.8">
@@ -270,7 +270,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    This shot captures  <router-link :to="'/captures?species=white-ibis'">white ibis,</router-link> <router-link :to="'/captures?species=straw-necked-ibis'">straw-necked ibis</router-link> and <router-link :to="'/captures?species=white-necked-heron'">white-necked herons</router-link> in flight 
             </div>
 
-            <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" class="step"  type="video" :playtrigger="triggers.greatCormorant" mute-video="true" src="https://storage.googleapis.com/cherax-media/cam3/cam3-20241216-093850.mp4"></ScrollyImg>
+            <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" crop="cropright"class="step"  type="video" :playtrigger="triggers.greatCormorant" mute-video="true" src="https://storage.googleapis.com/cherax-media/cam3/cam3-20241216-093850.mp4"></ScrollyImg>
 
             <div class="story step" data-playtrigger="greatCormorant" data-offset="0.8">
                    The <router-link :to="'/captures?species=great-cormorant'">great cormorant</router-link> follows them a second later  
@@ -290,7 +290,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <h3>2. Feeding</h3>
             </div>
 
-            <ScrollyImg class="step" data-slide="10" :class="{'hide':currentSlide > 10}" :inactive="currentSlide > 10" data-playtrigger="footStir" type="video" :playtrigger="triggers.footStir" src="https://storage.googleapis.com/cherax-media/cam6/cam6-20241207-113632.mp4"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="10" :class="{'hide':currentSlide > 10}" :inactive="currentSlide > 10" data-playtrigger="footStir" type="video" crop="cropleft" :playtrigger="triggers.footStir" src="https://storage.googleapis.com/cherax-media/cam6/cam6-20241207-113632.mp4"></ScrollyImg>
 
             <div class="story" >
                Videos capture some of these waterbirds' signature feeding moves.    
@@ -300,7 +300,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
               Herons and egrets “stir” the flooded ground to scare out small fish and insects – here's a <router-link :to="'/captures?species=white-faced-heron'">white-faced heron</router-link> demonstrating   
             </div>
 
-             <ScrollyImg class="step" data-slide="11" :class="{'hide':currentSlide > 11}" :inactive="currentSlide > 11" type="video" :playtrigger="triggers.spoonbillHunting" src="https://storage.googleapis.com/cherax-media/cam6/cam6-20241121-072410.mp4" mute-video="true"></ScrollyImg>
+             <ScrollyImg class="step" data-slide="11" :class="{'hide':currentSlide > 11}" :inactive="currentSlide > 11" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHunting" src="https://storage.googleapis.com/cherax-media/cam6/cam6-20241121-072410.mp4" mute-video="true"></ScrollyImg>
 
             <div class="story step" data-playtrigger="spoonbillHunting" data-offset="0.8">
               This <router-link :to="'/captures?species=yellow-spoonbill'">yellow spoonbill</router-link> sweeps its broad, sensitive bill from side to side, hunting by feel,  
@@ -310,7 +310,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
               Ducks like the <router-link :to="'/captures?species=pacific-black-duck'">pacific black duck</router-link> are named “dabblers” for their head-down, tail-up feeding style.   
             </div>
 
-            <ScrollyImg class="step" data-slide="12" :class="{'hide':currentSlide > 12}" :inactive="currentSlide > 12" type="video" :playtrigger="triggers.squabbleFrog" data-offset="0.8" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241121-165624.mp4"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="12" :class="{'hide':currentSlide > 12}" :inactive="currentSlide > 12" type="video" crop="cropright"  :playtrigger="triggers.squabbleFrog" data-offset="0.8" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241121-165624.mp4"></ScrollyImg>
 
             <div class="story step" data-playtrigger="squabbleFrog" data-offset="0.8">
               Later that day at the snag, a <router-link :to="'/captures?species=white-ibis'">white ibis</router-link> and a <router-link :to="'/captures?species=straw-necked-ibis'">straw-necked ibis</router-link> squabble over possession of a juicy frog.    
@@ -325,19 +325,21 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                   <h3>3. Raptors</h3>
             </div>
 
-            <ScrollyImg class="step" data-slide="13" :class="{'hide':currentSlide > 13}"type="img" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241230-155324.JPG" :animate="animations.hidingKite"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="13" :class="{'hide':currentSlide > 13}" type="img" crop="cropright" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241230-155324.JPG"></ScrollyImg>
 
-            <div class="story step" data-animate="reset" data-animtarget="hidingKite">
+            <div class="story step">
                 As well as waterbirds, wetlands like this are havens for birds of prey 
             </div>
 
-             <div class="step story" data-animate="zoom-200-right" data-animtarget="hidingKite">
+             <div class="step story less-bottom-margin">
                 <p>Hiding in this frame is a <router-link :to="'/captures?species=whistling-kite'">whistling kite,</router-link> an Australian raptor often found near water.</p> 
             </div>
 
-            <ScrollyImg class="step" data-slide="14" :class="{'hide':currentSlide > 14}" type="img"  src="https://storage.googleapis.com/cherax-media/cam3/cam3-20250109-105800.JPG" :animate="animations.fingersKite"></ScrollyImg>
+             <ScrollyImg class="step" data-slide="14" :class="{'hide':currentSlide > 14}" type="img" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/whistling-kite-highlight.jpg"></ScrollyImg>
 
-            <div class="step story" data-animate="reset" data-animtarget="fingersKite">
+            <ScrollyImg class="step" data-slide="15" :class="{'hide':currentSlide > 15}" type="img"  src="https://storage.googleapis.com/cherax-media/narrative/whistling-kite-fingers-zoomed.jpg" ></ScrollyImg>
+
+            <div class="step story">
                 This capture from <router-link :to="'/captures?cam=A'">Camera A</router-link> shows the distinctive ‘fingers’ on the whistling kite’s wingtips  
             </div>
 
@@ -345,37 +347,37 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                Whistling kites are named for their piercing call. <a @click="playAudio('whistlingKite')">listen</a> here, or find it in the <router-link :to="'/timeline?species=whistling-kite'">Timeline</router-link>
             </div>
 
-            <ScrollyImg class="step" data-slide="15" :class="{'hide':currentSlide > 15}" :inactive="currentSlide > 15" type="video" src="https://storage.googleapis.com/cherax-media/cam3/cam3-20241219-063226.mp4" :playtrigger="triggers.kiteTussle" :progress="progress.kiteTussle"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="16" :class="{'hide':currentSlide > 16}" :inactive="currentSlide > 16" type="video" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/tussling-kites-allkeys.mp4" :playtrigger="triggers.kiteTussle" :progress="progress.kiteTussle"></ScrollyImg>
 
             <div class="step story" data-playtrigger="kiteTussle" data-offset="0.8">
               <p>This video finds two <router-link :to="'/captures?species=whistling-kite'">kites</router-link> tussling over their catch – perhaps a crayfish.</p>       
             </div>
 
-            <div class="story less-bottom-margin">
+            <div class="story no-bottom-margin">
                 <p><strong>Scroll slowly</strong> to see the moment the crayfish splashes down to safety</p>
             </div>
 
-            <div class="step scroller" data-progress="kiteTussle"></div> 
+            <div class="step scroller" data-offset="0.8" data-progress="kiteTussle"></div> 
 
-             <ScrollyImg class="step" data-slide="16" :class="{'hide':currentSlide > 16}" type="img" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20250222-185740.JPG"></ScrollyImg>
+             <ScrollyImg class="step" data-slide="17" :class="{'hide':currentSlide > 17}" type="img" crop="cropleft" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20250222-185740.JPG"></ScrollyImg>
 
             <div class="story">
                 We also spotted a <router-link :to="'/captures?species=swamp-harrier'">swamp harrier,</router-link> another raptor often found in wetlands  
             </div>
 
-            <ScrollyImg class="step" data-slide="17" :class="{'hide':currentSlide > 17}" :inactive="currentSlide > 17"  type="video" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20250222-185752.mp4" :playtrigger="triggers.swampHarrierPaddock" mute-video="true"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="18" :class="{'hide':currentSlide > 18}" :inactive="currentSlide > 18"  type="video"crop="cropleft" src="https://storage.googleapis.com/cherax-media/cam4/cam4-20250222-185752.mp4" :playtrigger="triggers.swampHarrierPaddock" mute-video="true"></ScrollyImg>
 
             <div class="step story" data-playtrigger="swampHarrierPaddock" data-offset="0.8">
               Here it is on the drying edges of the Crop Paddock wetland, in February 
             </div>
 
-            <ScrollyImg class="step" data-slide="18" :class="{'hide':currentSlide > 18}" :inactive="currentSlide > 18" type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-standing.mov" :playtrigger="triggers.swampHarrierNesting"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="19" :class="{'hide':currentSlide > 19}" :inactive="currentSlide > 19" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-standing.mov" :playtrigger="triggers.swampHarrierNesting"></ScrollyImg>
 
             <div class="step story" data-playtrigger="swampHarrierNesting" data-offset="0.8">
               Landholder Peter Morton shared this video of a <router-link :to="'/captures?species=swamp-harrier'">swamp harrier</router-link> nesting in reeds
             </div>
 
-            <ScrollyImg class="step" data-slide="19" :class="{'hide':currentSlide > 19}" :inactive="currentSlide > 19" type="video" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.swampHarrierSettling"></ScrollyImg>
+            <ScrollyImg class="step" data-slide="20" :class="{'hide':currentSlide > 20}" :inactive="currentSlide > 20" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.swampHarrierSettling"></ScrollyImg>
 
             <div class="step story" data-playtrigger="swampHarrierSettling" data-offset="0.8">
               Peter's use of automated cameras to document the wetlands on his property was the inspiration for this project. 
@@ -604,11 +606,9 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
    }
 
    .inline-nav{
-    width:50%;
-    min-width:320px;
+    width:100%;
+/*    min-width:400px;*/
     max-width:580px;
-/*    height:120px;*/
-/*    height:80px;*/
     margin: 0 auto;
     display: flex;
    }
@@ -673,10 +673,6 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     margin-left:-0.25rem;
 
    }
-
-
-
-
 
    .story{
       margin: -10vh auto 60vh;
@@ -750,10 +746,8 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     height:50vh;
     background-color: rgba(0,0,0,0.2);
     width:10px;
-    opacity:0;
+    opacity:0.2;
    }
-
-
 
    .slider{
       display: block;
@@ -818,6 +812,33 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     padding:9px 12px;
     display: block;
     margin:0 auto;
+   }
+
+
+    /* MOBILE */
+
+   @media screen and (width < 600px) {
+
+    .story{
+        padding:1.5rem;
+    }
+
+    .story, .story p{
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+   }
+
+   .story a{
+    margin:0.075rem 0.1rem ;
+    padding: 1px 6px;
+   }
+
+   .carousel__item img{
+        aspect-ratio: 1.0;
+        object-fit:cover;
+   }
+
+
    }
 
 

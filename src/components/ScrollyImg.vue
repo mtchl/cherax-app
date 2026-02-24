@@ -3,8 +3,8 @@
 <template>
 		<div class="outer-wrapper">
 			<div class="slide" :class="[slideclass]">
-				<img v-if="type == 'img'" :src="src" :class="[animate]"/>
-				<video v-if="type == 'video'" :src="src" loop ref="vid" />
+				<img v-if="type == 'img'" :src="src" :class="[animate, crop]"/>
+				<video v-if="type == 'video'" :src="src" loop ref="vid" :class="[crop]"/>
 			</div>
 		</div>
 
@@ -14,7 +14,7 @@
 export default {
 
   name: 'ScrollyImg',
-  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass', 'inactive','muteVideo'],
+  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass', 'inactive','muteVideo', 'crop'],
 
   data () {
     return {
@@ -59,7 +59,7 @@ export default {
 
   	progress(newvalue,oldvalue){
   		if (!this.$refs.vid.paused) this.$refs.vid.pause();
-  		this.$refs.vid.currentTime = newvalue*this.$refs.vid.duration*0.3;
+  		this.$refs.vid.currentTime = newvalue*this.$refs.vid.duration*0.6;
   	},
 
   	inactive(newvalue,oldvalue){
@@ -88,14 +88,12 @@ export default {
 
 	.slide{
 		position: absolute;
-	    top: 30%;
-	    left: 50%;
-	    transform: translate(-50%, -30%); 
-	    width: 95%;
-	    height: auto;
-	    max-height:90vh;
-
-/*	  	transition: opacity 1.5s ease-out;*/
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%); 
+    width: 95%;
+    height: auto;
+    max-height:90vh;
 
 		border: 1vw solid #222;
 		box-shadow: 0px 0px 4rem 0rem rgba(0,0,0,0.2);
@@ -108,14 +106,12 @@ export default {
 		height:auto;
 		object-fit: cover;
 		display: block;
-/*		box-sizing: border-box;*/
-/*		border:1vw solid black;*/
+
 	}
 
 	.slide video{
       padding:6.9% 0;
       background-color: #222;
-
 	}
 
 	.slide.nopad video{
@@ -151,6 +147,52 @@ export default {
 
 	img.zoom-200-left{
 		transform:scale(2.5) translate(10%,5%);
+	}
+
+/*	MOBILE */
+
+	@media screen and (width < 600px) {
+
+		.slide{
+			width:100%;
+			border: 0.5rem solid #222;
+		}
+
+		.slide img{
+			aspect-ratio:1.0;       		/*		square slides for mobile	*/
+			transform:scale(1.04);			/*	re-crop the camera image footer		*/
+			transform-origin: center top;
+		}
+
+		.slide img.cropright{
+			object-position: right top;
+
+		}
+
+		.slide img.cropleft{
+			object-position: left top;
+
+		}
+
+
+		.slide video.cropleft{
+      aspect-ratio: 1;
+      object-position: left 0;
+      padding:0;
+    }
+
+    .slide video.cropright{
+      aspect-ratio: 1;
+      object-position: right 0;
+      padding:0;
+    }
+
+    .slide video.cropcenter{
+      aspect-ratio: 1;
+      object-position: center 0;
+      padding:0;
+    }
+
 	}
 
 
