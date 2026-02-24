@@ -14,7 +14,7 @@
 export default {
 
   name: 'ScrollyImg',
-  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass', 'inactive','muteVideo', 'crop'],
+  props: ['src','type','playtrigger','animate','progress','videoScroll','rate','videokeyframe','slideclass', 'inactive','muteVideo', 'crop','noloop'],
 
   data () {
     return {
@@ -37,6 +37,10 @@ export default {
   			if (this.muteVideo){
   				this.$refs.vid.muted = true;
   				console.log("video muted by prop")
+  			}
+
+  			if (this.noloop){
+  				this.$refs.vid.loop = false;
   			}
   			this.$refs.vid.play()
   			.then(() => { 
@@ -164,14 +168,24 @@ export default {
 			transform-origin: center top;
 		}
 
+		.slide.noaspect img{
+			aspect-ratio:1.0;
+		}
+
 		.slide img.cropright{
 			object-position: right top;
-
 		}
 
 		.slide img.cropleft{
 			object-position: left top;
+		}
 
+		.slide img.cropleftquarter{
+			object-position: 25% top;
+		}
+
+		.slide.histograb img{
+			max-width:100%;
 		}
 
 
