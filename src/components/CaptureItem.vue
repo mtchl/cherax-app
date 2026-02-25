@@ -89,4 +89,12 @@ export default {
   .metadata .col.right{
     text-align: right;
   }
+
+  @media screen and (width < 600px) {
+
+    .item{
+      min-width:320px;
+      margin-bottom:1rem;
+    }
+  }
 </style>

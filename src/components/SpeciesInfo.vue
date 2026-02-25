@@ -1,30 +1,31 @@
 
 <template>
 
-	<div class="wrapper">
+	<div class="wrapper" :class="{'mobileshow':mobileshow}"">
 		<div id="speciesInfo" >
 			<div class="col left">
-				<h3>{{speciesInfo.commonName}}</h3>
+				<h3 @click="mobileshow = !mobileshow">{{speciesInfo.commonName}}</h3>
 				<h4>{{speciesInfo.scientificName}}</h4>
 				<p>{{speciesInfo.description}}</p>
-
+			<!-- </div> -->
+			
+			<!-- <div class="col left"> -->
 				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline', 
 				hash: '#annotations', 
 				hash: '#' + speciesInfo.routeTag,
 				query:{species: speciesInfo.routeTag}}">Listen in timeline</router-link>
 
 				<router-link v-if="context == 'timeline' && speciesInfo.capture" :to="{path:'/captures',  query:{species: speciesInfo.routeTag}}">
-				Explore Captures
-			</router-link>
+					Explore Captures
+				</router-link>
 
 				<a v-if="speciesInfo.alaUrl" :href="speciesInfo.alaUrl" target="_blank" class=
 				"newtab">Learn more: ALA</a>
 
 				<a v-if="speciesInfo.xenoCantoUrl" :href="speciesInfo.xenoCantoUrl" target="_blank" class=
 				"newtab">Listen: Xeno Canto</a>
-
-
 			</div>
+
 			<div class="col right">
 				<img :src="imageUrl">
 				<p v-if="speciesInfo.imgAttribution" class="attribution">Image: {{speciesInfo.imgAttribution}}</p>
@@ -43,7 +44,7 @@
 
 	  data () {
 	    return {
-
+	    	mobileshow:false
 	    }
 	  },
 
@@ -73,22 +74,24 @@
 		left:0;
 		z-index: 5;
 		width:100%;
+
 	}
 
 	#speciesInfo{
 		position:relative;
 		margin: 0 auto;
 		padding: 1rem 2rem;
-		width:85%;
+/*		width:85%;*/
 		max-width:900px;
 		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: no-wrap;
 		justify-content: space-between;
 		background-color: white;
 		border: 1px solid rgba(0, 0, 0, 0.3);
 		border-radius: 1rem 1rem 0 0;
 		box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+/*		box-sizing: border-box;*/
 	}
 
 	h3{
@@ -164,17 +167,22 @@
 	    top: 2px;
 	}
 
-</style>
+	@media screen and (width < 600px) {
+		.wrapper{
+			bottom:unset;
+			top:90vh;
+			transition:position 0.5s;
+		}
 
-<!--   {
-    "commonName": "Straw-necked Ibis",
-    "scientificName": "Threskiornis spinicollis",
-    "description": "Found in shallow freshwater wetlands and grasslands throughout Australia, this species is nomadic, moving in response to rainfall and water conditions. They feed on a range of molluscs, frogs, crayfish and fish, as well as insects and lizards.",
-    "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c319dbaf-a363-4853-b333-75f14c47fc82#overview",
-    "xenoCantoUrl": "",
-    "image filename": "straw-necked-ibis.jpeg",
-    "image attribution": "Roy Lowry",
-    "image license": "http://creativecommons.org/licenses/by/4.0/",
-    "audio": "",
-    "capture": true
-  }, -->
+		.wrapper.mobileshow{
+			bottom:0;
+			top:unset;
+		}
+
+		#speciesInfo{
+			padding:1rem;
+		}
+
+	}
+
+</style>

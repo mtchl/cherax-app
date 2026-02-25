@@ -144,7 +144,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
      <section class="intro">
 
-        <h1>Title</h1>
+        <h1 class="title"><span class="bigM">M</span>osa<span class="littleI">i</span>c</h1>
+        <h2 class="title">Life on the Western Lakes</h2>
 
         
         
@@ -185,8 +186,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         <div class="story less-top-margin less-bottom-margin"><p>So over four months from November 2024, we set out cameras and recorders to gather sound, images and data. This website shares what we found.</p></div>  
 
 
-        <div class="inline-nav">
-            
+        <div class="inline-nav">    
             <div class="col captures" @click="$router.push('/captures')">
                 <h2>Captures</h2>
                 <p>Browse over 1500 images and videos</p>
@@ -210,7 +210,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
         <section>
              <div class="section-head">
-                   <h3>1. Waterbirds</h3>
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+                   <h3>1: Waterbirds</h3>
             </div>
 
             <div class="listen-button">
@@ -287,7 +288,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
         <section>
             <div class="section-head nomargin">
-                <h3>2. Feeding</h3>
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+                <h3>2: Feeding</h3>
             </div>
 
             <ScrollyImg class="step" data-slide="10" :class="{'hide':currentSlide > 10}" :inactive="currentSlide > 10" data-playtrigger="footStir" type="video" crop="cropleft" :playtrigger="triggers.footStir" src="https://storage.googleapis.com/cherax-media/cam6/cam6-20241207-113632.mp4"></ScrollyImg>
@@ -322,7 +324,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         <section>
 
             <div class="section-head nomargin">
-                  <h3>3. Raptors</h3>
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+                  <h3>3: Raptors</h3>
             </div>
 
             <ScrollyImg class="step" data-slide="13" :class="{'hide':currentSlide > 13}" type="img" crop="cropright" src="https://storage.googleapis.com/cherax-media/cam7/cam7-20241230-155324.JPG"></ScrollyImg>
@@ -388,7 +391,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         <section>
 
             <div class="section-head">
-                  <h3>4. Seen and Heard</h3>
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+                  <h3>4: Seen and Heard</h3>
             </div>
 
             <ScrollyImg class="step" data-slide="21" :class="{'hide':currentSlide > 21}" :inactive="currentSlide > 21" type="video" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/dragonfly-timelapse.mov" :playtrigger="triggers.timeLapse" rate="0.5" slideclass="nopad"></ScrollyImg>
@@ -442,7 +446,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         <section>
 
             <div class="section-head step" data-slide="24">
-                  <h3>5. Farmland / Wetland</h3>
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+                  <h3>5: Farmland / Wetland</h3>
             </div>
 
             <div class="story less-bottom-margin less-top-margin" >
@@ -515,14 +520,30 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-upper-cherax.jpg" crop="cropleftquarter" slideclass="noaspect"></ScrollyImg>
 
             <div class="story">
-               <p>For the Morton family, this work and these wetlands will be their legacy.</p>
+               <!-- <p>For the Morton family, this work and these wetlands will be their legacy.</p> -->
+               <p>With the support of state and Commonwealth governments, landholders like the Mortons are doing vital work to sustain our wetlands</p>
             </div>
 
             <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>
 
-            <div class="story">
-               <p>It’s a legacy that benefits all of us.</p>
+            <div class="story step less-bottom-margin" data-slide="35">
+               <p>Keep exploring to experience this living mosaic</p>
             </div>
+
+         <div class="inline-nav">    
+            <div class="col captures" @click="$router.push('/captures')">
+                <h2>Captures</h2>
+                <p>Browse over 1500 images and videos</p>
+            </div>
+            <div class="col timeline" @click="$router.push('/timeline')">
+                <h2>Timeline</h2>
+                <p>Dive into 24 hours<br/> of wetland soundscape</p>
+            </div>
+        </div>
+
+        <div class="section-head">
+                <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+        </div>
 
         </section>
      </VueScrollama>
@@ -580,10 +601,30 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     z-index:2;
    }
 
-   .intro h1{
+   .intro h1.title{
     margin: 0 auto;
-    font-size:400%;
+    font-size:7rem;
     text-align: center;
+/*    font-kerning: normal;*/
+    letter-spacing: -0.02rem;
+    font-weight: 600;
+   }
+
+   .intro h1.title .bigM{
+    letter-spacing: 0.03em;
+   }
+
+   .intro h1.title .littleI{
+    letter-spacing: -0.06em;
+   }
+
+   .intro h2.title{
+    margin: 0 auto;
+    line-height: 1.4rem;
+    font-size:2.2rem;
+    text-align: center;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
    }
 
    .intro .story{
@@ -711,10 +752,18 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
 
 
    .section-head{
-      margin:20vh auto 10vh;
+      margin:10vh auto 10vh;
       padding:0;
       max-width:800px;
       width:80%;
+   }
+
+   .section-head .section-graphic{
+    width:33%;
+    max-width:240px;
+    opacity:0.8;
+    display: block;
+    margin:0 auto;
    }
 
    .section-head.nomargin{
@@ -726,8 +775,8 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
       text-align: center;
       font-family: 'Inconsolata', monospace;
       font-size: 3rem;
-      color: white;
-      text-shadow: 2px 2px 9px rgba(0,0,0,0.7);
+      color: black;
+/*      text-shadow: 2px 2px 9px rgba(0,0,0,0.7);*/
    }
 
    .step.trigger{
@@ -842,7 +891,6 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
        .slider{
         width:100%;
        }
-
 
    }
 

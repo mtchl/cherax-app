@@ -333,6 +333,14 @@
     color:white;
   }
 
+    @media screen and (width < 600px) {
+
+      .headerTags{
+        font-size:90%;
+      }
+
+    }
+
 
 
 </style>
