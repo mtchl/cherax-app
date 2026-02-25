@@ -1,9 +1,13 @@
 
+<script setup>
+	import VLazyImage from "v-lazy-image";
+</script>
+
 
 <template>
 		<div class="outer-wrapper">
 			<div class="slide" :class="[slideclass]">
-				<img v-if="type == 'img'" :src="src" :class="[animate, crop]"/>
+				<v-lazy-image v-if="type == 'img'" :src="src" :class="[animate, crop, {loaded:imageLoaded}]" @load="imgLoad"/>
 				<video v-if="type == 'video'" :src="src" loop ref="vid" :class="[crop]"/>
 			</div>
 		</div>
@@ -18,12 +22,14 @@ export default {
 
   data () {
     return {
-
+    	imageLoaded: false,
     }
   },
 
-  methods(){
-
+  methods:{
+  	imgLoad(){
+  		this.imageLoaded = true;
+  	}
   },
 
   watch:{
@@ -68,7 +74,7 @@ export default {
 
   	inactive(newvalue,oldvalue){
   		// pause videos once they are inactive
-  		if (newvalue && this.$refs.vid){
+  		if (newvalue && this.$refs.vid && !this.$refs.vid.paused){
   			console.log("inactive, pausing video")
   			this.$refs.vid.pause()
   		}
@@ -82,12 +88,14 @@ export default {
 
 	.outer-wrapper{
 		position:sticky;
-		top:0;
+		top:2rem;
 		left:0;
 		margin:0 auto;
 		width:100%;
 		max-width:1400px;
 		height:100vh;
+		background: rgba(226, 227, 216, 1);
+		background: linear-gradient(180deg, rgba(226, 227, 216, 0) 0%, rgba(226, 227, 216, 1) 10vh);
 	}
 
 	.slide{
@@ -103,6 +111,7 @@ export default {
 		box-shadow: 0px 0px 4rem 0rem rgba(0,0,0,0.2);
 		box-sizing: border-box;
 		overflow: hidden;
+		background-color: #222;
 	}
 
 	.slide img, .slide video{
@@ -113,8 +122,17 @@ export default {
 
 	}
 
+	.slide img{
+		opacity:0;
+		transition: opacity 0.5s;
+	}
+
+	.slide img.loaded{
+		opacity:1;
+	}
+
 	.slide video{
-      padding:6.9% 0;
+/*      padding:6.9% 0;*/
       background-color: #222;
 	}
 

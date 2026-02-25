@@ -8,11 +8,16 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: homePage },
+    { path: '/', 
+    component: homePage,
+    //props: route => ({ initSlide: route.query.s })
+    meta: {scrollToTop:true}
+    },
     
     { path: '/captures', 
       component: captureBrowser ,
-      props: route => ({ filterSpecies: route.query.species, filterCam: route.query.cam, filterMonth: route.query.month })
+      props: route => ({ filterSpecies: route.query.species, filterCam: route.query.cam, filterMonth: route.query.month }),
+      // meta: {scrollToTop:true}
     },
 
     { path: '/timeline', 
@@ -22,28 +27,47 @@ const router = createRouter({
   ],
   scrollBehavior(to, from, savedPosition) {
     // If a hash fragment exists in the 'to' route, scroll to that element
+    
+    if (to.path == "/" && savedPosition) { // back button retains vertical pos for story
+      console.log(" returning to saved position in story")
+      //console.log(savedPosition)
+      //return savedPosition
+      //return {top: savedPosition.top - 400}; // why? needs to wait a bit
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(savedPosition)
+        }, 100)
+      })
+    }
+    
     if (to.hash) {
-      // return {
-      //   el: to.hash,
-      //   // top:-640,
-      //   behavior: 'smooth',
-      // };
+      console.log("scrolling to hash")
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve({ 
             el:to.hash, 
             behavior: 'smooth' 
           })
-        }, 500)
+        }, 300)
       })
+    }
 
 
+
+    if (to.matched.some(record => record.meta.scrollToTop)) {
+      // Scroll to the top of the page
+      return { top: 0, left: 0, behavior: 'smooth' };
     }
 
     if (to.path != from.path){ // scroll to top when returning to captures
+      console.log(" to not from ")
       // but not when staying on timeline 
           return { top: 0};
     }
+
+
+
+
   },
 });
 
