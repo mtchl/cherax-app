@@ -34,49 +34,11 @@
       stopAudio(){
         this.$emit('stop-audio')
       },
-      
-      spectroDragStart(evt){
-         console.log("drag - start")
-        let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
-        let dx = pointerx - evt.target.offsetLeft;
-        this.dragSpectroDiff = dx;
 
-
-        this.$refs.spectro.addEventListener("mousemove", this.spectroDragging, {passive:true});
-        this.$refs.spectro.addEventListener("touchmove", this.spectroDragging, {passive:true});
-
-        this.$refs.spectro.addEventListener("mouseup", this.spectroDragEnd, {passive:true});
-        this.$refs.spectro.addEventListener("touchend", this.spectroDragEnd, {passive:true});
-
-        this.$refs.spectro.addEventListener("mouseleave", this.spectroDragEnd, {passive:true});
-        this.dragging = true;
-        if (this.playing) {
-          this.stopAudio();
-          this.resumeAfterDrag = true;
-        } else {
-          this.resumeAfterDrag = false;
-        }
-      },
-
-      spectroDragging(evt){
-        let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
-        this.spectroDragOffset = pointerx - this.dragSpectroDiff;
-      },
-
-      spectroDragEnd(evt){
-         // console.log("drag - end")
-        //console.log(evt)
-        //let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
-        let pointerx = evt.clientX ? evt.clientX : evt.changedTouches[0].clientX;
-        this.$refs.spectro.removeEventListener("mousemove", this.spectroDragging);
-        this.$refs.spectro.removeEventListener("touchmove", this.spectroDragging);
-        this.$refs.spectro.removeEventListener("mouseup", this.spectroDragEnd);
-        this.$refs.spectro.removeEventListener("touchend", this.spectroDragEnd);
-        this.$refs.spectro.removeEventListener("mouseleave", this.spectroDragEnd);
-        this.playPos = ((this.bigSpectroWidth*this.playPos) - this.spectroDragOffset)/this.bigSpectroWidth;
+      scrollSpectroEnd(){
+        // console.log(this.$refs.spectro.scrollLeft)
+        this.playPos = this.$refs.spectro.scrollLeft / this.bigSpectroWidth;
         this.playSeconds = this.audioDuration * this.playPos;
-        this.spectroDragOffset = 0;
-        this.dragging = false;
         this.seekAudio(this.playSeconds);
         if (this.resumeAfterDrag) this.$emit('play-audio');
       },
@@ -106,8 +68,10 @@
 
 <template>
 
-  <div class="spectro">
-    <div class="wrapper" :style="{left: 'calc(50% - '+((bigSpectroWidth*playPos)-spectroDragOffset)+'px)'}" ref="spectro" @mousedown="spectroDragStart" @touchstart="spectroDragStart" :class="{'dragging':dragging}">
+  <div class="spectro" ref="spectro" @scrollend="scrollSpectroEnd()">
+
+
+    <div class="wrapper"  :class="{'dragging':dragging}" >
 
       <div class="timelapse">
         <div class="frame" v-for="i in 144" :style="{left: 100 * ((i-1)/144) + '%'}">
@@ -115,7 +79,7 @@
         </div>
       </div>
 
-      <img class="fcs" src="@/assets/img/20241102.jpg" draggable="false" :style="{width: bigSpectroWidth+'px'}">
+      <img class="fcs" ref="fcs"  src="@/assets/img/20241102.jpg" draggable="false" :style="{width: bigSpectroWidth+'px'}">
 
       <div class="tick" v-for="h in 24" :style="{left: 100*((h-1)/24)+'%'}">
         <span>{{h-1}}:00</span>
@@ -124,10 +88,7 @@
       <AudioAnnotations :date="date" :audio-time="playSeconds" @jump-audio="jumpAudio" @stop-audio="stopAudio" :focus-species="focusSpecies"> </AudioAnnotations>
     </div>
 
-    <div class="play-marker">
-        <!-- <div class="arrow arrow-down"></div> -->
-        <div class="arrow arrow-up"></div>
-    </div>
+
     
   </div>
 
@@ -139,9 +100,11 @@
   .spectro{
     position:relative;
     height:1620px;
-
+    width:100%;
+    overflow-x: scroll;
     user-select: none;
     background-color: #111;
+
   }
 
   .spectro img{
@@ -156,7 +119,7 @@
   .spectro .wrapper{
     position:absolute;
     cursor: grab;
-    overscroll-behavior-x: none;
+    left:50vw;
 /*    margin-bottom:60px;*/
   }
 
@@ -164,16 +127,6 @@
     cursor: grabbing;
   }
 
-  .spectro .play-marker{
-    position: absolute;
-    height:95%;
-    top:0px;
-    left:50%;
-    border-left:1px solid white;
-/*    z-index:2;*/
-    box-shadow: 0px 0px 4px 6px rgba(0,0,0,0.1);
-
-  }
 
   .timelapse{
     height:48px;

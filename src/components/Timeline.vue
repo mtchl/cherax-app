@@ -136,23 +136,19 @@
 
   <div class="timelineWrapper">
 
-
    <TimelapseFrame :date="focusDate" :current-play-time="currentTimeSeconds" :cam="activeCam" :image-url="imageUrl"/>
 
     <div class="controlPanel">
         <span class="date">{{focusDateNice}}</span> 
- 
-          <button class="playButton" :class="{'playing': playing}" @click="toggleAudio"></button> 
-
+        <button class="playButton" :class="{'playing': playing}" @click="toggleAudio"></button> 
         <span class="timestamp">{{currentTimeStamp.h}}:{{currentTimeStamp.m}}:{{currentTimeStamp.s}}</span>
-        
-        <!-- cam:  -->
-<!--         <select v-model="activeCam">
-          <option v-for="c in timelapseCams" :value="c">{{c}}</option> 
-        </select>   -->
-      </div>
+    </div>
 
     <SpectroMacro  :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" :focus-species="focusSpecies" /> 
+    
+    <div class="play-marker">
+        <div class="arrow arrow-up"></div>
+    </div>
 
   <audio @timeupdate="updateCurrentTime" ref="audio" controls @canplay="audioLoaded">
     <source :src="audioPath" type="audio/mp3">
@@ -168,8 +164,24 @@
 
   .timelineWrapper{
     background-color: rgb(112 111 87);
-    overflow-x:clip;
+/*    overflow-x:scroll;*/
+    width:100%;
+/*    position:fixed;*/
+/*    top:0;*/
+/*    left:0;*/
   }
+
+  .play-marker{
+    position: absolute;
+    height:1800px;
+    top:0px;
+    left:50vw;
+    border-left:1px solid white;
+/*    z-index:2;*/
+    box-shadow: 0px 0px 4px 6px rgba(0,0,0,0.1);
+    z-index:1;
+  }
+
 
   audio{
     display:none;
@@ -234,32 +246,6 @@
     left:calc(50% + 32px);
   }
 
-  /*button.playButton {
-    background: transparent;
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    border-color: transparent transparent transparent #fff;
-    cursor: pointer;
-    border-style: solid;
-    border-width: 9px 0 9px 15px;
-  }
 
-  .playButton.paused {
-    border-style: double;
-    border-width: 0px 0 0px 15px;
-  }
-
-  .playButton:hover {
-    border-color: transparent transparent transparent #aaa;
-  }*/
-
-/*  .buttonContainer{
-    width:25px;
-    height:25px;
-    margin:0 2rem;
-    border: 1px solid white;
-    border-radius:50%;
-  }*/
 
 </style>

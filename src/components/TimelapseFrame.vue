@@ -38,6 +38,8 @@ export default {
 		object-position: 50% top;
 		display: block;
 		margin: 0 auto;
+		position:relative;
+		z-index:2;
 	}
 
 </style>
