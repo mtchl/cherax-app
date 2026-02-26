@@ -1,5 +1,5 @@
 <script setup>
-		import SpeciesInfo from '@/components/SpeciesInfo.vue'
+		import SpeciesInfo from '@/components/SpeciesInfoGrid.vue'
 </script>
 
 <template>

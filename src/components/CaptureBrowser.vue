@@ -2,7 +2,7 @@
      import CaptureItem from '@/components/CaptureItem.vue'
      import CaptureHisto from '@/components/CaptureHisto.vue'
      import CamMap from '@/components/CamMap.vue'
-     import SpeciesInfo from '@/components/SpeciesInfo.vue'
+     import SpeciesInfo from '@/components/SpeciesInfoGrid.vue'
 </script>
 
 <script type="text/javascript">

@@ -5,20 +5,23 @@
 		
 		<div id="speciesInfo" >
 			<div class="mobile-toggle" @click="mobileshow = !mobileshow" :class="{'expanded':mobileshow}"></div>
-			<div class="row">
-				<div class="col left">
-					<h3 >{{speciesInfo.commonName}}</h3>
-					<h4>{{speciesInfo.scientificName}}</h4>
-					<p>{{speciesInfo.description}}</p>
-				</div>
+		
+			<div class="head">
+				<h3 >{{speciesInfo.commonName}}</h3>
+				<h4>{{speciesInfo.scientificName}}</h4>
+			</div>
+			<div class="info">
+				<p>{{speciesInfo.description}}</p>
+			</div>
 
-			<div class="col right">
+		
+
+			<div class="pic">
 				<img :src="imageUrl">
 				<p v-if="speciesInfo.imgAttribution" class="attribution">Image: {{speciesInfo.imgAttribution}}</p>
 			</div>
-		</div>
 
-		<div class="row links">
+			<div class="links">
 				<router-link v-if="context == 'captures' && speciesInfo.audio" :to="{path:'/timeline', 
 				hash: '#annotations', 
 				hash: '#' + speciesInfo.routeTag,
@@ -33,10 +36,12 @@
 
 				<a v-if="speciesInfo.xenoCantoUrl" :href="speciesInfo.xenoCantoUrl" target="_blank" class=
 				"newtab">Listen: Xeno Canto</a>
+			</div>
 		</div>
 
-		</div>
+		
 	</div>
+	
 
 </template>
 
@@ -81,26 +86,49 @@
 
 	}
 
+
 	#speciesInfo{
 		position:relative;
 		margin: 0 auto;
 		padding: 1rem 2rem;
-/*		width:85%;*/
+
 		max-width:900px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-template-rows: 1rem 2.75rem 2fr 0.5fr;
+
 		background-color: white;
 		border: 1px solid rgba(0, 0, 0, 0.3);
 		border-radius: 1rem 1rem 0 0;
 		box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
-/*		box-sizing: border-box;*/
 	}
 
-	#speciesInfo .row{
-		flex:1 1 100%;
-		display: flex;
+	#speciesInfo .mobile-toggle{
+		grid-row:1 / 1;
+		grid-column: 1 / span 2;
+	}
+
+	#speciesInfo .head{
+		grid-row:2 / span 2;
+		grid-column:1 / span 1
+	}
+
+	#speciesInfo .info{
+		grid-row:3 / span 1;
+		grid-column:1 / span 1;
+		padding-right:1vw;
+	}
+
+	#speciesInfo .pic{
+		grid-row:2 / span 3;
+		grid-column:2 / span 1;
+/*		margin-left:0.5rem;*/
+	}
+
+	#speciesInfo .links{
+		grid-row:4 / span 1;
+		grid-column:1 / span 1;
+		align-self: start;
 	}
 
 	h3{
@@ -147,7 +175,7 @@
 	a {
 	  display:inline-block;
 	  padding: 4px 9px 4px 9px;
-	  margin:0.5rem 1rem 0 0;
+	  margin:0.25rem 1rem 0.5rem 0;
 	  color:black;
 	  text-decoration:none;
 	  background-color: #e0b2a3;
@@ -188,10 +216,10 @@
 		padding:0;		
 /*		width:100%;*/
 		flex: 1 1 100%;
-		background-image:url('@/assets/img/chevron_up.svg');
+		background-image:url('@/assets/img/chevron-up-flat.svg');
 		background-repeat: no-repeat;
-		background-position: 50% bottom;
-		background-size: 1rem;
+		background-position: 50% 50%;
+		background-size: 1.5rem;
 		opacity:0.25;
 		display: none;
 	}
@@ -199,7 +227,7 @@
 
 
 	.mobile-toggle.expanded{
-		background-image:url('@/assets/img/chevron_down.svg');
+		background-image:url('@/assets/img/chevron-down-flat.svg');
 	}
 
 	@media screen and (width < 600px) {
@@ -220,6 +248,16 @@
 
 		#speciesInfo{
 			padding: 0 1rem 1rem 1rem;
+		}
+
+		#speciesInfo .pic{
+			grid-row:2 / span 2;
+			grid-column:2 / span 1;
+			align-self: center;
+		}
+
+		#speciesInfo .links{
+			grid-column:1 / span 2;
 		}
 
 	}
