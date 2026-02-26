@@ -8,7 +8,7 @@
 		<div class="outer-wrapper">
 			<div class="slide" :class="[slideclass]">
 				<v-lazy-image v-if="type == 'img'" :src="src" :class="[animate, crop, {loaded:imageLoaded}]" @load="imgLoad"/>
-				<video v-if="type == 'video'" :src="src" loop ref="vid" :class="[crop]"/>
+				<video v-if="type == 'video'" :src="src" playsinline loop ref="vid" :class="[crop]"/>
 			</div>
 		</div>
 
