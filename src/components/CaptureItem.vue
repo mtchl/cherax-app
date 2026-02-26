@@ -1,7 +1,7 @@
 <template>
 	<div class="item">
       <img v-if="capture.type =='image'" :src="baseUrl + capture.path " loading="lazy"/>
-      <video v-if="capture.type =='video'" :poster="baseUrl + posterPath" loading="lazy" controls>
+      <video v-if="capture.type =='video'" :poster="baseUrl + posterPath" loading="lazy" controls playsinline preload="metadata">
         <source :src="baseUrl + capture.path" type="video/mp4">
       </video>
       <div class="metadata">

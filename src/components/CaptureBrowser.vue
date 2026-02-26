@@ -17,7 +17,7 @@
         cams: ["A","B","C","D","E","F","G"],
         months: [{label:"nov", dayrange:[0,35]}, {label:"dec", dayrange:[36,67]},{label:"jan", dayrange: [68,98]},{label:"feb", dayrange:[99,122]} ],
         baseUrl: "https://storage.googleapis.com/cherax-media/",
-        viewItems: 20,
+        viewItems: 10,
       }
     },
 
@@ -37,11 +37,11 @@
         if (f.month == undefined) delete f.month;
            console.log(f)
         this.$router.push({path: '/captures', query: f})
-        this.viewItems = 20;
+        this.viewItems = 10;
       },
     
       loadMore(){
-        this.viewItems += 20;
+        this.viewItems += 10;
       },
 
       convertTimestampToDate(timestampString) {
