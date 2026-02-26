@@ -7,7 +7,8 @@
 <template>
 		<div class="outer-wrapper">
 			<div class="slide" :class="[slideclass]">
-				<v-lazy-image v-if="type == 'img'" :src="src" :class="[animate, crop, {loaded:imageLoaded}]" @load="imgLoad"/>
+				<v-lazy-image class="lazy" v-if="type == 'img' && slideclass != 'histograb'" :src="src" :class="[animate, crop, {loaded:imageLoaded}]" @load="imgLoad"/>
+				<img v-if="slideclass == 'histograb'" :src="src"/>
 				<video v-if="type == 'video'" :src="src" playsinline loop ref="vid" :class="[crop]"/>
 			</div>
 		</div>
@@ -88,7 +89,7 @@ export default {
 
 	.outer-wrapper{
 		position:sticky;
-		top:2rem;
+		top:0rem;
 		left:0;
 		margin:0 auto;
 		width:100%;
@@ -100,7 +101,7 @@ export default {
 
 	.slide{
 		position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -30%); 
     width: 95%;
@@ -122,12 +123,12 @@ export default {
 
 	}
 
-	.slide img{
+	.slide img.lazy{
 		opacity:0;
 		transition: opacity 0.5s;
 	}
 
-	.slide img.loaded{
+	.slide img.lazy.loaded{
 		opacity:1;
 	}
 
@@ -144,6 +145,7 @@ export default {
 		border:none;
 		width:auto;
 		box-shadow: none;
+		background: none;
 /*		height:60vh;*/
 	}
 	.slide.histograb img{

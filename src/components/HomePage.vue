@@ -46,8 +46,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             },
             audioEnabled:false,
             carouselSlides:[
-                {src: "aust-bittern-1600.jpg", caption:"Australian Bittern"},
-                {src: "major-mitchell-1600.jpg", caption:" Major Mitchell Cockatoo"},
+                {src: "aust-bittern-1600.jpg", caption:"Australasian Bittern (Threatened)"},
+                {src: "major-mitchell-1600.jpg", caption:"Pink Cockatoo"},
                 {src: "painted-snipe-1600.jpg", caption: "Painted Snipe"},
                 {src: "regent-parrot-1620.jpg",caption: "Regent Parrot"},
                 {src: "snipe-swamp-1600.jpg", caption:""},
@@ -182,7 +182,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <img src="@/assets/img/mini-map-45.svg"/>
             </div>
 
-            <div class="story"><p>This is a mosaic of temporary and permanent wetlands, actively managed by the Commonwealth in collaboration with local landholders.</p></div>
+            <div class="story"><p>This is a mosaic of temporary and permanent wetlands, actively managed by the NSW and Commonwealth governments in collaboration with local landholders.</p></div>
 
             <div class="story less-bottom-margin less-top-margin"><p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p></div>
 
@@ -493,7 +493,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <!-- eslint-enable -->
                 </ImgComparisonSlider>
 
-                <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/histo-grab.jpg" slideclass="histograb"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/histo-labelled.jpg" slideclass="histograb"></ScrollyImg>
 
                 <div class="story">
                    <p>In the <router-link :to="'/captures'">Captures</router-link> we see fewer waterbirds, and more mammals, including <router-link :to="'/captures?species=kangaroo'">roos,</router-link> <router-link :to="'/captures?species=sheep'">sheep</router-link> and feral species as the water recedes </p>
@@ -534,7 +534,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" :inactive="currentSlide > 32" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/exclusion-fence-causeway.mov" :playtrigger="triggers.exclusionFence" slideclass="nopad" mute-video="true"></ScrollyImg>
 
                  <div class="step story" data-playtrigger="exclusionFence" data-offset="0.8">
-                   <p>Seeing this, and the impacts from other ferals, prompted Peter to install an exclusion fence in 2025</p>
+                   <p>Seeing this, and the impacts from other ferals, prompted Peter to begin installing an exclusion fence in 2025</p>
                 </div>
 
                 <div class="story">
@@ -545,7 +545,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                 <div class="story">
                    <!-- <p>For the Morton family, this work and these wetlands will be their legacy.</p> -->
-                   <p>With the support of state and Commonwealth governments, landholders like the Mortons are doing vital work to sustain our wetlands</p>
+                   <p>With the support of the NSW government and the Commonwealth Envrionmental Water Holder, landholders like the Mortons are doing vital work to sustain our wetlands</p>
                 </div>
 
                 <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>

@@ -36,15 +36,19 @@
       },
       
       spectroDragStart(evt){
-        // console.log("drag - start")
+         console.log("drag - start")
         let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
         let dx = pointerx - evt.target.offsetLeft;
         this.dragSpectroDiff = dx;
 
 
-        this.$refs.spectro.addEventListener("mousemove", this.spectroDragging);
-        this.$refs.spectro.addEventListener("mouseup", this.spectroDragEnd);
-        this.$refs.spectro.addEventListener("mouseleave", this.spectroDragEnd);
+        this.$refs.spectro.addEventListener("mousemove", this.spectroDragging, {passive:true});
+        this.$refs.spectro.addEventListener("touchmove", this.spectroDragging, {passive:true});
+
+        this.$refs.spectro.addEventListener("mouseup", this.spectroDragEnd, {passive:true});
+        this.$refs.spectro.addEventListener("touchend", this.spectroDragEnd, {passive:true});
+
+        this.$refs.spectro.addEventListener("mouseleave", this.spectroDragEnd, {passive:true});
         this.dragging = true;
         if (this.playing) {
           this.stopAudio();
@@ -61,9 +65,13 @@
 
       spectroDragEnd(evt){
          // console.log("drag - end")
-        let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
+        //console.log(evt)
+        //let pointerx = evt.clientX ? evt.clientX : evt.touches[0].clientX;
+        let pointerx = evt.clientX ? evt.clientX : evt.changedTouches[0].clientX;
         this.$refs.spectro.removeEventListener("mousemove", this.spectroDragging);
+        this.$refs.spectro.removeEventListener("touchmove", this.spectroDragging);
         this.$refs.spectro.removeEventListener("mouseup", this.spectroDragEnd);
+        this.$refs.spectro.removeEventListener("touchend", this.spectroDragEnd);
         this.$refs.spectro.removeEventListener("mouseleave", this.spectroDragEnd);
         this.playPos = ((this.bigSpectroWidth*this.playPos) - this.spectroDragOffset)/this.bigSpectroWidth;
         this.playSeconds = this.audioDuration * this.playPos;
@@ -99,7 +107,7 @@
 <template>
 
   <div class="spectro">
-    <div class="wrapper" :style="{left: 'calc(50% - '+((bigSpectroWidth*playPos)-spectroDragOffset)+'px)'}" ref="spectro" @mousedown="spectroDragStart" :class="{'dragging':dragging}">
+    <div class="wrapper" :style="{left: 'calc(50% - '+((bigSpectroWidth*playPos)-spectroDragOffset)+'px)'}" ref="spectro" @mousedown="spectroDragStart" @touchstart="spectroDragStart" :class="{'dragging':dragging}">
 
       <div class="timelapse">
         <div class="frame" v-for="i in 144" :style="{left: 100 * ((i-1)/144) + '%'}">
@@ -148,6 +156,7 @@
   .spectro .wrapper{
     position:absolute;
     cursor: grab;
+    overscroll-behavior-x: none;
 /*    margin-bottom:60px;*/
   }
 
