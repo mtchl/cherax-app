@@ -1,7 +1,7 @@
 
 <template>
 
-	<div class="wrapper" :class="{'mobileshow':mobileshow}"">
+	<div class="wrapper" :class="{'mobileshow':mobileshow}">
 		<div id="speciesInfo" >
 			<div class="col left">
 				<h3 @click="mobileshow = !mobileshow">{{speciesInfo.commonName}}</h3>

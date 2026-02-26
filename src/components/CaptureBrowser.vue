@@ -31,6 +31,11 @@
         if (key == 'species' && this.filterSpecies == value) delete f.species;
         if (key == 'cam' && this.filterCam == value) delete f.cam;
         if (key == 'month' && this.filterMonth == value) delete f.month;
+     
+        if (f.cam == undefined) delete f.cam;
+        if (f.species == undefined) delete f.species;
+        if (f.month == undefined) delete f.month;
+           console.log(f)
         this.$router.push({path: '/captures', query: f})
         this.viewItems = 20;
       },
@@ -68,7 +73,7 @@
 
       tags(){
         // make route friendly tags
-        return tagData.map(t => {return {...t, routeTag: t.tag.toLowerCase().replace(" ","-")}})
+        return tagData.map(t => {return {...t, routeTag: t.tag.toLowerCase().replaceAll(" ","-")}})
       },
 
       focusedSpecies(){ // full tag data for the focused species
