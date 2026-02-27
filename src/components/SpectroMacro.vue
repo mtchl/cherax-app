@@ -105,6 +105,7 @@
       this.playSeconds = this.initPlayTime;
       this.playPos = this.playSeconds / this.audioDuration; // convert from seconds to %
       this.$refs.spectro.scrollLeft = this.bigSpectroWidth * this.playPos;
+      console.log("mounted " + this.$refs.spectro.scrollLeft)
     },
 
     watch:{
@@ -123,7 +124,7 @@
 
 <template>
 
-  <div class="spectro" ref="spectro" @mousedown="startMouseDrag" @mouseup="endMouseDrag" @touchstart="startTouchDrag">
+  <div class="spectro" ref="spectro" @mousedown="startMouseDrag" @mouseup="endMouseDrag" @touchstart.passive="startTouchDrag">
 
 
     <div class="wrapper"  :class="{'dragging':dragging}" >

@@ -15,7 +15,7 @@
         focusDate: "20241102",
         currentTimeSeconds:23400,
         initialTimeSeconds:23400,
-        audioDuration:0,
+        audioDuration:86275,
         playing:false,
         timelapseCams:["cam1","cam2"],
         activeCam:["cam1"],
@@ -116,10 +116,10 @@
          if (this.$refs.audio) this.currentTimeSeconds = this.$refs.audio.currentTime;
       },
 
-      audioLoaded(){
-        if (this.$refs.audio) this.audioDuration = this.$refs.audio.duration;
-        //console.log("audio duration " + this.audioDuration)
-      },
+      // audioLoaded(){
+      //   if (this.$refs.audio) this.audioDuration = this.$refs.audio.duration;
+      //   console.log("audio duration " + this.audioDuration)
+      // },
 
       toggleAudio(){
         if (this.playing) {
@@ -150,7 +150,7 @@
         <div class="arrow arrow-up"></div>
     </div>
 
-  <audio @timeupdate="updateCurrentTime" ref="audio" controls @canplay="audioLoaded">
+  <audio @timeupdate="updateCurrentTime" ref="audio" controls>
     <source :src="audioPath" type="audio/mp3">
   </audio> 
 
