@@ -142,13 +142,16 @@
         <span class="date">{{focusDateNice}}</span> 
         <button class="playButton" :class="{'playing': playing}" @click="toggleAudio"></button> 
         <span class="timestamp">{{currentTimeStamp.h}}:{{currentTimeStamp.m}}:{{currentTimeStamp.s}}</span>
+        
+        <div class="play-marker">
+          <div class="arrow arrow-up"></div>
+        </div>
+
     </div>
 
     <SpectroMacro  :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" :focus-species="focusSpecies" /> 
     
-    <div class="play-marker">
-        <div class="arrow arrow-up"></div>
-    </div>
+
 
   <audio @timeupdate="updateCurrentTime" ref="audio" controls>
     <source :src="audioPath" type="audio/mp3">
@@ -173,9 +176,9 @@
 
   .play-marker{
     position: absolute;
-    height:1800px;
-    top:0px;
-    left:50vw;
+    height:100vh;
+    top:100%;
+    left:50%;
     border-left:1px solid white;
 /*    z-index:2;*/
     box-shadow: 0px 0px 4px 6px rgba(0,0,0,0.1);
@@ -189,21 +192,16 @@
 
   .controlPanel{
     position:sticky;
-    top:0;
+    top:2rem;
     z-index:2;
     width:100%;
     height:20px;
     padding: 1rem 0;
-    
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    font-family: 'Inconsolata', monospace;*/
     font-weight: 300;
     font-size:120%;
-/*    opacity: 0.8;*/
     background: #111;
     color:white;
+    overflow-y: visible;
   }
 
   button.playButton{

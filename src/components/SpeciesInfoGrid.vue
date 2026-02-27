@@ -90,7 +90,7 @@
 	#speciesInfo{
 		position:relative;
 		margin: 0 auto;
-		padding: 1rem 2rem;
+		padding: 0rem 2rem 1rem 2rem;
 
 		max-width:900px;
 		display: grid;
@@ -221,7 +221,24 @@
 		background-position: 50% 50%;
 		background-size: 1.5rem;
 		opacity:0.25;
-		display: none;
+	
+/*		display: none;*/
+	}
+
+	.mobile-toggle:hover{
+		opacity:0.5;
+		cursor:pointer;
+	}
+
+	.wrapper{
+		bottom:unset;
+		top:90vh;
+		transition:top 0.5s;
+	}
+
+	.wrapper.mobileshow{
+		bottom:0;
+		top:unset;
 	}
 
 
@@ -232,19 +249,10 @@
 
 	@media screen and (width < 600px) {
 
-		.mobile-toggle{
+/*		.mobile-toggle{
 			display: unset;
-		}
-		.wrapper{
-			bottom:unset;
-			top:90vh;
-			transition:top 0.5s;
-		}
+		}*/
 
-		.wrapper.mobileshow{
-			bottom:0;
-			top:unset;
-		}
 
 		#speciesInfo{
 			padding: 0 1rem 1rem 1rem;

@@ -214,9 +214,10 @@
 	.detect{
 		position:absolute;
 		top:6px;
+		margin-left:-4px;
 		width:8px;
 		height:8px;
-		background-color: aquamarine;
+		background-color: #59ecec;
 		opacity:0.3;
 		border-radius: 50%;
 	}

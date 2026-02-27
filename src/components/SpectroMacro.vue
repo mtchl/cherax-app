@@ -160,7 +160,12 @@
     overflow-x: scroll;
     user-select: none;
     background-color: #111;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
+  .spectro::-webkit-scrollbar{
+    display: none;  /* Chrome, Safari, and Opera */
   }
 
   .spectro img{

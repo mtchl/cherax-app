@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<img :src="frameUrl">
 	</div>
 </template>
@@ -40,6 +40,11 @@ export default {
 		margin: 0 auto;
 		position:relative;
 		z-index:2;
+	}
+
+	.wrapper{
+		background: #71785b;
+background: linear-gradient(90deg, rgba(113, 120, 91, 1) 0%, rgba(51, 54, 48, 1) 25%, rgba(34, 34, 34, 1) 50%, rgba(51, 54, 48, 1) 77%, rgba(113, 120, 91, 1) 100%);
 	}
 
 </style>
