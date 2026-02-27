@@ -12,7 +12,11 @@
         playPos:0,
         playSeconds:0,
         bigSpectroWidth:9600,
+        
         spectroDragOffset:0,
+        spectroDragInit:0,
+        spectroMouseInit:0,
+        
         dragSpectroDiff:0,
         dragging:false,
       }
@@ -35,12 +39,60 @@
         this.$emit('stop-audio')
       },
 
-      scrollSpectroEnd(){
-        // console.log(this.$refs.spectro.scrollLeft)
+
+      startMouseDrag(evt){
+        if (this.dragging) return;
+        if (this.playing) {
+          this.stopAudio();
+          this.resumeAfterDrag = true;
+        } else {
+          this.resumeAfterDrag = false;
+        }
+        this.dragging = true;
+        this.spectroMouseInit = evt.pageX;
+        this.spectroDragInit = this.$refs.spectro.scrollLeft;
+        this.$refs.spectro.addEventListener('mousemove', this.mouseDragging)
+      },
+
+      startTouchDrag(){
+        if (this.dragging) return;
+        if (this.playing) {
+          this.stopAudio();
+          this.resumeAfterDrag = true;
+        } else {
+          this.resumeAfterDrag = false
+        }
+        this.dragging = true;
+        this.$refs.spectro.addEventListener('scrollend', this.touchDragEnd)
+      },
+
+      endMouseDrag(evt){
+        this.dragging = false;
+        this.$refs.spectro.removeEventListener('mousemove', this.mouseDragging)
+        this.updateAudioAfterScroll();
+      },
+
+      mouseDragging(evt){
+        if (!this.dragging) return;
+        evt.preventDefault();
+        const diff = evt.pageX - this.spectroMouseInit
+        this.$refs.spectro.scrollLeft = this.spectroDragInit - diff; // Apply scroll
+      },
+
+      
+
+      updateAudioAfterScroll(){
         this.playPos = this.$refs.spectro.scrollLeft / this.bigSpectroWidth;
         this.playSeconds = this.audioDuration * this.playPos;
         this.seekAudio(this.playSeconds);
         if (this.resumeAfterDrag) this.$emit('play-audio');
+      },
+
+      touchDragEnd(){
+        console.log("touch drag end")
+        this.dragging = false
+        this.$refs.spectro.removeEventListener('scrollend', this.touchDragEnd);
+        this.updateAudioAfterScroll();
       },
 
       timelapseImagePath(f){
@@ -57,6 +109,7 @@
       currentPlayTime(seconds){ // watch the time as it is updated by audio playback
         this.playSeconds = seconds;
         this.playPos = seconds / this.audioDuration; // convert from seconds to %
+        this.$refs.spectro.scrollLeft = this.bigSpectroWidth * this.playPos;
       },
       audioDuration(duration){
           this.playPos = this.initPlayTime / duration; 
@@ -68,7 +121,7 @@
 
 <template>
 
-  <div class="spectro" ref="spectro" @scrollend="scrollSpectroEnd()">
+  <div class="spectro" ref="spectro" @mousedown="startMouseDrag" @mouseup="endMouseDrag" @touchstart="startTouchDrag">
 
 
     <div class="wrapper"  :class="{'dragging':dragging}" >
