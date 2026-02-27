@@ -103,6 +103,8 @@
 
     mounted(){
       this.playSeconds = this.initPlayTime;
+      this.playPos = this.playSeconds / this.audioDuration; // convert from seconds to %
+      this.$refs.spectro.scrollLeft = this.bigSpectroWidth * this.playPos;
     },
 
     watch:{
