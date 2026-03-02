@@ -7,6 +7,7 @@
 
 	<div class="histo">
 	    <div class="row up">
+        <div class="col-space category-label"><span>birds</span></div>
 	      <div class="col-space" v-for="(d, index) in histoData" >
 	        <div class="col" v-if="d.birdTags > 0" :style="{height: (histoYScale*Math.sqrt(d.birdTags))+'px'}" ></div>
 	        <div class="col context" v-if="filterState.month == monthLabels[index] || (filterState.cam || filterState.species)" :style="{height: (histoYScale*Math.sqrt(d.contextBirdTags))+'px'}" :class="{'focus':filterState.month == monthLabels[index]}"></div>
@@ -15,6 +16,7 @@
 	    </div>
 
 	    <div class="row label">
+        <div class="col-space category-label"></div>
 	    	<div class="col-space" v-for="(m,index) in monthLabels">
 	    		<div class="col label">
 	    			<span :class="{'active': filterState.month==m, 'inactive': histoData[index].binTags == 0 }" 
@@ -24,6 +26,7 @@
 	    </div>
 
 	    <div class="row down">
+        <div class="col-space category-label top"><span>mammals</span></div>
 	        <div class="col-space" v-for="(d,index) in histoData">
 	          <div class="col" v-if="d.mammalTags > 0" :style="{height: (histoYScale*Math.sqrt(d.mammalTags))+'px'}"></div>
 	          <div class="col context" v-if="filterState.month == monthLabels[index] || (filterState.cam || filterState.species)" :style="{height: (histoYScale*Math.sqrt(d.contextMammalTags))+'px'}" :class="{'focus':filterState.month == monthLabels[index]}"></div>
@@ -111,7 +114,7 @@ export default {
 
 
   .histo{
-    margin:1rem;
+    margin:0;
 /*    max-width: 1400px;*/
     width:fit-content;
   }
@@ -154,6 +157,23 @@ export default {
   	padding: 0 0 0.05rem;
   }
 
+  .category-label {
+    width:4rem;
+  }
+
+  .category-label span{
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: absolute;
+    bottom:0;
+    right:0.5rem;
+  }
+
+  .category-label.top span{
+    bottom:unset;
+    top:0;
+  }
+
    .col.label span{
    	display: inline-block;
    	background-color: white;
@@ -166,7 +186,6 @@ export default {
 
    .col.label span.inactive{
    	cursor:default;
-   	
    }
 
    .col.label span:not(.inactive):hover, .col.label span.active{
@@ -181,8 +200,6 @@ export default {
 	/*    #f8d7bc;*/
   }
 
-
-
   .histo .col.context{
   	background-color: black;
   	opacity:0.25;
@@ -191,6 +208,23 @@ export default {
   .histo .col.context.focus{
    opacity:1;
   }
+
+  @media screen and (width < 600px) {
+    .col-space{
+      width:2.3rem;
+    }
+
+    .category-label {
+      width:4rem;
+    }
+
+    .col.label span{
+      font-size:85%;
+    }
+     
+
+  }
+
 
 
 </style>

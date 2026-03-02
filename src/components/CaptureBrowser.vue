@@ -220,7 +220,12 @@
   <CamMap :cam-data="camData" :filter-state="filterState" @set-filter="setFilter"></CamMap>
 </div>
 
+ <div class="prompt">
+      <p>Filter by month, camera and species to browse over 1500 images and videos</p>
+  </div>
+
   <div class="headerTags">
+    <span class="itemTag big label">Species:</span>
     <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag)">{{t.tag}} 
           <span v-if="t.count > 0">({{t.count}})</span>
       </span>
@@ -248,6 +253,21 @@
   p, span{
     font-family: Inconsolata, sans-serif;
   }
+
+  .prompt{
+    
+    background-color: white;
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0.5rem;
+    width: fit-content;
+  }
+
+  .prompt p{
+    font-family: Lato, sans-serif;
+    margin:0;
+    font-size: 0.9rem;
+    text-align: center;
+  }
   
   .captures, .headerTags{
     display: flex;
@@ -261,6 +281,16 @@
 
   .headerTags{
     margin-bottom: 1rem;
+  }
+
+  .headerTags span.label{
+    font-weight: 600;
+/*    font-size: 1.2rem;*/
+    background: none;
+    pointer-events: none;
+   
+/*    height:2rem;*/
+/*    display: inline-block;*/
   }
 
   .captures{
@@ -286,8 +316,11 @@
   .controlWrapper{
     display: flex;
     flex-direction: row;
+    flex-wrap: no-wrap;
     justify-content: center;
     margin: 1rem 0;
+    gap:1rem;
+    align-items: center;
   }
 
   .big{
@@ -338,11 +371,17 @@
     color:white;
   }
 
-    @media screen and (width < 600px) {
+    @media screen and (width < 720px) {
 
       .headerTags{
         font-size:90%;
       }
+
+/*      .prompt{
+        flex-basis:100%;
+        max-width:unset;
+        margin:0 auto;
+      }*/
 
     }
 

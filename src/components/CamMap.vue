@@ -1,6 +1,6 @@
 <template>
 	<div class="mapWrapper">
-		<svg id="map" width="100%" height="100%" viewBox="0 0 386 242" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+		<svg id="map" viewBox="0 0 386 242" preserveAspectRatio="xMidYMax" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
 	    <g transform="matrix(1,0,0,1,-423.417,-381.347)">
 	        <g transform="matrix(0.78928,0,0,0.753794,146.923,130.369)">
 	            <!-- <rect x="350.312" y="332.953" width="488.336" height="320.883" style="fill:none;"/> -->
@@ -97,13 +97,17 @@
 	            </g>
 	        </g>
 	    </g>
+	    <text class="maplabel bottomleft" x="10" y="229"><tspan>Upper Cherax</tspan></text>
+	    <text class="maplabel topright" x="375" y="20" text-anchor="end"><tspan>Crop Paddock</tspan></text>
+
+	    <text class="topleft title" x="10" y="20" text-anchor="start">Cameras:</text>
 	    <defs>
 	        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(338.055,-64.9187,64.9187,338.055,611.618,500.203)"><stop offset="0" style="stop-color:rgb(126,128,128);stop-opacity:0.2"/><stop offset="1" style="stop-color:rgb(5,110,31);stop-opacity:0"/></radialGradient>
 	        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-201.845,93.5748,-93.5748,-201.845,504.95,487.05)"><stop offset="0" style="stop-color:rgb(167,132,118);stop-opacity:0.26"/><stop offset="1" style="stop-color:rgb(77,77,77);stop-opacity:0"/></radialGradient>
 	    </defs>
 		</svg>
-		<span class="mapLabel bottomleft">Upper Cherax</span>
-		<span class="mapLabel topright">Crop Paddock</span>
+		<!-- <span class="mapLabel bottomleft">Upper Cherax</span> -->
+		<!-- <span class="mapLabel topright">Crop Paddock</span> -->
 	</div>
 </template>
 
@@ -148,34 +152,26 @@ export default {
 
 <style lang="css" scoped>
 	.mapWrapper{
-		width: 340px;
+/*		width: 340px;*/
 		position:relative;
-		border: 2px solid rgba(255,255,255,0.5);
+		overflow: hidden;
+/*		border: 2px solid rgba(255,255,255,0.5);*/
 	}
 
 	.mapWrapper svg{
 		display: block;
 	}
 
-	.mapLabel{
-		font-size: 16px;
-		position: absolute;
+	text.maplabel{
 		opacity:0.5;
 	}
 
-	.mapLabel.bottomleft{
-		left:9px;
-		bottom:9px;
+
+
+	#map{
+		width:100%;
+		height:100%;
 	}
-
-	.mapLabel.topright{
-		right:9px;
-		top:9px;
-	}
-
-
-
-
 
 	#map .camMarker circle{
 		fill:white;
@@ -205,6 +201,40 @@ export default {
 
 	#map .camMarker.inactive text{
 		opacity:0.25;
+	}
+
+	#map text.title{
+		font-weight: 600;
+		font-size:1.1rem;
+	}
+
+
+	@media screen and (width < 600px) {
+
+
+		#map{
+/*			position:relative;*/
+/*			top:-20%;*/
+			transform:scale(1.15);
+		}
+
+		#map text.bottomleft{
+			transform:translate(28px,-12px);
+		}
+
+		#map text.topright{
+			transform:translate(-25px,12px);
+		}
+
+		#map text.title{
+			transform:translate(28px,12px);
+		}
+	}
+
+	@media screen and (width < 400px) {
+		#map{
+			top:-30%;
+		}
 	}
 
 </style>

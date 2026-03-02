@@ -279,7 +279,7 @@
     align-items: center;
     width:calc(100% - 2rem);
     max-width:1400px;
-    box-sizing: border-box;
+    gap:1rem;
 
   }
 
@@ -304,9 +304,6 @@
 /*    width:45%;*/
   }
 
-  .col.left{
-        margin-right:1rem;
-  }
 
   .col.right p{
     margin-bottom: 2rem;
