@@ -232,7 +232,7 @@
 
 	.wrapper{
 		bottom:unset;
-		top:90vh;
+		top:calc(100vh - 80px);
 		transition:top 0.5s;
 	}
 
