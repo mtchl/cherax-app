@@ -58,7 +58,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
       },
 
       mounted(){
-        console.log("scrollY " + window.scrollY)
+        //console.log("scrollY " + window.scrollY)
       },
 
       methods: {
@@ -81,6 +81,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             if (element.dataset.fadeaudio){
                 this.fadeOutAudio();
             }
+
           },
 
           stepProgressHandler({ element, progress, index }){
@@ -141,6 +142,29 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 }, 200); 
             }
           }
+      },
+
+      watch: {
+        currentSlide(newSlide,oldSlide){
+            //console.log(newSlide)
+
+            if (newSlide == 20 && oldSlide == 21){ // back
+                this.$refs.secnavlinks.children[2].scrollIntoView({inline: 'center',behavior: 'smooth'});
+            }
+            if (newSlide == 21 && oldSlide < 21){
+                this.$refs.secnavlinks.children[3].scrollIntoView({inline: 'center',behavior: 'smooth'});
+            }
+
+             if (newSlide < 24  && oldSlide >= 24){// going back
+                this.$refs.secnavlinks.children[3].scrollIntoView({inline: 'center',behavior: 'smooth'});
+            }
+
+
+            if (newSlide == 24 && oldSlide < 24){
+                 console.log("Scrolling 4")
+                this.$refs.secnavlinks.children[4].scrollIntoView({inline: 'center',behavior: 'smooth'});
+            }
+        }
       }
    }
 
@@ -150,7 +174,9 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 <template>
 
     <nav class="section-nav" :class="{'show':currentSlide > 0}">
+        <div class="inner" ref="secnavlinks">
         <RouterLink v-for="s in sectionIndex" :to="'/#'+ s.section" :class="{'active':s.active}"> {{s.navText}} </RouterLink>
+        </div>
     </nav>
 
     <VueScrollama offset="0.5" progress     
@@ -606,19 +632,23 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
    }
 
    .section-nav{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+
     width:100%;
     position:fixed;
     top: 2rem;
     background-color: #444;
     z-index: 6;
-    overflow-x: auto;
+    overflow-x: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    transition:opacity 0.5s;
+    transition:all 0.5s;
     opacity:0;
+   }
+   .section-nav .inner{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width:150%;
    }
 
    .section-nav.show{
@@ -982,6 +1012,15 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
        .section-head h3{
         font-size:2rem;
        }
+
+/*       .section-nav.s4{
+            left:-2rem;
+       }
+
+       .section-nav.s5{
+            left:-4rem;
+       }
+*/
 
    }
 
