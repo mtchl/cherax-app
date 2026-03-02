@@ -150,14 +150,32 @@
     </div>
 
     <SpectroMacro  :date="focusDate" :init-play-time="initialTimeSeconds" :current-play-time="currentTimeSeconds" :audioDuration="audioDuration" :playing="playing" :timelapseCam="activeCam" :image-url="imageUrl" @seekAudio="seekAudio" @stopAudio="stopAudio" @playAudio="playAudio" :focus-species="focusSpecies" /> 
-    
+
+    <audio @timeupdate="updateCurrentTime" ref="audio" controls>
+      <source :src="audioPath" type="audio/mp3">
+    </audio>
+
+<div class="footer">
+    <div class="about">
+      <div class="col left intro">
+        <h2>About this interface</h2>
+        <p class="bigger">This timeline lets you browse through 24 hours of wetland sound and image.</p><p class="bigger"> Use it how you like: sit for a while and immerse yourself in the soundscape, drag to sample different times of night and day, or scan through birds and their calls.</p>
+      </div>
+
+      <div class="col right ">
+        <img src="@/assets/img/spectro-grab-bigger-drag.jpg">
+        <p>This "false colour" spectrogram visualises sound to reveal distinctive patterns and calls, including birds and frogs. <strong>Drag</strong> to scan back and forward through the day.</p>
+     
+        <img src="@/assets/img/bird-annotations-labels.png">
+        <p><strong>Select a bird species and tap the arrows</strong> to skip through its calls. We used an automated bird-call detector to identify each species. It's not perfectly accurate but it helps reveal more of the diversity of life in this place. </p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  
 
 
-  <audio @timeupdate="updateCurrentTime" ref="audio" controls>
-    <source :src="audioPath" type="audio/mp3">
-  </audio> 
-
-</div>
 
 </template>
 
@@ -166,17 +184,22 @@
 <style scoped>
 
   .timelineWrapper{
-    background-color: rgb(112 111 87);
-/*    overflow-x:scroll;*/
+    background-color: #111; 
     width:100%;
-/*    position:fixed;*/
-/*    top:0;*/
-/*    left:0;*/
+   
+  }
+
+  .footer{
+    background-color: #111;
+    padding-top:1rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index:4;
   }
 
   .play-marker{
     position: absolute;
-    height:100vh;
+    height:1400px;
     top:100%;
     left:50%;
     border-left:1px solid white;
@@ -242,6 +265,58 @@
   span.timestamp{
     position:absolute;
     left:calc(50% + 32px);
+  }
+
+  .about{
+    margin:1rem auto;
+    border-radius: 2rem;
+    background-color: #333;
+    display: flex;
+    flex-flow:row wrap;
+    color:white;
+    padding:2rem;
+    max-height: 600px;
+    align-items: center;
+    width:calc(100% - 2rem);
+    max-width:1400px;
+    box-sizing: border-box;
+
+  }
+
+  .about h2{
+    font-size: 2rem;
+    margin: 0 0 1rem;
+  }
+
+  .about p{
+    font-family: Lato, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.3em;
+  }
+
+  p.bigger{
+    font-size: 1.35rem;
+  }
+
+  .about .col{
+    flex:1;
+    min-width: 320px;
+/*    width:45%;*/
+  }
+
+  .col.left{
+        margin-right:1rem;
+  }
+
+  .col.right p{
+    margin-bottom: 2rem;
+  }
+
+
+  .col img{
+    width:360px;
+    max-width: 100%;
+    border: 2px solid black;
   }
 
 

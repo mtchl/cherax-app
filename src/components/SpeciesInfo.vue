@@ -209,8 +209,7 @@
 		}
 		.wrapper{
 			bottom:unset;
-			top:90vh;
-			transition:top 0.5s;
+			top:calc(100vh - 5rem)
 		}
 
 		.wrapper.mobileshow{
