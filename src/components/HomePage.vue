@@ -253,9 +253,16 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
         </section>
 
+        <div class="listen-button">
+            <button @click="playAudio('intro')">
+                <span>Listen</span>
+                <img src="@/assets/img/audiowaves.svg"/>
+            </button>
+            <img class="headphones" src="@/assets/img/headphones-recommended.svg"/>
+        </div>
+
 
         <audio ref="audioPlayer" :src="null"></audio>
-
 
 
             <section id="waterbirds">
@@ -263,11 +270,6 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
                        <h3>1: Waterbirds</h3>
                 </div>
-
-                <div class="listen-button">
-                    <button @click="playAudio('intro')">Listen</button>
-                </div>
-             
 
              
                 <ScrollyImg :class="{'hide':currentSlide > 1}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/cam1/20241102/cam1-20241102-40.JPG" data-slide="1"></ScrollyImg>
@@ -967,10 +969,32 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
    }
 
    .listen-button button{
-    font-size: 18px;
-    padding:9px 12px;
+    font-size: 1.5rem;
+    padding:0.5rem 1rem;
     display: block;
     margin:0 auto;
+    font-weight: 600;
+    border-radius: 1.25rem;
+   }
+
+   .listen-button span{
+        position: relative;
+        bottom: 0.4rem;
+        margin-right: 0.5rem;
+
+   }
+
+   .listen-button img{
+    display: inline-block;
+    width:1rem;
+    margin-top: 0.25rem;
+   }
+
+   .listen-button .headphones{
+    margin:2rem auto;
+    width:18rem;
+    opacity:0.6;
+    display: block;
    }
 
 

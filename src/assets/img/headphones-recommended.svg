@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 170 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-9.552817,-5.636874)">
+        <g transform="matrix(1,0,0,1,-545.004,-458.347)">
+            <g id="headphones" transform="matrix(0.329954,0,0,0.329954,636.895,474.844)">
+                <g transform="matrix(1,0,0,1,-50,-50)">
+                    <path d="M22.2,84.9C14.1,84.9 7.5,78.3 7.5,70.2L7.5,60.5C7.5,52.4 14.1,45.8 22.2,45.8L22.2,84.9Z" style="fill:rgb(17,17,17);fill-rule:nonzero;"/>
+                    <path d="M77.8,84.9L77.8,45.9C85.9,45.9 92.5,52.5 92.5,60.6L92.5,70.3C92.5,78.4 85.9,84.9 77.8,84.9Z" style="fill:rgb(17,17,17);fill-rule:nonzero;"/>
+                    <path d="M26.6,80.1L26.6,45.9C26.6,32.8 37.3,21.7 50.4,21.9C63.1,22.1 73.4,32.5 73.4,45.3L73.4,80.1C73.4,82.8 75.6,85 78.3,85L78.3,46C78.3,30.6 66.2,17.5 50.8,17.1C34.8,16.6 21.6,29.5 21.6,45.4L21.6,85C24.4,84.9 26.6,82.7 26.6,80.1Z" style="fill:rgb(17,17,17);fill-rule:nonzero;"/>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-545.004,-458.347)">
+            <g transform="matrix(1,0,0,1,542.004,469.347)">
+                <g transform="matrix(12,0,0,12,71.676817,13.294938)">
+                </g>
+                <text x="11.677px" y="13.295px" style="font-family:'Inconsolata-Regular', 'Inconsolata', monospace;font-size:12px;">headphones</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-545.004,-458.347)">
+            <g transform="matrix(1,0,0,1,647.200433,469.347)">
+                <g transform="matrix(12,0,0,12,77.676817,13.294938)">
+                </g>
+                <text x="11.677px" y="13.295px" style="font-family:'Inconsolata-Regular', 'Inconsolata', monospace;font-size:12px;">recommended</text>
+            </g>
+        </g>
+    </g>
+</svg>
