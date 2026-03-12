@@ -118,14 +118,14 @@
           const oneDay = 24 * 60 * 60 * 1000;
           const diffDays = Math.round(Math.abs((startdate - capdate) / oneDay));
 
-          let camLabel;
-          if (cam == "cam3") camLabel = "A"
-          if (cam == "cam4" && diffDays < 97) camLabel = "B"
-          if (cam == "cam4" && diffDays >= 97) camLabel = "F"
-          if (cam == "cam5" && diffDays < 97) camLabel = "C"
-          if (cam == "cam5" && diffDays >= 97) camLabel = "G"
-          if (cam == "cam6") camLabel = "D"
-          if (cam == "cam7") camLabel = "E"
+          let camLabel = cam.replace("cam","");
+          // if (cam == "cam3") camLabel = "A"
+          // if (cam == "cam4" && diffDays < 97) camLabel = "B"
+          // if (cam == "cam4" && diffDays >= 97) camLabel = "F"
+          // if (cam == "cam5" && diffDays < 97) camLabel = "C"
+          // if (cam == "cam5" && diffDays >= 97) camLabel = "G"
+          // if (cam == "cam6") camLabel = "D"
+          // if (cam == "cam7") camLabel = "E"
 
           let month;
           let matchMonth = this.months.find(m => ((m.dayrange[0] <= diffDays) && (m.dayrange[1] >= diffDays)));
@@ -147,7 +147,6 @@
          caps =  caps.filter(c => !c.blank).sort((a,b) => { return a.datetime - b.datetime})
          return caps
       },
-
 
       allCapturesSet(){
         return new Set(this.captures)
@@ -204,6 +203,10 @@
       monthContextHisto(){
         let monthHistoSet = this.speciesFilteredSet.intersection(this.camFilteredSet)
         return [...monthHistoSet]
+      },
+
+      webShareApiSupported() {
+        return navigator.share
       }
 
     }
@@ -235,7 +238,7 @@
 
 
   <div class="captures">
-    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter">
+    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter" :share="webShareApiSupported">
 
     </CaptureItem>
     <div class="loadMore" v-if="filteredCaptures.length > viewItems" >
