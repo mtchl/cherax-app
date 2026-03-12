@@ -21,7 +21,7 @@
       }
     },
 
-    props: ['filterSpecies','filterCam','filterMonth'],
+    props: ['filterSpecies','filterCam','filterMonth','sharedCapture'],
 
     methods: {
 
@@ -207,6 +207,19 @@
 
       webShareApiSupported() {
         return navigator.share
+      },
+
+      matchingSharedCapture(){
+        // console.log(this.captures.length)
+        // console.log(this.sharedCapture)
+        let m = this.captures.find(c => {
+          let cn = c.filename.split(".")[0]
+          //console.log(cn)
+          return (cn == this.sharedCapture)
+        })
+
+        // console.log(m)
+        return m
       }
 
     }
@@ -246,9 +259,13 @@
     </div>
   </div>
 
+  <div class="sharedModal" v-if="sharedCapture">
 
+        <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true">
 
-  
+    </CaptureItem>
+
+  </div>
 </template>
 
 <style>
@@ -372,6 +389,17 @@
   .loadMore a:hover{
     background-color: #222;
     color:white;
+  }
+
+  .sharedModal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-color: rgba(0,0,0,0.8);
+    padding-top:5rem;
+
   }
 
     @media screen and (width < 720px) {

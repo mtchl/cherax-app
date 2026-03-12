@@ -20,6 +20,12 @@ const router = createRouter({
       // meta: {scrollToTop:true}
     },
 
+    { path: '/captures/shared/:sharedCapture', 
+      component: captureBrowser ,
+      props: true,
+      // meta: {scrollToTop:true}
+    },
+
     { path: '/timeline', 
       component: Timeline,
       props: route => ({ focusSpecies: route.query.species })

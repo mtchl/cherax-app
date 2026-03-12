@@ -1,5 +1,5 @@
 <template>
-	<div class="item">
+	<div class="item" :class="{'modal':modal}">
       <img v-if="capture.type =='image'" 
       :src="baseUrl + capture.path"
       :srcset="srcset" 
@@ -32,6 +32,13 @@ export default {
     localTags(){
       return this.capture.tags.map(t => { return {tag:t, routeTag: t.toLowerCase().replace(" ","-")}})
     },
+
+    captureID(){
+      let filename = this.capture.path.split("/")[1];
+      let namestring = filename.split(".")[0]
+      return namestring;
+
+    },
     
     posterPath(){
       let filename = this.capture.path.split("/")[1];
@@ -59,15 +66,14 @@ export default {
       },
     shareCapture(){
       navigator.share({
-        title: 'Mosaic: Capture',
-        text: 'Text to be shared',
-        url: 'URL to be shared'
+        title: 'Mosaic: Capture ' + this.captureID,
+        url: 'https://cherax.netlify.app/captures/share/' + this.captureID
       })
 
     }
 
   },
-   props: ['capture','baseUrl','share']
+   props: ['capture','baseUrl','share','modal']
   }
 
 </script>
@@ -81,7 +87,15 @@ export default {
     margin-bottom:2rem;
     background-color: white;
     padding:1rem;
- 
+  }
+
+  .item.modal{
+    flex:none;
+    display: block;
+    margin:0 auto;
+    width:90%;
+    max-width: 1400px;
+    box-sizing: border-box;
   }
 
   .item img, .item video {
@@ -123,6 +137,10 @@ export default {
     .item{
       min-width:320px;
       margin-bottom:1rem;
+    }
+
+    .item.modal{
+      width:100%;
     }
   }
 </style>
