@@ -280,6 +280,7 @@
     width:calc(100% - 2rem);
     max-width:1400px;
     gap:1rem;
+    box-sizing: border-box;
 
   }
 
