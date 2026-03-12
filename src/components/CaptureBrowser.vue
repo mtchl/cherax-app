@@ -64,6 +64,10 @@
         return new Date(year, month, day, hours, minutes, seconds);
       },
 
+      closeSharedModal(){
+        this.$router.push({path: '/captures'});
+      }
+
     },
     computed: {
 
@@ -209,6 +213,7 @@
         return navigator.share
       },
 
+
       matchingSharedCapture(){
         if (!this.sharedCapture) return;
         let m = this.captures.find(c => {
@@ -258,7 +263,7 @@
   <div class="sharedModal" v-if="sharedCapture">
     <div class="inner">
     
-        <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true">
+        <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true" @close-modal="closeSharedModal">
 
         </CaptureItem>
 

@@ -64,9 +64,15 @@ export default {
   },
 
   methods:{
+
     setFilter(key,value){
         this.$emit('set-filter',key,value)
       },
+
+    closeModal(key,value){
+        this.$emit('close-modal')
+      },
+      
     shareCapture(){
       navigator.share({
         title: 'Mosaic: Capture ' + this.captureID,
