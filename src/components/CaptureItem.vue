@@ -16,6 +16,9 @@
         </div>
         <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
       </div>
+      <div class="closebutton" v-if="modal" @click="closeModal">
+        <img src="@/assets/img/close.svg">
+      </div>
   </div>
 </template>
 
@@ -90,13 +93,21 @@ export default {
   }
 
   .item.modal{
-    flex:none;
-    display: block;
-    margin:0 auto;
-    width:90%;
-    max-width: 1400px;
+/*    height: 100%;*/
+    aspect-ratio: 1.32;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    flex: none;
+    margin-bottom: 0;
+    min-width: unset;
+    position: relative;
     box-sizing: border-box;
   }
+
+/*  .item.modal video{
+    padding:0;
+  }*/
 
   .item img, .item video {
     width:100%;
@@ -105,6 +116,28 @@ export default {
   .item img{
     aspect-ratio: 4 / 2.8;
     object-fit: cover;
+  }
+
+  .item.modal .closebutton{
+    width:2rem;
+    height:2rem;
+    position:absolute;
+    top:0;
+    right:0;
+    background-color: white;
+    
+  }
+
+  .item.modal .closebutton img{
+    width:1.5rem;
+    height:1.5rem;
+    margin:0.25rem;
+    cursor: pointer;
+  }
+
+  .item.modal .closebutton img:hover{
+    transform-origin: center;
+    transform: scale(1.1);
   }
 
   .item video{
@@ -141,6 +174,8 @@ export default {
 
     .item.modal{
       width:100%;
+      aspect-ratio: unset;
+      height:auto;
     }
   }
 </style>

@@ -210,15 +210,11 @@
       },
 
       matchingSharedCapture(){
-        // console.log(this.captures.length)
-        // console.log(this.sharedCapture)
+        if (!this.sharedCapture) return;
         let m = this.captures.find(c => {
           let cn = c.filename.split(".")[0]
-          //console.log(cn)
           return (cn == this.sharedCapture)
         })
-
-        // console.log(m)
         return m
       }
 
@@ -260,11 +256,17 @@
   </div>
 
   <div class="sharedModal" v-if="sharedCapture">
-
+    <div class="inner">
+    
         <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true">
 
-    </CaptureItem>
+        </CaptureItem>
 
+<!--           <div class="shareIntro">
+            <p>This is just part of the picture...</p>
+          </div> -->
+    </div>
+    
   </div>
 </template>
 
@@ -396,11 +398,24 @@
     top:0;
     left:0;
     width:100%;
-    height:100vh;
+    height:100%;
     background-color: rgba(0,0,0,0.8);
-    padding-top:5rem;
-
+    z-index: 100;
   }
+
+ .sharedModal .inner{
+  margin:5vh auto ;
+/*  padding:0 5vw;*/
+
+    height:75vh;
+    width: 90vw;
+/*    width:90%;*/
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+
+
 
     @media screen and (width < 720px) {
 
