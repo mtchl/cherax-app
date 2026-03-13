@@ -18,10 +18,18 @@
         months: [{label:"nov", dayrange:[0,35]}, {label:"dec", dayrange:[36,67]},{label:"jan", dayrange: [68,98]},{label:"feb", dayrange:[99,122]} ],
         baseUrl: "https://storage.googleapis.com/cherax-media/",
         viewItems: 10,
+        faves: []
       }
     },
 
     props: ['filterSpecies','filterCam','filterMonth','sharedCapture'],
+
+    mounted(){
+      let storageData = localStorage.getItem('MosaicFaves');
+      if (storageData){
+        this.faves = JSON.parse(storageData);
+      }
+    },
 
     methods: {
 
@@ -66,9 +74,21 @@
 
       closeSharedModal(){
         this.$router.push({path: '/captures'});
+      },
+
+      toggleFave(id){
+        let idx = this.faves.indexOf(id);
+        if (idx == -1){
+          this.faves.push(id);
+        } else {
+          this.faves.splice(idx,1); // remove the item
+        }
+        console.log(this.faves)
       }
 
     },
+
+
     computed: {
 
       filterState(){
@@ -108,6 +128,7 @@
       captures(){
          let caps = this.captureData.map(c => {
 
+          let id = c.filename.split(".")[0];
           let cam = c.path.split("/")[0]
           let thumbUrl = c.path.split("/")[0]+"/thumbnails/thumb_" +c.path.split("/")[1];
           if (c.type == "video") thumbUrl = c.path.split("/")[0] + "/thumbnails/thumb_" + c.path.split("/")[1].replace("mp4","jpg");
@@ -137,7 +158,8 @@
 
           const timestamp = this.convertTimestampToDate(date+"-"+time)
 
-         return {  ...c,  
+         return {  ...c, 
+                   id:id, 
                    cam: cam,
                    camLabel:camLabel,
                    thumb: thumbUrl, 
@@ -223,8 +245,18 @@
         return m
       }
 
-    }
+    },
 
+    watch:{
+      faves: {
+        handler(newvalue,oldvalue){
+          localStorage.setItem('MosaicFaves', JSON.stringify(newvalue));
+          console.log("stored faves")
+        },
+        deep:true
+      }
+
+    }
   }
 
 
@@ -252,7 +284,7 @@
 
 
   <div class="captures">
-    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter" :share="webShareApiSupported">
+    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter"  @click-fave="toggleFave" :share="webShareApiSupported" :faved="faves.indexOf(c.id) > -1">
 
     </CaptureItem>
     <div class="loadMore" v-if="filteredCaptures.length > viewItems" >

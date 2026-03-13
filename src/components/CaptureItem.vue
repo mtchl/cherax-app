@@ -14,8 +14,9 @@
       <div class="metadata">
         <div class="col left">Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}}
           
-          <button type="button" class="icon fave" @click="clickFaveButton" title="Add to favourites">
-              <img src="@/assets/img/fave-heart.svg"/>
+          <button type="button" class="icon fave" @click="clickFaveButton" >
+              <img v-if="!faved" src="@/assets/img/fave-heart.svg" title="Add to favourites"/>
+              <img v-if="faved" src="@/assets/img/fave-heart-black.svg" title="Remove from favourites"/>
           </button>
 
           <button type="button" v-if="share" class="icon share" @click="shareCapture" title="Share this capture">
@@ -85,6 +86,10 @@ export default {
         this.$emit('close-modal')
       },
 
+    clickFaveButton(){
+        this.$emit('click-fave',this.captureID)
+    },
+
     shareCapture(){
       navigator.share({
         title: 'Mosaic: Capture ' + this.captureID,
@@ -94,7 +99,7 @@ export default {
     }
 
   },
-   props: ['capture','baseUrl','share','modal']
+   props: ['capture','baseUrl','share','modal','faved']
   }
 
 </script>
