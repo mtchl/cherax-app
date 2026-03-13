@@ -23,6 +23,7 @@
     },
 
     props: ['filterSpecies','filterCam','filterMonth','sharedCapture'],
+    emits: ['updateFaves'],
 
     mounted(){
       let storageData = localStorage.getItem('MosaicFaves');
@@ -126,6 +127,7 @@
       },
 
       captures(){
+        console.log(this.captureData.length)
          let caps = this.captureData.map(c => {
 
           let id = c.filename.split(".")[0];
@@ -251,7 +253,8 @@
       faves: {
         handler(newvalue,oldvalue){
           localStorage.setItem('MosaicFaves', JSON.stringify(newvalue));
-          console.log("stored faves")
+          // console.log("stored faves")
+          this.$emit('updateFaves', newvalue)
         },
         deep:true
       }

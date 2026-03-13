@@ -3,7 +3,22 @@
   export default{
 
     data(){
-      faves:[]
+      return {
+        faves:[]
+    }
+    },
+
+    computed: {
+      currentPath(){
+        return this.$route.path
+      }
+    },
+
+    methods: {
+      updateFaves(value){
+        console.log("updateFaves")
+        this.faves = value;
+      }
     },
     
     mounted(){
@@ -13,6 +28,8 @@
       }
     },
 
+
+
   }
 
 
@@ -20,11 +37,12 @@
 <template>
   <nav>
     <RouterLink to="/" activeClass="bright">Home</RouterLink>
-    <RouterLink to="/captures" activeClass="bright">Captures</RouterLink>
+    <RouterLink to="/captures" :class="{'bright': currentPath == '/captures' || currentPath == '/captures/faves'}">Captures</RouterLink>
+    <RouterLink class="favecount" to="/captures/faves" v-if="currentPath == '/captures' || currentPath == '/captures/faves'" :title="'Show ' + faves.length + ' saved favourites'">{{faves.length}}</RouterLink>
     <RouterLink to="/timeline" activeClass="bright">Timeline</RouterLink>
   </nav>
   <main>
-    <RouterView/>
+    <RouterView @updateFaves="updateFaves"/>
   </main>
 </template>
 
@@ -32,7 +50,7 @@
   
   nav{
     background-color: #222;
-    padding:0.5rem;
+    padding:0rem;
     margin:0;
     position:fixed;
     top:0;
@@ -41,15 +59,39 @@
   }
 
   nav a{
-    margin:0 1rem;
+    display: inline-block;
+    margin:0.5rem 0rem 0.5rem 1.5rem;
     font-weight:600;
     color:white;
     text-decoration: none;
     opacity:0.6;
     transition:opacity 0.25s;
+    letter-spacing: 0.02rem;
   }
 
   nav a.bright, nav a:hover{
+    opacity:1.0;
+  }
+
+  nav a.favecount{
+
+    display: inline-block;
+    padding-top:0.5rem;
+    padding-right:0.1rem;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:0.2rem;
+    background-image: url('@/assets/img/fave-heart-white.svg');
+    background-position: 50% 50%;
+/*    background-size: ;*/
+    background-repeat: no-repeat;
+    width:1.60rem;
+    height:1.5rem;
+    font-size:0.85em;
+    letter-spacing: -0.05em;
+
+    color:black;
+    text-align: center;
     opacity:1.0;
   }
 

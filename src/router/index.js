@@ -10,20 +10,17 @@ const router = createRouter({
   routes: [
     { path: '/', 
     component: homePage,
-    //props: route => ({ initSlide: route.query.s })
     meta: {scrollToTop:true}
     },
     
     { path: '/captures', 
       component: captureBrowser ,
       props: route => ({ filterSpecies: route.query.species, filterCam: route.query.cam, filterMonth: route.query.month }),
-      // meta: {scrollToTop:true}
     },
 
     { path: '/captures/shared/:sharedCapture', 
       component: captureBrowser ,
       props: true,
-      // meta: {scrollToTop:true}
     },
 
     { path: '/timeline', 
@@ -35,9 +32,6 @@ const router = createRouter({
     // If a hash fragment exists in the 'to' route, scroll to that element
     
     if (to.path == "/" && savedPosition) { // back button retains vertical pos for story
-      console.log(" returning to saved position in story")
-      //console.log(savedPosition)
-      //return savedPosition
       //return {top: savedPosition.top - 400}; // why? needs to wait a bit
       return new Promise((resolve, reject) => {
         setTimeout(() => {
