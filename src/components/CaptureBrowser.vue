@@ -263,13 +263,14 @@
   <div class="sharedModal" v-if="sharedCapture">
     <div class="inner">
     
-        <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true" @close-modal="closeSharedModal">
+        <CaptureItem :capture="matchingSharedCapture" :base-url="baseUrl" :share="webShareApiSupported" modal="true" @close-modal="closeSharedModal" @set-filter="setFilter">
 
         </CaptureItem>
 
-<!--           <div class="shareIntro">
-            <p>This is just part of the picture...</p>
-          </div> -->
+          <div class="shareIntro">
+            <p>This is just part of the picture. Explore:</p>
+            <router-link to="/"><img src="@/assets/img/logo-lockup.svg"/></router-link>
+          </div>
     </div>
     
   </div>
@@ -409,15 +410,36 @@
   }
 
  .sharedModal .inner{
-  margin:5vh auto ;
-/*  padding:0 5vw;*/
+    margin:5vh auto ;
 
-    height:75vh;
+    height:90vh;
     width: 90vw;
 /*    width:90%;*/
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    flex-wrap: nowrap ;
+  }
+
+  .shareIntro{
+    flex:1;
+    background: rgba(226, 227, 216, 1);
+    padding:0.5rem 3rem 1rem;
+    text-align: center;
+    border-radius: 1.5rem;
+    margin-top:1rem;
+    flex-grow: 0;
+
+  }
+
+  .shareIntro img{
+    width:13rem;
+  }
+
+  .shareIntro p{
+    font-family: Lato, sans-serif;
+    margin:0.5rem 0;
   }
 
 

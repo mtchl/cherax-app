@@ -10,15 +10,27 @@
       <video v-if="capture.type =='video'" :poster="baseUrl + posterPath" loading="lazy" controls playsinline preload="metadata">
         <source :src="baseUrl + capture.path" type="video/mp4">
       </video>
+      
       <div class="metadata">
         <div class="col left">Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}}
-          <button v-if="share" class="share" @click="shareCapture">Share</button>
+          
+          <button type="button" class="icon fave" @click="clickFaveButton" title="Add to favourites">
+              <img src="@/assets/img/fave-heart.svg"/>
+          </button>
+
+          <button type="button" v-if="share" class="icon share" @click="shareCapture" title="Share this capture">
+            <img src="@/assets/img/share-button.svg"/>
+          </button>
+
+
         </div>
         <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
       </div>
+      
       <div class="closebutton" v-if="modal" @click="closeModal">
         <img src="@/assets/img/close.svg">
       </div>
+
   </div>
 </template>
 
@@ -72,7 +84,7 @@ export default {
     closeModal(key,value){
         this.$emit('close-modal')
       },
-      
+
     shareCapture(){
       navigator.share({
         title: 'Mosaic: Capture ' + this.captureID,
@@ -102,9 +114,10 @@ export default {
 /*    height: 100%;*/
     aspect-ratio: 1.32;
     width: auto;
-    max-height: 100%;
+    max-height: 80%;
     max-width: 100%;
-    flex: none;
+    flex: 1;
+    flex-grow: 0;
     margin-bottom: 0;
     min-width: unset;
     position: relative;
@@ -169,6 +182,35 @@ export default {
 
   .metadata .col.right{
     text-align: right;
+  }
+
+  button.icon{
+    background-color: transparent;
+    border: none;
+    padding: 0; 
+    cursor: pointer; 
+    width:1.9rem;
+/*    height:1.5rem;*/
+/*    overflow: visible;*/
+    margin-right:0.1rem;
+    position:relative;
+    top:0.25rem;
+    opacity:0.25;
+  }
+
+  button.share{
+    top:0.15rem;
+    width:1.8rem;
+  }
+
+  button.icon img{
+    display: block;
+    width:100%;
+    object-fit: contain;
+  }
+
+  button.icon:hover{
+    opacity:0.8;
   }
 
   @media screen and (width < 600px) {
