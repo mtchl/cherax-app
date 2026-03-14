@@ -12,7 +12,9 @@
       </video>
       
       <div class="metadata">
-        <div class="col left">Cam {{capture.camLabel}} &bull; {{capture.timestamp.toLocaleString('en-AU')}}
+        <div class="col left">
+          <span class="itemTag cam" :class="{'active':filterState.cam == capture.camLabel}" @click="setFilter('cam',capture.camLabel)">Cam {{capture.camLabel}}</span>
+          <span class="captureTime"> {{displayTime}}</span>
           
           <button type="button" class="icon fave" @click="clickFaveButton" >
               <img v-if="!faved" src="@/assets/img/fave-heart.svg" title="Add to favourites"/>
@@ -25,7 +27,7 @@
 
 
         </div>
-        <div class="col right"><span v-for="t in localTags" class="itemTag" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
+        <div class="col right"><span v-for="t in localTags" class="itemTag" :class="{'active':filterState.species == t.routeTag}" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
       </div>
       
       <div class="closebutton" v-if="modal" @click="closeModal">
@@ -72,6 +74,10 @@ export default {
 
     srcset(){
       return `${this.baseUrl}${this.capture.path} 2560w, ${this.baseUrl}${this.smallerImgPath} 1280w`
+    },
+
+    displayTime(){
+      return this.capture.timestamp.toLocaleString('en-AU',{ year:"numeric", month:"numeric",day:"numeric", hour: "numeric", minute: "numeric" })
     }
 
   },
@@ -99,7 +105,7 @@ export default {
     }
 
   },
-   props: ['capture','baseUrl','share','modal','faved']
+   props: ['capture','baseUrl','filterState','share','modal','faved']
   }
 
 </script>
@@ -110,7 +116,7 @@ export default {
     flex:1;
     max-width: 900px;
     min-width:640px;
-    margin-bottom:2rem;
+    margin-bottom:1rem;
     background-color: white;
     padding:1rem;
   }
@@ -181,15 +187,37 @@ export default {
   }
 
   .metadata .col.left{
-    margin:0.5rem 0;
-    
+    margin: 0;
+  }
+
+  .metadata .captureTime {
+    display:inline-block;
+    margin: 0 0.5rem;
   }
 
   .metadata .col.right{
+    margin-top:0.25rem;
     text-align: right;
   }
 
+  .itemTag{
+    font-size: 80%;
+    display: inline-block;
+    margin:0.25rem 0.25rem 0 0;
+    background-color: #ddd;
+    padding:0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius:0.75em;
+    border:1px solid transparent;
+  }
+
+  .itemTag.active{
+    background-color: #222;
+    color: white;
+  }
+
   button.icon{
+    display: inline-block;
     background-color: transparent;
     border: none;
     padding: 0; 
@@ -199,12 +227,13 @@ export default {
 /*    overflow: visible;*/
     margin-right:0.1rem;
     position:relative;
-    top:0.25rem;
+    top:0.35rem;
     opacity:0.25;
+/*    vertical-align: middle;*/
   }
 
   button.share{
-    top:0.15rem;
+    top:0.20rem;
     width:1.8rem;
   }
 
@@ -223,12 +252,17 @@ export default {
     .item{
       min-width:320px;
       margin-bottom:1rem;
+      padding:0.5rem;
     }
 
     .item.modal{
       width:100%;
       aspect-ratio: unset;
       height:auto;
+    }
+
+    .metadata{
+      font-size:90%;
     }
   }
 </style>

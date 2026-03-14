@@ -303,12 +303,14 @@
 
 
   <div class="captures">
-    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" @set-filter="setFilter"  @click-fave="toggleFave" :share="webShareApiSupported" :faved="faves.indexOf(c.id) > -1">
 
+    <CaptureItem v-for="c in viewPage" :key="c.path" :capture="c" :base-url="baseUrl" :filter-state="filterState" @set-filter="setFilter"  @click-fave="toggleFave" :share="webShareApiSupported" :faved="faves.indexOf(c.id) > -1">
     </CaptureItem>
+
     <div class="loadMore" v-if="filteredCaptures.length > viewItems" >
       <a @click="loadMore()"> + LOAD MORE</a>
     </div>
+
   </div>
 
   <div class="sharedModal" v-if="sharedCapture">
@@ -327,7 +329,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 
   p, span{
     font-family: Inconsolata, sans-serif;
@@ -354,9 +356,11 @@
     flex-wrap: wrap;
     flex-direction: row;
     margin:0 auto;
-    width:95%;
+    padding:0 1rem;
+/*    width:95%;*/
     max-width: 1800px;
     justify-content: center;
+    box-sizing: border-box;
   }
 
   .headerTags{
@@ -374,7 +378,7 @@
   }
 
   .captures{
-    column-gap: 2rem;
+    column-gap: 1rem;
     padding-bottom: 240px;
   }
 
@@ -513,12 +517,7 @@
 
   .favesbutton{
     width:1.25rem;
-/*    padding-top:0.25rem;*/
-/*    position:relative;*/
-/*    top:0.25rem;*/
     margin: 0 0.05rem;
-/*    height: 1rem;*/
-/*    overflow-y: visible;*/
   }
 
   .section-graphic{
@@ -527,21 +526,16 @@
     display: block;
   }
 
-
-
-
-
     @media screen and (width < 720px) {
 
       .headerTags{
         font-size:90%;
       }
 
-/*      .prompt{
-        flex-basis:100%;
-        max-width:unset;
-        margin:0 auto;
-      }*/
+      .captures{
+        padding: 0 0.25rem;
+      }
+
 
     }
 
