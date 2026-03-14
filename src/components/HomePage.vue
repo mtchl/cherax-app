@@ -239,7 +239,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             <div class="inline-nav">    
                 <div class="col captures" @click="$router.push('/captures')">
                     <h2>Captures</h2>
-                    <p>Browse over 1500 images and videos</p>
+                    <p>Browse over 1700 images and videos</p>
                 </div>
                 <div class="col timeline" @click="$router.push('/timeline')">
                     <h2>Timeline</h2>
@@ -585,7 +585,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
              <div class="inline-nav">    
                 <div class="col captures" @click="$router.push('/captures')">
                     <h2>Captures</h2>
-                    <p>Browse over 1500 images and videos</p>
+                    <p>Browse over 1700 images and videos</p>
                 </div>
                 <div class="col timeline" @click="$router.push('/timeline')">
                     <h2>Timeline</h2>
