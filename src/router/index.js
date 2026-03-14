@@ -23,6 +23,12 @@ const router = createRouter({
       props: true,
     },
 
+    { path: '/captures/faves', 
+      component: captureBrowser ,
+      props: route => ({showFaves:true}),
+    },
+
+
     { path: '/timeline', 
       component: Timeline,
       props: route => ({ focusSpecies: route.query.species })

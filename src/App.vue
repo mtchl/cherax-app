@@ -16,7 +16,6 @@
 
     methods: {
       updateFaves(value){
-        console.log("updateFaves")
         this.faves = value;
       }
     },
@@ -37,8 +36,8 @@
 <template>
   <nav>
     <RouterLink to="/" activeClass="bright">Home</RouterLink>
-    <RouterLink to="/captures" :class="{'bright': currentPath == '/captures' || currentPath == '/captures/faves'}">Captures</RouterLink>
-    <RouterLink class="favecount" to="/captures/faves" v-if="currentPath == '/captures' || currentPath == '/captures/faves'" :title="'Show ' + faves.length + ' saved favourites'">{{faves.length}}</RouterLink>
+    <RouterLink to="/captures" :class="{'bright': currentPath == '/captures'}">Captures</RouterLink>
+    <RouterLink class="favecount" to="/captures/faves" v-if="faves.length > 0 && (currentPath == '/captures' || currentPath == '/captures/faves')" :title="'Show ' + faves.length + ' saved favourites'" :class="{'bright': currentPath == '/captures/faves'}">{{faves.length}}</RouterLink>
     <RouterLink to="/timeline" activeClass="bright">Timeline</RouterLink>
   </nav>
   <main>
@@ -69,7 +68,7 @@
     letter-spacing: 0.02rem;
   }
 
-  nav a.bright, nav a:hover{
+  nav a.bright, nav a.favecount.bright, nav a:hover{
     opacity:1.0;
   }
 
@@ -92,8 +91,10 @@
 
     color:black;
     text-align: center;
-    opacity:1.0;
+    opacity:0.6;
   }
+
+
 
   main{
     padding-top:2rem;

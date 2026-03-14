@@ -22,7 +22,7 @@
       }
     },
 
-    props: ['filterSpecies','filterCam','filterMonth','sharedCapture'],
+    props: ['filterSpecies','filterCam','filterMonth','sharedCapture','showFaves'],
     emits: ['updateFaves'],
 
     mounted(){
@@ -127,8 +127,8 @@
       },
 
       captures(){
-        console.log(this.captureData.length)
-         let caps = this.captureData.map(c => {
+        
+         let caps = this.captureData.filter(c => !c.blank).map(c => {
 
           let id = c.filename.split(".")[0];
           let cam = c.path.split("/")[0]
@@ -172,7 +172,12 @@
                  };
         })
 
-         caps =  caps.filter(c => !c.blank).sort((a,b) => { return a.datetime - b.datetime})
+         caps =  caps.sort((a,b) => { return a.datetime - b.datetime})
+         console.log(caps.length)
+
+         if (this.showFaves){
+          caps = caps.filter(c => this.faves.indexOf(c.id) > -1)
+         }
          return caps
       },
 
@@ -267,23 +272,38 @@
 </script>
 
 <template>
-  <div class="controlWrapper">
-  <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-state="filterState" @set-filter="setFilter"></CaptureHisto>
-  <CamMap :cam-data="camData" :filter-state="filterState" @set-filter="setFilter"></CamMap>
-</div>
+  
+  <div v-if="!showFaves">
 
- <div class="prompt">
-      <p>Filter by month, camera and species to browse over 1500 images and videos</p>
+    <div class="controlWrapper">
+      <CaptureHisto :capture-data="captures" :context-captures="monthContextHisto" :tag-map="tagMap" :filter-state="filterState" @set-filter="setFilter"></CaptureHisto>
+      <CamMap :cam-data="camData" :filter-state="filterState" @set-filter="setFilter"></CamMap>
+    </div>
+
+   <div class="prompt">
+        <p>Filter by month, camera and species to browse over 1700 images and videos.</p> 
+        <p>Use <img class="favesbutton" src="@/assets/img/fave-heart.svg"/> to save your favourites.</p>
+    </div>
+
+    <div class="headerTags">
+      <span class="itemTag big label">Species:</span>
+      <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag)">{{t.tag}} 
+            <span v-if="t.count > 0">({{t.count}})</span>
+        </span>
+    </div>
+
+    <SpeciesInfo v-if="focusedSpecies" :species-name="focusedSpecies.scientificName" context="captures"/>
+
   </div>
 
-  <div class="headerTags">
-    <span class="itemTag big label">Species:</span>
-    <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag)">{{t.tag}} 
-          <span v-if="t.count > 0">({{t.count}})</span>
-      </span>
-  </div>
+  <div class="favesHeader" v-if="showFaves">
+    <h2>Favourites</h2>
+    <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
+       <div class="prompt">
+          <p>Favourite captures are stored on this device. Build your collection and use <img class="sharebutton"src="@/assets/img/share-button.svg"/> to share your finds.</p>
+        </div>
 
-  <SpeciesInfo v-if="focusedSpecies" :species-name="focusedSpecies.scientificName" context="captures"/>
+  </div>
 
 
   <div class="captures">
@@ -320,16 +340,17 @@
   .prompt{
     
     background-color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem 0.5rem;
     margin: 0 auto 0.5rem;
     width: fit-content;
   }
 
   .prompt p{
     font-family: Lato, sans-serif;
-    margin:0;
+    margin:0 0 0.25rem;
     font-size: 0.9rem;
     text-align: center;
+    color:#222;
   }
   
   .captures, .headerTags{
@@ -476,6 +497,41 @@
     font-family: Lato, sans-serif;
     margin:0.5rem 0;
   }
+
+  .favesHeader{
+    margin-bottom:2rem;
+  }
+  .favesHeader h2{
+    font-size: 3rem;
+    margin:2rem auto 1rem;
+    text-align: center;
+  }
+
+  .sharebutton, .favesbutton{
+    display: inline-block;
+    width:1.0rem;
+    opacity:0.25;
+    margin:0 0.1rem;
+    vertical-align: bottom;
+  }
+
+  .favesbutton{
+    width:1.25rem;
+/*    padding-top:0.25rem;*/
+/*    position:relative;*/
+/*    top:0.25rem;*/
+    margin: 0 0.05rem;
+/*    height: 1rem;*/
+/*    overflow-y: visible;*/
+  }
+
+  .section-graphic{
+    width:8rem;
+    margin:1rem auto;
+    display: block;
+  }
+
+
 
 
 
