@@ -156,7 +156,7 @@
     "capture": ""
   },
   {
-    "commonName": "Pied Stilt",
+    "commonName": "Black-winged Stilt",
     "scientificName": "Himantopus leucocephalus",
     "description": "A slender wader with striking black-and-white plumage and long red legs. Pied Stilts inhabit wetlands, lakes, and mudflats, where they forage for aquatic insects and small invertebrates.",
     "alaUrl": "https://bie.ala.org.au/species/Himantopus_leucocephalus",
@@ -192,9 +192,9 @@
     "capture": ""
   },
   {
-    "commonName": "Maned Duck",
+    "commonName": "Australian wood duck",
     "scientificName": "Chenonetta jubata",
-    "description": "Also known as the Australian Wood Duck, this species is widespread in grassy areas near water. It grazes on grasses and herbs and is often seen in pairs or small groups.",
+    "description": "Also known as the maned duck, this species is widespread in grassy areas near water. It grazes on grasses and herbs and is often seen in pairs or small groups.",
     "alaUrl": "https://bie.ala.org.au/species/Maned+Duck",
     "xenoCantoUrl": "https://xeno-canto.org/species/Chenonetta-jubata",
     "imgFilename": "maned-duck.jpeg",

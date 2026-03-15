@@ -97,8 +97,8 @@
 	            </g>
 	        </g>
 	    </g>
-	    <text class="maplabel bottomleft" x="10" y="229"><tspan>Upper Cherax</tspan></text>
-	    <text class="maplabel topright" x="375" y="20" text-anchor="end"><tspan>Crop Paddock</tspan></text>
+	    <text class="maplabel bottomleft" x="10" y="229"><tspan>Upper Cherax Swamp</tspan></text>
+	    <text class="maplabel topright" x="375" y="20" text-anchor="end"><tspan>Eastern wetland</tspan></text>
 
 	    <text class="topleft title" x="10" y="20" text-anchor="start">Cameras:</text>
 	    <defs>

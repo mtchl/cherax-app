@@ -18,7 +18,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 <script>
 
    export default{
-      //props: ['initSlide'],
+      emits: ['updateFaves'],
       data(){
          return {
             currentSlide: 0,
@@ -46,10 +46,10 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             },
             audioEnabled:false,
             carouselSlides:[
-                {src: "aust-bittern-1600.jpg", caption:"Australasian Bittern (Threatened)"},
-                {src: "major-mitchell-1600.jpg", caption:"Pink Cockatoo"},
-                {src: "painted-snipe-1600.jpg", caption: "Painted Snipe"},
-                {src: "regent-parrot-1620.jpg",caption: "Regent Parrot"},
+                {src: "aust-bittern-1600.jpg", caption:"Australasian bittern (threatened)"},
+                {src: "major-mitchell-1600.jpg", caption:"Pink cockatoo"},
+                {src: "painted-snipe-1600.jpg", caption: "Painted snipe (threatened)"},
+                {src: "regent-parrot-1620.jpg",caption: "Regent parrot"},
                 {src: "snipe-swamp-1600.jpg", caption:""},
                 ]
             
@@ -208,9 +208,11 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <img src="@/assets/img/mini-map-45.svg"/>
             </div>
 
-            <div class="story"><p>This is a mosaic of temporary and permanent wetlands, actively managed by the NSW and Commonwealth governments in collaboration with local landholders.</p></div>
+            <div class="story"><p>This is a mosaic of temporary and permanent wetlands, actively managed by the NSW Government and the Commonwealth Environmental Water Holder in collaboration with local landholders.</p></div>
 
-            <div class="story less-bottom-margin less-top-margin"><p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p></div>
+             <div class="story less-top-margin"><p>Environmental water is delivered to these wetlands to support wetland vegetation and create habitats for water-dependent animals, including a dazzling diversity of waterbirds.</p></div>
+
+            <div class="story less-bottom-margin "><p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p></div>
 
 
             <div class="story step no-bottom-margin" data-playTrigger="introFade" ><p>Landholder Peter Morton’s photos and videos inspired us to create a portrait of life in the Western Lakes.</p></div>
@@ -248,7 +250,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             </div>
 
              <div class="story less-top-margin less-bottom-margin">
-                    <p>Or <strong>scroll on</strong> for a tour of our highlights from these western wetlands...</p>
+                    <p>Or <strong>scroll on</strong> for a tour of our highlights from these inland wetlands...</p>
              </div>
 
         </section>
@@ -285,7 +287,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 
                  
                 <div class="story">
-                     At dawn, a <router-link :to="'/captures?species=pelican'">pelican</router-link> touches down at the edge of the flooded Crop Paddock 
+                     At dawn, a <router-link :to="'/captures?species=pelican'">pelican</router-link> touches down at the edge of the eastern wetland 
                 </div>
 
                 
@@ -314,7 +316,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <ScrollyImg data-slide="6" :class="{'hide':currentSlide > 6}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/camA/camA-20241116-055548.JPG"></ScrollyImg>
 
                 <div class="story">
-                       <router-link :to="'/captures?cam=A'">Camera A,</router-link> Looking towards Upper Cherax, snaps a flock of <router-link :to="'/captures?species=white-faced-heron'">pacific black ducks</router-link> taking off in the pre-dawn 
+                       <router-link :to="'/captures?cam=A'">Camera A,</router-link> looking towards Upper Cherax Swamp, snaps a flock of <router-link :to="'/captures?species=white-faced-heron'">pacific black ducks</router-link> taking off in the pre-dawn 
                 </div>
 
                 <ScrollyImg data-slide="7" :class="{'hide':currentSlide > 7}"class="step" type="img" src="https://storage.googleapis.com/cherax-media/camA/camA-20241216-093840.JPG"></ScrollyImg>
@@ -332,7 +334,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                  <ScrollyImg data-slide="9" :class="{'hide':currentSlide > 9}"class="step" type="img" src="https://storage.googleapis.com/cherax-media/camF/camF-20250131-105624.JPG"></ScrollyImg>
 
                  <div class="story step final" >
-                       By the end of January, the water level has dropped, and <router-link :to="'/captures?species=pacific-black-duck'">ducks</router-link>, <router-link :to="'/captures?species=pelican'">pelicans</router-link> and <router-link :to="'/captures?species=black-swan'">black swans</router-link> are gathering in numbers out on the Crop Paddock   
+                       By the end of January, the water level has dropped, and <router-link :to="'/captures?species=pacific-black-duck'">ducks</router-link>, <router-link :to="'/captures?species=pelican'">pelicans</router-link> and <router-link :to="'/captures?species=black-swan'">black swans</router-link> are gathering in numbers out on the eastern wetland.   
                  </div>
 
             </section>
@@ -357,7 +359,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                  <ScrollyImg class="step" data-slide="11" :class="{'hide':currentSlide > 11}" :inactive="currentSlide > 11" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHunting" src="https://storage.googleapis.com/cherax-media/camD/camD-20241121-072410.mp4" mute-video="true"></ScrollyImg>
 
                 <div class="story step" data-playtrigger="spoonbillHunting" data-offset="0.8">
-                  This <router-link :to="'/captures?species=yellow-spoonbill'">yellow spoonbill</router-link> sweeps its broad, sensitive bill from side to side, hunting by feel,  
+                  This <router-link :to="'/captures?species=yellow-spoonbill'">yellow spoonbill</router-link> sweeps its broad, sensitive bill from side to side, hunting by feel  
                 </div>
 
                 <div class="story step">
@@ -423,7 +425,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <ScrollyImg class="step" data-slide="18" :class="{'hide':currentSlide > 18}" :inactive="currentSlide > 18"  type="video"crop="cropleft" src="https://storage.googleapis.com/cherax-media/camF/camF-20250222-185752.mp4" :playtrigger="triggers.swampHarrierPaddock" mute-video="true"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="swampHarrierPaddock" data-offset="0.8">
-                  Here it is on the drying edges of the Crop Paddock wetland, in February 
+                  Here it is on the drying edges of the eastern wetland, in February 
                 </div>
 
                 <ScrollyImg class="step" data-slide="19" :class="{'hide':currentSlide > 19}" :inactive="currentSlide > 19" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-standing.mov" :playtrigger="triggers.swampHarrierNesting"></ScrollyImg>
@@ -479,8 +481,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <ScrollyImg class="step" data-slide="23" :class="{'hide':currentSlide > 23}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-closeup.jpg"></ScrollyImg>
 
                 <div class="story" >
-                   <p>But this system doesn't recognise frogs, the noisiest wetland creatures.</p> 
-                   <p>Endangered southern bell frogs are booming in these wetlands.</p>
+                   <p>But this system doesn't recognise frogs, the noisiest wetland creatures. Endangered southern bell frogs are booming in these wetlands.</p>
                 </div>
 
                 <ScrollyImg class="step" data-slide="24" :class="{'hide':currentSlide > 24}" :inactive="currentSlide > 24" type="video" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-hopping.mov" :playtrigger="triggers.bellFrogHopping" ></ScrollyImg>
@@ -547,7 +548,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                 <div class="step story" data-playtrigger="harrierSettlingFinal" data-offset="0.8">
                    
-                   <p>Remember the <router-link :to="'/captures?species=swamp-harrier'">swamp harrier</router-link>, nesting in the reeds?</p> 
+                   <p>Remember the <router-link :to="'/captures?species=swamp-harrier'">swamp harrier,</router-link> nesting in the reeds?</p> 
 
                 </div>
 
@@ -562,18 +563,18 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" :inactive="currentSlide > 32" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/exclusion-fence-causeway.mov" :playtrigger="triggers.exclusionFence" slideclass="nopad" mute-video="true"></ScrollyImg>
 
                  <div class="step story" data-playtrigger="exclusionFence" data-offset="0.8">
-                   <p>Seeing this, and the impacts from other ferals, prompted Peter to begin installing an exclusion fence in 2025</p>
+                   <p>Seeing this, and the impacts from other ferals, prompted Peter to begin installing an exclusion fence in 2025, with funding from the NSW Government.</p>
                 </div>
 
                 <div class="story">
-                   <p>This ten-kilometre fence will keep out goats, <router-link :to="'/captures?species=fox'">foxes</router-link>, <router-link :to="'/captures?species=cat'">cats</router-link> and other feral species.</p>
+                   <p>This ten-kilometre fence will keep out goats, <router-link :to="'/captures?species=fox'">foxes,</router-link> <router-link :to="'/captures?species=cat'">cats</router-link> and other feral species.</p>
                 </div>
 
                 <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-upper-cherax.jpg" crop="cropleftquarter" slideclass="noaspect"></ScrollyImg>
 
                 <div class="story">
                    <!-- <p>For the Morton family, this work and these wetlands will be their legacy.</p> -->
-                   <p>With the support of the NSW government and the Commonwealth Envrionmental Water Holder, landholders like the Mortons are doing vital work to sustain our wetlands</p>
+                   <p>With the support of the NSW government and the Commonwealth Environmental Water Holder, landholders like the Mortons are doing vital work to sustain our wetlands</p>
                 </div>
 
                 <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>
@@ -960,7 +961,7 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
        background-size: contain;
        background-repeat: no-repeat;
        background-position:20% 0;
-       display: inline-JPGblock;
+       display: inline-block;
        height: 0.9em;
        width: 2em;
        margin-right: -2em;

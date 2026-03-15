@@ -46,9 +46,11 @@ export default {
     }
   },
 
+  emits: ['set-filter','close-modal','click-fave'],
+
   computed:{
     localTags(){
-      return this.capture.tags.map(t => { return {tag:t, routeTag: t.toLowerCase().replace(" ","-")}})
+      return this.capture.tags.map(t => { return {tag:t, routeTag: t.toLowerCase().replaceAll(" ","-")}})
     },
 
     captureID(){
