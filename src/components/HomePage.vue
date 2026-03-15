@@ -197,7 +197,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
         <h1 class="title"><span class="bigM">M</span>osa<span class="littleI">i</span>c</h1>
         <h2 class="title">Life on the Western Lakes</h2>
             
-        <div class="story no-bottom-margin"><p>In south-western New South Wales, on Mutthi Mutthi country, the Murrumbidgee River reaches the western lakes.</p>
+        <div class="story no-bottom-margin"><p>In south-western New South Wales, on Mutthi Mutthi country, the Murrumbidgee River reaches the Western Lakes.</p>
 
         </div>
 
@@ -213,7 +213,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             <div class="story less-bottom-margin less-top-margin"><p>Dianne Williams and the Morton family initiated a project to regenerate the wetlands around Paika Lake and restore this area's natural beauty. This work is ongoing.</p></div>
 
 
-            <div class="story step no-bottom-margin" data-playTrigger="introFade" ><p>Landholder Peter Morton’s photos and videos inspired us to create a portrait of life in the western lakes.</p></div>
+            <div class="story step no-bottom-margin" data-playTrigger="introFade" ><p>Landholder Peter Morton’s photos and videos inspired us to create a portrait of life in the Western Lakes.</p></div>
         </div>
     </section>
     <div class="story-wrapper">  
