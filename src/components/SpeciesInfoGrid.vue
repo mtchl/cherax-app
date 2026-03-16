@@ -226,7 +226,7 @@
 /*		display: none;*/
 	}
 
-	.mobile-toggle:hover{
+	.mobile-toggle:hover, .wrapper:hover .mobile-toggle{
 		opacity:0.5;
 		cursor:pointer;
 	}
