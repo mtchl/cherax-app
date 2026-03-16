@@ -1,10 +1,10 @@
 
 <template>
 
-	<div class="wrapper" :class="{'mobileshow':mobileshow}">
+	<div class="wrapper" :class="{'mobileshow':mobileshow}" @click="mobileshow = !mobileshow" >
 		
 		<div id="speciesInfo" >
-			<div class="mobile-toggle" @click="mobileshow = !mobileshow" :class="{'expanded':mobileshow}"></div>
+			<div class="mobile-toggle" :class="{'expanded':mobileshow}"></div>
 		
 			<div class="head">
 				<h3 >{{speciesInfo.commonName}}</h3>
@@ -83,6 +83,7 @@
 		left:0;
 		z-index: 5;
 		width:100%;
+		cursor: pointer;
 
 	}
 

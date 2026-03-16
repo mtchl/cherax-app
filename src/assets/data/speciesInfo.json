@@ -1,6 +1,6 @@
 [
   {
-    "commonName": "Sacred Kingfisher",
+    "commonName": "Sacred kingfisher",
     "scientificName": "Todiramphus sanctus",
     "description": "A medium-sized woodland kingfisher that occurs in mangroves, woodlands, forests and river valleys. They feed on a wide variety of invertebrates, small crustaceans, fish, frogs, small rodents and reptiles.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/135cc880-f84e-4470-a1c1-fbce3a0ed534",
@@ -12,7 +12,7 @@
     "capture": ""
   },
   {
-    "commonName": "Australian Raven",
+    "commonName": "Australian raven",
     "scientificName": "Corvus coronoides",
     "description": "Widespread across eastern and south-western Australia, the Australian raven inhabits woodlands and transitional zones as well as cities and towns. It is an omnivorous feeder and is territorial, with pairs bonding for life.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/8117f68b-5460-4626-8400-e171464e08ad",
@@ -24,7 +24,7 @@
     "capture": true
   },
   {
-    "commonName": "Australian Reed Warbler",
+    "commonName": "Australian reed warbler",
     "scientificName": "Acrocephalus australis",
     "description": "A slender brown bird, the reed warbler lives in dense, low vegetation near rivers, creeks and wetlands. They have a loud, varied song and are more often heard than seen.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/51829a26-3d88-4238-be5b-354de5174292",
@@ -36,7 +36,7 @@
     "capture": ""
   },
   {
-    "commonName": "Masked Lapwing",
+    "commonName": "Masked lapwing",
     "scientificName": "Vanellus miles",
     "description": "This large, conspicuous bird spends most of its time on the ground searching for food such as insects and worms, and has several distinctive calls. It is common in Australian fields and open land, and is known for its defensive swooping behaviour during the nesting season.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/46306d30-cfa1-4528-906b-cae2e9c5c0e8",
@@ -60,7 +60,7 @@
     "capture": true
   },
   {
-    "commonName": "White-plumed Honeyeater",
+    "commonName": "White-plumed honeyeater",
     "scientificName": "Ptilotula penicillata",
     "description": "Widespread throughout south-eastern Australia, these active, noisy birds are often found in woodland near wetlands and on river-banks. They feed on nectar and insects.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/daa188cc-adc2-4b8b-92e9-d8f4ee0b28d7",
@@ -84,7 +84,7 @@
     "capture": true
   },
   {
-    "commonName": "Red-rumped Parrot",
+    "commonName": "Red-rumped parrot",
     "scientificName": "Psephotus haematonotus",
     "description": "Found throughout the Murray Darling basin, this parrot is found in open, grassy habitats, and has adapted well to rural and suburban areas. It is often sound foraging on the ground for seeds.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/7890d5ed-3830-435e-98cb-88c6a1103a91",
@@ -96,7 +96,7 @@
     "capture": ""
   },
   {
-    "commonName": "Yellow-plumed Honeyeater",
+    "commonName": "Yellow-plumed honeyeater",
     "scientificName": "Ptilotula ornata",
     "description": "Found in mallee and woodlands habitats across southern Australia, these noisy, social birds feed on insects, nectar, and lerps.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/5a264c77-a7d1-43ca-ae1f-233f59b175aa",
@@ -108,7 +108,7 @@
     "capture": ""
   },
   {
-    "commonName": "Little Corella",
+    "commonName": "Little corella",
     "scientificName": "Cacatua sanguinea",
     "description": "Found across much of Australia, these small, noisy cockatoos congregate in large flocks. They feed on wild and cultivated seeds and are numerous in farmlands across NSW and QLD.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/34b31e86-7ade-4cba-960f-82a6ae586206#overview",
@@ -120,7 +120,7 @@
     "capture": ""
   },
   {
-    "commonName": "White-browed Woodswallow",
+    "commonName": "White-browed woodswallow",
     "scientificName": "Artamus superciliosus",
     "description": "Found mainly in inland areas of eastern Australia, these small birds are insect-eaters. They migrate seasonally, often forming large flocks.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/376d1eb3-4e97-41bf-bce5-548e4ad9f5e2",
@@ -132,7 +132,7 @@
     "capture": ""
   },
   {
-    "commonName": "Whistling Kite",
+    "commonName": "Whistling kite",
     "scientificName": "Haliastur sphenurus",
     "description": "Found throughout Australia, this medium-sized raptor is named for its loud and distinctive call. They are often found near water, in open or lightly wooded areas, and feed on a wide range of prey including small mammals, birds, fish and reptiles.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/31113d80-ed4f-4bb0-9a65-48080e4c6dd1",
@@ -156,7 +156,7 @@
     "capture": ""
   },
   {
-    "commonName": "Black-winged Stilt",
+    "commonName": "Black-winged stilt",
     "scientificName": "Himantopus leucocephalus",
     "description": "A slender wader with striking black-and-white plumage and long red legs. Pied Stilts inhabit wetlands, lakes, and mudflats, where they forage for aquatic insects and small invertebrates.",
     "alaUrl": "https://bie.ala.org.au/species/Himantopus_leucocephalus",
@@ -168,7 +168,7 @@
     "capture": ""
   },
   {
-    "commonName": "Grey Teal",
+    "commonName": "Grey teal",
     "scientificName": "Anas gracilis",
     "description": "A small dabbling duck with mottled brown plumage, commonly found in freshwater wetlands and lakes. Grey Teals feed on seeds, aquatic plants, and small invertebrates, often forming large flocks.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/96db6160-ca14-4e1f-9236-e2baaca553da",
@@ -180,7 +180,7 @@
     "capture": ""
   },
   {
-    "commonName": "Baillon's Crake",
+    "commonName": "Baillon's crake",
     "scientificName": "Zapornia pusilla",
     "description": "A secretive, small rail species that prefers dense vegetation near wetlands and reed beds. It feeds on insects, seeds, and small aquatic organisms, and is more often heard than seen.",
     "alaUrl": "https://bie.ala.org.au/species/Zapornia_pusilla",
@@ -204,7 +204,7 @@
     "capture": true
   },
   {
-    "commonName": "Pacific Black Duck",
+    "commonName": "Pacific black duck",
     "scientificName": "Anas superciliosa",
     "description": "A large, dark duck with a distinctive facial stripe, found in wetlands, rivers, and lakes across Australia. It feeds mainly on the seeds of aquatic plants.",
     "alaUrl": "https://bie.ala.org.au/species/anas+%28anas%29+superciliosa",
@@ -216,7 +216,7 @@
     "capture": true
   },
   {
-    "commonName": "Australian Shelduck",
+    "commonName": "Australian shelduck",
     "scientificName": "Tadorna tadornoides",
     "description": "A striking, large duck with chestnut and black plumage and a white collar. Common in southern Australia, it inhabits open wetlands and feeds on grasses and aquatic vegetation.",
     "alaUrl": "https://bie.ala.org.au/species/Australian%2BShelduck",
@@ -228,7 +228,7 @@
     "capture": ""
   },
   {
-    "commonName": "Great Crested Grebe",
+    "commonName": "Great crested grebe",
     "scientificName": "Podiceps cristatus",
     "description": "An elegant waterbird with ornate head plumes during the breeding season. Found on lakes and deep wetlands, it dives for fish and aquatic invertebrates.",
     "alaUrl": "https://bie.ala.org.au/species/Podiceps_cristatus",
@@ -240,7 +240,7 @@
     "capture": ""
   },
   {
-    "commonName": "White-faced Heron",
+    "commonName": "White-faced heron",
     "scientificName": "Egretta novaehollandiae",
     "description": "A medium-sized, grey heron with a distinctive white face. It is widespread in Australian wetlands, estuaries, and coastal areas, feeding on fish, frogs, and insects.",
     "alaUrl": "https://bie.ala.org.au/species/Egretta+novaehollandiae",
@@ -252,7 +252,7 @@
     "capture": true
   },
   {
-    "commonName": "Intermediate Egret",
+    "commonName": "Intermediate egret",
     "scientificName": "Ardea intermedia",
     "description": "A graceful white wading bird found in wetlands and shallow waters across eastern and nothern Australia. It feeds on fish, amphibians, and aquatic insects, often seen stalking prey in open water.",
     "alaUrl": "https://bie.ala.org.au/species/Ardea_intermedia",
@@ -264,7 +264,7 @@
     "capture": true
   },
   {
-    "commonName": "Peregrine Falcon",
+    "commonName": "Peregrine falcon",
     "scientificName": "Falco peregrinus",
     "description": "A powerful raptor renowned for its speed, inhabiting cliffs, open country, and urban areas. It preys mainly on birds, capturing them in mid-air with incredible agility.",
     "alaUrl": "https://bie.ala.org.au/species/Falco%20peregrinus",
@@ -276,7 +276,7 @@
     "capture": ""
   },
   {
-    "commonName": "Little Egret",
+    "commonName": "Little egret",
     "scientificName": "Egretta garzetta",
     "description": "A small, elegant white waterbird with fine plumes during breeding season. It frequents wetlands and shallow waters, feeding on fish and aquatic invertebrates.",
     "alaUrl": "https://bie.ala.org.au/species/Egretta_garzetta",
@@ -288,7 +288,7 @@
     "capture": ""
   },
   {
-    "commonName": "Great Cormorant",
+    "commonName": "Great cormorant",
     "scientificName": "Phalacrocorax carbo",
     "description": "A large, dark waterbird that dives expertly for fish. Found in rivers, lakes, and coastal waters, it often perches with wings spread to dry after fishing.",
     "alaUrl": "https://bie.ala.org.au/species/Phalacrocorax_Phalacrocorax_carbo",
@@ -300,7 +300,7 @@
     "capture": true
   },
   {
-    "commonName": "Black Swan",
+    "commonName": "Black swan",
     "scientificName": "Cygnus atratus",
     "description": "A large, iconic waterbird with black plumage and a red bill, common in lakes and wetlands across Australia. Black swans feed on aquatic plants and graze on grasses near water.",
     "alaUrl": "https://bie.ala.org.au/species/Cygnus_atratus",
@@ -312,7 +312,7 @@
     "capture": true
   },
   {
-    "commonName": "Eurasian Coot",
+    "commonName": "Eurasian coot",
     "scientificName": "Fulica atra",
     "description": "A dark, duck-like bird with a white bill and frontal shield, it inhabits freshwater wetlands throughout Australia. Eurasian coots build floating nests from vegetation.",
     "alaUrl": "https://bie.ala.org.au/species/Fulica+atra",
@@ -324,7 +324,7 @@
     "capture": ""
   },
   {
-    "commonName": "Little Raven",
+    "commonName": "Little raven",
     "scientificName": "Corvus mellori",
     "description": "A medium-sized black corvid native to south-eastern Australia. It is widespread across agricultural and grazing land, and is an opportunistic scavenger.",
     "alaUrl": "https://bie.ala.org.au/species/Corvus_mellori",
@@ -336,7 +336,7 @@
     "capture": ""
   },
   {
-    "commonName": "Glossy Ibis",
+    "commonName": "Glossy ibis",
     "scientificName": "Plegadis falcinellus",
     "description": "A slender wader with iridescent dark plumage and a long, curved bill, this species lives in freshwater wetlands and swamps. It is a migratory species, found in warm regions of Africa, Asia, Europe, the Americas and Australia.",
     "alaUrl": "https://bie.ala.org.au/species/Plegadis_falcinellus",
@@ -348,7 +348,7 @@
     "capture": ""
   },
   {
-    "commonName": "Masked Woodswallow",
+    "commonName": "Masked woodswallow",
     "scientificName": "Artamus personatus",
     "description": "A small, sleek bird with a distinctive black facial mask. It inhabits open woodlands and grasslands, feeding mainly on flying insects and often seen in flocks.",
     "alaUrl": "https://bie.ala.org.au/species/Artamus+%28Campbellornis%29+personatus",
@@ -360,7 +360,7 @@
     "capture": ""
   },
   {
-    "commonName": "Tree Martin",
+    "commonName": "Tree martin",
     "scientificName": "Petrochelidon nigricans",
     "description": "A small swallow that nests in tree hollows and feeds on flying insects. It is widespread across Australia, often seen swooping over open areas and water.",
     "alaUrl": "https://bie.ala.org.au/species/Petrochelidon%20%28Hylochelidon%29%20nigricans",
@@ -372,7 +372,7 @@
     "capture": ""
   },
   {
-    "commonName": "Black-faced Cuckooshrike",
+    "commonName": "Black-faced cuckooshrike",
     "scientificName": "Coracina novaehollandiae",
     "description": "A medium-sized bird with grey plumage and a black face, it is found in woodlands and forests across all areas of Australia",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/69c22b10-ff42-4bef-bb0f-88dc01a8f96c",
@@ -384,7 +384,7 @@
     "capture": ""
   },
   {
-    "commonName": "Great Egret",
+    "commonName": "Great egret",
     "scientificName": "Ardea alba",
     "description": "A tall, elegant white heron found in wetlands and shallow waters. It feeds on fish, amphibians, and insects, stalking prey with slow, deliberate movements. It is found in all parts of Australia except the western desert.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/143cc9f0-bc3c-45b7-8e1c-21fbe9319bba",
@@ -396,7 +396,7 @@
     "capture": true
   },
   {
-    "commonName": "Gray Shrikethrush",
+    "commonName": "Gray shrikethrush",
     "scientificName": "Colluricincla harmonica",
     "description": "A medium-sized, plain grey-brown bird with a strong, melodious song. Found in forests, woodlands, and scrub across Australia, it feeds mainly on insects and small invertebrates, foraging on the ground and in low vegetation.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/7af45089-4a0f-4303-a417-1708623809af",
@@ -420,7 +420,7 @@
     "capture": true
   },
   {
-    "commonName": "White-necked Heron",
+    "commonName": "White-necked heron",
     "scientificName": "Ardea pacifica",
     "description": "A tall, nomadic waterbird found in freshwater habitats around Australia. It hunts fish, frogs, spiders and other prey with its elongated neck and beak.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/cf8e02dd-2a6e-41dc-b14b-0e446444250a",
@@ -432,7 +432,7 @@
     "capture": true
   },
   {
-    "commonName": "White Ibis",
+    "commonName": "White ibis",
     "scientificName": "Threskiornis moluccus",
     "description": "This wading bird is found in wetlands throughout mainland Australia where it digs up crustaceans and invertebrates with its long bill. It is also increasingly found in urban areas on the east and west coasts, where it has adapted to forage on new food sources",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/f5f5ddd8-ae6a-431b-9e08-3e992b12fa64",
@@ -444,7 +444,7 @@
     "capture": true
   },
   {
-    "commonName": "Straw-necked Ibis",
+    "commonName": "Straw-necked ibis",
     "scientificName": "Threskiornis spinicollis",
     "description": "Found in shallow freshwater wetlands and grasslands throughout Australia, this species is nomadic, moving in response to rainfall and water conditions. They feed on a range of molluscs, frogs, crayfish and fish, as well as insects and lizards.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c319dbaf-a363-4853-b333-75f14c47fc82#overview",
@@ -456,7 +456,7 @@
     "capture": true
   },
   {
-    "commonName": "Yellow-billed Spoonbill",
+    "commonName": "Yellow-billed spoonbill",
     "scientificName": "Platalea flavipes",
     "description": "This waterbird is found in freshwater wetlands and swamps in eastern and western Australia. It hunts for crustaceans, insects and small fish, sweeping its sensitive bill back and forth in shallow water.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/3dd39f84-1293-4c04-ac87-2474f5c887b0",
@@ -468,7 +468,7 @@
     "capture": true
   },
   {
-    "commonName": "Royal Spoonbill",
+    "commonName": "Royal spoonbill",
     "scientificName": "Platalea regia",
     "description": "Found in freshwater and saltwater wetlands, swamps and coastal areas throughout Australia, this species feeds on invertebrates, crustaceans and fish, sweeping its broad bill from side to side. When breeding, they grow long white plumes from the back of their heads.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/24c21411-d78c-415d-a848-f0abb83b615a",
@@ -492,7 +492,7 @@
     "capture": true
   },
   {
-    "commonName": "Native Hen",
+    "commonName": "Native hen",
     "scientificName": "Tribonyx ventralis",
     "description": "Found near fresh and brackish water throughout Australia, this bird moves in small flocks like a domestic hen. It eats insects, plants and seeds.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/4491debc-214f-46a2-95cf-572fe0150d0d",
@@ -504,7 +504,7 @@
     "capture": true
   },
   {
-    "commonName": "Black-fronted Dotterel",
+    "commonName": "Black-fronted dotterel",
     "scientificName": "Elseyornis melanops",
     "description": "This small plover is found around the edges of fresh water across Australia, including wetlands, lakes, dams and billabongs. It feeds on crustaceans, insects and seeds.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/29cbe213-85a4-46b7-b373-4c503231f299",
@@ -516,7 +516,7 @@
     "capture": true
   },
   {
-    "commonName": "White-winged Chough",
+    "commonName": "White-winged chough",
     "scientificName": "Corcorax melanorhamphos",
     "description": "Found in dry woodlands around water across south-eastern Australia, these highly social birds live in family groups of up to 20. They forage in leaf litter for insects and other invertebrates.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/7bd5c7ad-9cfa-46d1-9a72-090f2961fe70",
@@ -552,7 +552,7 @@
     "capture": true
   },
   {
-    "commonName": "Swamp Harrier",
+    "commonName": "Swamp harrier",
     "scientificName": "Circus approximans",
     "description": "Found in wetlands around Australia, this slim raptor hunts waterbirds, rabbits, reptiles, frogs and fish. It nests on the ground, often in reeds or other cover.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/c568921e-f800-4a6e-b88c-6d409def1e20",
@@ -564,7 +564,7 @@
     "capture": true
   },
   {
-    "commonName": "Eastern Grey Kangaroo",
+    "commonName": "Eastern grey kangaroo",
     "scientificName": "Macropus giganteus",
     "description": "This adaptable marsupial is found across the eastern third of Australia. A herbivore, it prefers open grassland but also inhabits woodlands, forests and inland scrub.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/f2f43ef9-89fd-4f89-8b06-0842e86cfe06",
@@ -588,7 +588,7 @@
     "capture": true
   },
   {
-    "commonName": "Red Fox",
+    "commonName": "Red fox",
     "scientificName": "Vulpes vulpes",
     "description": "Found across most of the country, the red fox is one of the most damaging invasive species in Australia. In wetlands they prey on birds and their nests, as well as reptiles, amphibians and mammals.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/2869ce8a-8212-46c2-8327-dfb7fabb8296",
@@ -600,7 +600,7 @@
     "capture": true
   },
   {
-    "commonName": "European Rabbit",
+    "commonName": "European rabbit",
     "scientificName": "Oryctolagus cuniculus",
     "description": "Since their introduction with the First Fleet, rabbits have spread throughout the country. They are an invasive species, causing extensive damage through overgrazing and erosion.",
     "alaUrl": "https://bie.ala.org.au/species/https://biodiversity.org.au/afd/taxa/692effa3-b719-495f-a86f-ce89e2981652",

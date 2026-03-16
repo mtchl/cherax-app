@@ -61,7 +61,7 @@
 					});
 
 	  			let speciesData = sp.map(s => {
-	  				return { commonName: s.split("_")[1], 
+	  				return { commonName: this.sentenceCase(s.split("_")[1]), 
 	  						scientificName: s.split("_")[0],
 	  						routeTag: s.split("_")[1].toLowerCase().replaceAll(" ","-").replaceAll("'",""),
 	  						fullSpecies:s, 
@@ -117,6 +117,11 @@
 			jumpPrev(speciesRow){
 				if (!speciesRow.prevDetection) return
 				this.$emit('jumpAudio',{time:speciesRow.prevDetection.startTime})
+			},
+
+			sentenceCase(string){
+				let l = string.toLowerCase();
+				return l.charAt(0).toUpperCase() + l.slice(1);
 			}
 	  	},
 
