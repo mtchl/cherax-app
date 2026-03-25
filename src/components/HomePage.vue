@@ -21,6 +21,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
       emits: ['updateFaves'],
       data(){
          return {
+            assetPath: import.meta.env.VITE_ASSETPATH,
             currentSlide: 0,
             currentSection: null,
             sectionIndex:[
@@ -36,11 +37,11 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             introParallax:0,
             audio:{
                 intro: {
-                    src: "https://storage.googleapis.com/cherax-media/narrative/intro-faded.mp3",
+                    src: import.meta.env.VITE_ASSETPATH + "narrative/intro-faded.mp3",
                     playing:false
                 },
                 whistlingKite: {
-                    src: "https://storage.googleapis.com/cherax-media/narrative/whistling-kite.mp3",
+                    src: import.meta.env.VITE_ASSETPATH +"narrative/whistling-kite.mp3",
                     playing:false
                 }
             },
@@ -224,7 +225,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <Carousel v-bind="carouselConfig" :gap="40">
                         <Slide v-for="(s,idx) in carouselSlides" :key="idx">
                           <div class="carousel__item">
-                              <img :src="'https://storage.googleapis.com/cherax-media/narrative/'+s.src"/>
+                              <img :src="assetPath+'narrative/'+s.src"/>
                               <div class="caption"><p>{{s.caption}}</p></div>
                           </div>
                         </Slide>
@@ -274,7 +275,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 </div>
 
              
-                <ScrollyImg :class="{'hide':currentSlide > 1}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/cam1/20241102/cam1-20241102-40.JPG" data-slide="1"></ScrollyImg>
+                <ScrollyImg :class="{'hide':currentSlide > 1}" class="step" type="img" :src="assetPath+'cam1/20241102/cam1-20241102-40.JPG'" data-slide="1"></ScrollyImg>
            
            
 
@@ -283,7 +284,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 </div>
 
              
-                <ScrollyImg :class="{'hide':currentSlide > 2}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/camB/camB-20241102-060724.JPG" data-slide="2" data-offset="0.5"></ScrollyImg>
+                <ScrollyImg :class="{'hide':currentSlide > 2}" class="step" type="img" :src="assetPath+'camB/camB-20241102-060724.JPG'" data-slide="2" data-offset="0.5"></ScrollyImg>
                 
                  
                 <div class="story">
@@ -291,14 +292,14 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 </div>
 
                 
-                <ScrollyImg :class="{'hide':currentSlide > 3}" :inactive="currentSlide > 3" class="step" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHenSnag" src="https://storage.googleapis.com/cherax-media/camE/camE-20241106-103414.mp4" data-slide="3" data-offset="0.8"></ScrollyImg>
+                <ScrollyImg :class="{'hide':currentSlide > 3}" :inactive="currentSlide > 3" class="step" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHenSnag" :src="assetPath+'camE/camE-20241106-103414.mp4'" data-slide="3" data-offset="0.8"></ScrollyImg>
                
 
                 <div class="story step" data-playtrigger="spoonbillHenSnag" data-fadeaudio="1" data-offset="0.8">
                         A <router-link :to="'/captures?species=yellow-billed-spoonbill'">yellow-billed spoonbill</router-link> and a flock of <router-link :to="'/captures?species=native-hen'">native hens</router-link> feed around the nearby snag... 
                 </div>
 
-                 <ScrollyImg :class="{'hide':currentSlide > 4}" :inactive="currentSlide > 4" class="step" type="video" crop="cropleft" :playtrigger="triggers.spearMorsel" src="https://storage.googleapis.com/cherax-media/camE/camE-20241109-072636.mp4" data-slide="4" data-offset="0.8"></ScrollyImg>
+                 <ScrollyImg :class="{'hide':currentSlide > 4}" :inactive="currentSlide > 4" class="step" type="video" crop="cropleft" :playtrigger="triggers.spearMorsel" :src="assetPath+'camE/camE-20241109-072636.mp4'" data-slide="4" data-offset="0.8"></ScrollyImg>
 
 
                 <div class="story step" data-playtrigger="spearMorsel" data-offset="0.8">
@@ -306,32 +307,32 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 </div>
 
 
-                <ScrollyImg :class="{'hide':currentSlide > 5}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/camD/camD-20241122-060704.JPG" data-slide="5" data-offset="0.5"></ScrollyImg>
+                <ScrollyImg :class="{'hide':currentSlide > 5}" class="step" type="img" :src="assetPath+'camD/camD-20241122-060704.JPG'" data-slide="5" data-offset="0.5"></ScrollyImg>
 
 
                 <div class="story">
                        Later in November, <router-link :to="'/captures?species=great-egret'">great egrets</router-link> and a <router-link :to="'/captures?species=white-necked-heron'">white-necked heron</router-link> pose on <router-link :to="'/captures?cam=D'">Camera D</router-link>            
                 </div>
 
-                <ScrollyImg data-slide="6" :class="{'hide':currentSlide > 6}" class="step" type="img" src="https://storage.googleapis.com/cherax-media/camA/camA-20241116-055548.JPG"></ScrollyImg>
+                <ScrollyImg data-slide="6" :class="{'hide':currentSlide > 6}" class="step" type="img" :src="assetPath+'camA/camA-20241116-055548.JPG'"></ScrollyImg>
 
                 <div class="story">
                        <router-link :to="'/captures?cam=A'">Camera A,</router-link> looking towards Upper Cherax Swamp, snaps a flock of <router-link :to="'/captures?species=white-faced-heron'">pacific black ducks</router-link> taking off in the pre-dawn 
                 </div>
 
-                <ScrollyImg data-slide="7" :class="{'hide':currentSlide > 7}"class="step" type="img" src="https://storage.googleapis.com/cherax-media/camA/camA-20241216-093840.JPG"></ScrollyImg>
+                <ScrollyImg data-slide="7" :class="{'hide':currentSlide > 7}"class="step" type="img" :src="assetPath+'camA/camA-20241216-093840.JPG'"></ScrollyImg>
 
                 <div class="story">
                        This shot captures  <router-link :to="'/captures?species=white-ibis'">white ibis,</router-link> <router-link :to="'/captures?species=straw-necked-ibis'">straw-necked ibis</router-link> and <router-link :to="'/captures?species=white-necked-heron'">white-necked herons</router-link> in flight 
                 </div>
 
-                <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" crop="cropright"class="step"  type="video" :playtrigger="triggers.greatCormorant" mute-video="true" src="https://storage.googleapis.com/cherax-media/camA/camA-20241216-093850.mp4"></ScrollyImg>
+                <ScrollyImg data-slide="8" :class="{'hide':currentSlide > 8}" :inactive="currentSlide > 8" crop="cropright"class="step"  type="video" :playtrigger="triggers.greatCormorant" mute-video="true" :src="assetPath+'camA/camA-20241216-093850.mp4'"></ScrollyImg>
 
                 <div class="story step" data-playtrigger="greatCormorant" data-offset="0.8">
                        The <router-link :to="'/captures?species=great-cormorant'">great cormorant</router-link> follows them a second later  
                 </div>
 
-                 <ScrollyImg data-slide="9" :class="{'hide':currentSlide > 9}"class="step" type="img" src="https://storage.googleapis.com/cherax-media/camF/camF-20250131-105624.JPG"></ScrollyImg>
+                 <ScrollyImg data-slide="9" :class="{'hide':currentSlide > 9}"class="step" type="img" :src="assetPath+'camF/camF-20250131-105624.JPG'"></ScrollyImg>
 
                  <div class="story step final" >
                        By the end of January, the water level has dropped, and <router-link :to="'/captures?species=pacific-black-duck'">ducks</router-link>, <router-link :to="'/captures?species=pelican'">pelicans</router-link> and <router-link :to="'/captures?species=black-swan'">black swans</router-link> are gathering in numbers out on the eastern wetland.   
@@ -346,7 +347,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <h3>2: Feeding</h3>
                 </div>
 
-                <ScrollyImg class="step" data-slide="10" :class="{'hide':currentSlide > 10}" :inactive="currentSlide > 10" data-playtrigger="footStir" type="video" crop="cropleft" :playtrigger="triggers.footStir" src="https://storage.googleapis.com/cherax-media/camD/camD-20241207-113632.mp4"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="10" :class="{'hide':currentSlide > 10}" :inactive="currentSlide > 10" data-playtrigger="footStir" type="video" crop="cropleft" :playtrigger="triggers.footStir" :src="assetPath+'camD/camD-20241207-113632.mp4'"></ScrollyImg>
 
                 <div class="story" >
                    Videos capture some of these waterbirds' signature feeding moves.    
@@ -356,7 +357,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                   Herons and egrets “stir” the flooded ground to scare out small fish and insects – here's a <router-link :to="'/captures?species=white-faced-heron'">white-faced heron</router-link> demonstrating   
                 </div>
 
-                 <ScrollyImg class="step" data-slide="11" :class="{'hide':currentSlide > 11}" :inactive="currentSlide > 11" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHunting" src="https://storage.googleapis.com/cherax-media/camD/camD-20241121-072410.mp4" mute-video="true"></ScrollyImg>
+                 <ScrollyImg class="step" data-slide="11" :class="{'hide':currentSlide > 11}" :inactive="currentSlide > 11" type="video" crop="cropleft" :playtrigger="triggers.spoonbillHunting" :src="assetPath+'camD/camD-20241121-072410.mp4'" mute-video="true"></ScrollyImg>
 
                 <div class="story step" data-playtrigger="spoonbillHunting" data-offset="0.8">
                   This <router-link :to="'/captures?species=yellow-spoonbill'">yellow spoonbill</router-link> sweeps its broad, sensitive bill from side to side, hunting by feel  
@@ -366,7 +367,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                   Ducks like the <router-link :to="'/captures?species=pacific-black-duck'">pacific black duck</router-link> are named “dabblers” for their head-down, tail-up feeding style.   
                 </div>
 
-                <ScrollyImg class="step" data-slide="12" :class="{'hide':currentSlide > 12}" :inactive="currentSlide > 12" type="video" crop="cropright"  :playtrigger="triggers.squabbleFrog" data-offset="0.8" src="https://storage.googleapis.com/cherax-media/camE/camE-20241121-165624.mp4"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="12" :class="{'hide':currentSlide > 12}" :inactive="currentSlide > 12" type="video" crop="cropright"  :playtrigger="triggers.squabbleFrog" data-offset="0.8" :src="assetPath+'camE/camE-20241121-165624.mp4'"></ScrollyImg>
 
                 <div class="story step" data-playtrigger="squabbleFrog" data-offset="0.8">
                   Later that day at the snag, a <router-link :to="'/captures?species=white-ibis'">white ibis</router-link> and a <router-link :to="'/captures?species=straw-necked-ibis'">straw-necked ibis</router-link> squabble over possession of a juicy frog.    
@@ -382,7 +383,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                       <h3>3: Raptors</h3>
                 </div>
 
-                <ScrollyImg class="step" data-slide="13" :class="{'hide':currentSlide > 13}" type="img" crop="cropright" src="https://storage.googleapis.com/cherax-media/camE/camE-20241230-155324.JPG"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="13" :class="{'hide':currentSlide > 13}" type="img" crop="cropright" :src="assetPath+'camE/camE-20241230-155324.JPG'"></ScrollyImg>
 
                 <div class="story step">
                     As well as waterbirds, wetlands like this are havens for birds of prey 
@@ -392,9 +393,9 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <p>Hiding in this frame is a <router-link :to="'/captures?species=whistling-kite'">whistling kite,</router-link> an Australian raptor often found near water.</p> 
                 </div>
 
-                 <ScrollyImg class="step" data-slide="14" :class="{'hide':currentSlide > 14}" type="img" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/whistling-kite-highlight.jpg"></ScrollyImg>
+                 <ScrollyImg class="step" data-slide="14" :class="{'hide':currentSlide > 14}" type="img" crop="cropright" :src="assetPath+'narrative/whistling-kite-highlight.jpg'"></ScrollyImg>
 
-                <ScrollyImg class="step" data-slide="15" :class="{'hide':currentSlide > 15}" type="img"  src="https://storage.googleapis.com/cherax-media/narrative/whistling-kite-fingers-zoomed.jpg" ></ScrollyImg>
+                <ScrollyImg class="step" data-slide="15" :class="{'hide':currentSlide > 15}" type="img"  :src="assetPath+'narrative/whistling-kite-fingers-zoomed.jpg'" ></ScrollyImg>
 
                 <div class="step story">
                     This capture from <router-link :to="'/captures?cam=A'">Camera A</router-link> shows the distinctive ‘fingers’ on the whistling kite’s wingtips  
@@ -404,7 +405,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    Whistling kites are named for their piercing call. <a @click="playAudio('whistlingKite')">listen</a> here, or find it in the <router-link :to="'/timeline?species=whistling-kite'">Timeline</router-link>
                 </div>
 
-                <ScrollyImg class="step" data-slide="16" :class="{'hide':currentSlide > 16}" :inactive="currentSlide > 16" type="video" crop="cropright" noloop="true" src="https://storage.googleapis.com/cherax-media/narrative/tussling-kites-allkeys.mp4" :playtrigger="triggers.kiteTussle" :progress="progress.kiteTussle"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="16" :class="{'hide':currentSlide > 16}" :inactive="currentSlide > 16" type="video" crop="cropright" noloop="true" :src="assetPath+'narrative/tussling-kites-allkeys.mp4'" :playtrigger="triggers.kiteTussle" :progress="progress.kiteTussle"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="kiteTussle" data-offset="0.8">
                   <p>This video finds two <router-link :to="'/captures?species=whistling-kite'">kites</router-link> tussling over their catch – perhaps a yabby.</p>       
@@ -416,25 +417,25 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                 <div class="step scroller" data-offset="0.8" data-progress="kiteTussle"></div> 
 
-                 <ScrollyImg class="step" data-slide="17" :class="{'hide':currentSlide > 17}" type="img" crop="cropleft" src="https://storage.googleapis.com/cherax-media/camF/camF-20250222-185740.JPG"></ScrollyImg>
+                 <ScrollyImg class="step" data-slide="17" :class="{'hide':currentSlide > 17}" type="img" crop="cropleft" :src="assetPath+'camF/camF-20250222-185740.JPG'"></ScrollyImg>
 
                 <div class="story">
                     We also spotted a <router-link :to="'/captures?species=swamp-harrier'">swamp harrier,</router-link> another raptor often found in wetlands  
                 </div>
 
-                <ScrollyImg class="step" data-slide="18" :class="{'hide':currentSlide > 18}" :inactive="currentSlide > 18"  type="video"crop="cropleft" src="https://storage.googleapis.com/cherax-media/camF/camF-20250222-185752.mp4" :playtrigger="triggers.swampHarrierPaddock" mute-video="true"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="18" :class="{'hide':currentSlide > 18}" :inactive="currentSlide > 18"  type="video"crop="cropleft" :src="assetPath+'camF/camF-20250222-185752.mp4'" :playtrigger="triggers.swampHarrierPaddock" mute-video="true"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="swampHarrierPaddock" data-offset="0.8">
                   Here it is on the drying edges of the eastern wetland, in February 
                 </div>
 
-                <ScrollyImg class="step" data-slide="19" :class="{'hide':currentSlide > 19}" :inactive="currentSlide > 19" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-standing.mov" :playtrigger="triggers.swampHarrierNesting"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="19" :class="{'hide':currentSlide > 19}" :inactive="currentSlide > 19" type="video" crop="cropcenter" :src="assetPath+'narrative/swamp-harrier-nest-standing.mov'" :playtrigger="triggers.swampHarrierNesting"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="swampHarrierNesting" data-offset="0.8">
                   Landholder Peter Morton shared this video of a <router-link :to="'/captures?species=swamp-harrier'">swamp harrier</router-link> nesting in reeds
                 </div>
 
-                <ScrollyImg class="step" data-slide="20" :class="{'hide':currentSlide > 20}" :inactive="currentSlide > 20" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.swampHarrierSettling"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="20" :class="{'hide':currentSlide > 20}" :inactive="currentSlide > 20" type="video" crop="cropcenter" :src="assetPath+'narrative/swamp-harrier-nest-settling.mov'" :playtrigger="triggers.swampHarrierSettling"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="swampHarrierSettling" data-offset="0.8">
                   Peter's use of automated cameras to document the wetlands on his property was the inspiration for this project. 
@@ -449,7 +450,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                       <h3>4: Seen and Heard</h3>
                 </div>
 
-                <ScrollyImg class="step" data-slide="21" :class="{'hide':currentSlide > 21}" :inactive="currentSlide > 21" type="video" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/dragonfly-timelapse.mov" :playtrigger="triggers.timeLapse" rate="0.5" slideclass="nopad"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="21" :class="{'hide':currentSlide > 21}" :inactive="currentSlide > 21" type="video" crop="cropright" :src="assetPath+'narrative/dragonfly-timelapse.mov'" :playtrigger="triggers.timeLapse" rate="0.5" slideclass="nopad"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="timeLapse" >
                    Wetlands are packed with life, but it’s not always easy to see
@@ -467,7 +468,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    And emerges as an adult dragonfly, opening its wings to fly off before dawn
                 </div>
 
-                 <ScrollyImg class="step" data-slide="22" :class="{'hide':currentSlide > 22}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/timeline-grab.jpg"></ScrollyImg>
+                 <ScrollyImg class="step" data-slide="22" :class="{'hide':currentSlide > 22}" type="img" :src="assetPath+'narrative/timeline-grab.jpg'"></ScrollyImg>
 
                 <div class="step story" >
                    Many of the birds in the wetland chorus, like <router-link :to="'timeline?species=sacred-kingfisher'">kingfishers</router-link>, 
@@ -478,13 +479,13 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    Find them in the <router-link :to="'/timeline'">Timeline</router-link>, where we use automated recognition to identify their calls.
                 </div>
 
-                <ScrollyImg class="step" data-slide="23" :class="{'hide':currentSlide > 23}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-closeup.jpg"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="23" :class="{'hide':currentSlide > 23}" type="img" :src="assetPath+'narrative/bell-frog-closeup.jpg'"></ScrollyImg>
 
                 <div class="story" >
                    <p>But this system doesn't recognise frogs, the noisiest wetland creatures. Endangered southern bell frogs are booming in these wetlands.</p>
                 </div>
 
-                <ScrollyImg class="step" data-slide="24" :class="{'hide':currentSlide > 24}" :inactive="currentSlide > 24" type="video" crop="cropright" src="https://storage.googleapis.com/cherax-media/narrative/bell-frog-hopping.mov" :playtrigger="triggers.bellFrogHopping" ></ScrollyImg>
+                <ScrollyImg class="step" data-slide="24" :class="{'hide':currentSlide > 24}" :inactive="currentSlide > 24" type="video" crop="cropright" :src="assetPath+'narrative/bell-frog-hopping.mov'" :playtrigger="triggers.bellFrogHopping" ></ScrollyImg>
 
                 <div class="story step final" data-playtrigger="bellFrogHopping" data-offset="0.8">
                    <p>Landholder Peter Morton shared this southern bell frog with us.</p> 
@@ -512,39 +513,39 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <img
                       slot="first"
                       style="width: 100%"
-                      src="https://storage.googleapis.com/cherax-media/camD/camD-20241122-070424.JPG"
+                      :src="assetPath+'camD/camD-20241122-070424.JPG'"
                     />
                     <img
                       slot="second"
                       style="width: 100%"
-                      src="https://storage.googleapis.com/cherax-media/camD/camD-20250126-194728.JPG"
+                      :src="assetPath+'camD/camD-20250126-194728.JPG'"
                     />
                     <!-- eslint-enable -->
                 </ImgComparisonSlider>
 
-                <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/histo-labelled.jpg" slideclass="histograb"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="25" :class="{'hide':currentSlide > 25}" type="img" :src="assetPath+'narrative/histo-labelled.jpg'" slideclass="histograb"></ScrollyImg>
 
                 <div class="story">
                    <p>In the <router-link :to="'/captures'">Captures</router-link> we see fewer waterbirds, and more mammals, including <router-link :to="'/captures?species=kangaroo'">roos,</router-link> <router-link :to="'/captures?species=sheep'">sheep</router-link> and feral species as the water recedes </p>
                 </div>
 
-                <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="video" crop="cropleft" :inactive="currentSlide > 26" src="https://storage.googleapis.com/cherax-media/camB/camB-20241128-203050.mp4" :playtrigger="triggers.sheepGrazing"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="26" :class="{'hide':currentSlide > 26}" type="video" crop="cropleft" :inactive="currentSlide > 26" :src="assetPath+'camB/camB-20241128-203050.mp4'" :playtrigger="triggers.sheepGrazing"></ScrollyImg>
 
                 <div class="story step" data-playtrigger="sheepGrazing" data-offset="0.8">
                    <p>It may seem strange to see <router-link :to="'/captures?species=sheep'">sheep</router-link> on a wetland, but this is also farmland, and the work of landholders like Peter Morton is essential in sustaining it.</p> 
                 </div>
 
-                <ScrollyImg class="step" data-slide="27" :class="{'hide':currentSlide > 27}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-at-carp-screen.jpg" slideclass="noaspect" crop="cropright"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="27" :class="{'hide':currentSlide > 27}" type="img" :src="assetPath+'narrative/peter-at-carp-screen.jpg'" slideclass="noaspect" crop="cropright"></ScrollyImg>
 
                  <div class="story" data-layout="contain" data-aspect="false">
                    <p>Peter has installed screens to exclude European carp from these wetlands, improving water quality and helping native frogs, fish and birds to thrive.</p>
                 </div>
 
-                <ScrollyImg class="step" data-slide="28" :class="{'hide':currentSlide > 28}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-screen-midshot.jpg" crop="cropright" slideclass="noaspect"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="28" :class="{'hide':currentSlide > 28}" type="img" :src="assetPath+'narrative/carp-screen-midshot.jpg'" crop="cropright" slideclass="noaspect"></ScrollyImg>
 
-                <ScrollyImg class="step" data-slide="29" :class="{'hide':currentSlide > 29}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/carp-closeup.jpg" crop="cropright" slideclass="noaspect"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="29" :class="{'hide':currentSlide > 29}" type="img" :src="assetPath+'narrative/carp-closeup.jpg'" crop="cropright" slideclass="noaspect"></ScrollyImg>
 
-                <ScrollyImg class="step" data-slide="30" :class="{'hide':currentSlide > 30}" :inactive="currentSlide > 30" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-settling.mov" :playtrigger="triggers.harrierSettlingFinal" slideclass="nopad"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="30" :class="{'hide':currentSlide > 30}" :inactive="currentSlide > 30" type="video" crop="cropcenter" :src="assetPath+'narrative/swamp-harrier-nest-settling.mov'" :playtrigger="triggers.harrierSettlingFinal" slideclass="nopad"></ScrollyImg>
 
                 <div class="step story" data-playtrigger="harrierSettlingFinal" data-offset="0.8">
                    
@@ -552,7 +553,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                 </div>
 
-                <ScrollyImg class="step" data-slide="31" :class="{'hide':currentSlide > 31}" :inactive="currentSlide > 31"  type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/swamp-harrier-nest-fox.mov" :playtrigger="triggers.harrierNestFox" slideclass="nopad"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="31" :class="{'hide':currentSlide > 31}" :inactive="currentSlide > 31"  type="video" crop="cropcenter" :src="assetPath+'narrative/swamp-harrier-nest-fox.mov'" :playtrigger="triggers.harrierNestFox" slideclass="nopad"></ScrollyImg>
 
                   <div class="step story" data-playtrigger="harrierNestFox" data-offset="0.8">
                    
@@ -560,7 +561,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                 </div>
 
-                <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" :inactive="currentSlide > 32" type="video" crop="cropcenter" src="https://storage.googleapis.com/cherax-media/narrative/exclusion-fence-causeway.mov" :playtrigger="triggers.exclusionFence" slideclass="nopad" mute-video="true"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="32" :class="{'hide':currentSlide > 32}" :inactive="currentSlide > 32" type="video" crop="cropcenter" :src="assetPath+'narrative/exclusion-fence-causeway.mov'" :playtrigger="triggers.exclusionFence" slideclass="nopad" mute-video="true"></ScrollyImg>
 
                  <div class="step story" data-playtrigger="exclusionFence" data-offset="0.8">
                    <p>Seeing this, and the impacts from other ferals, prompted Peter to begin installing an exclusion fence in 2025, with funding from the NSW Government.</p>
@@ -570,14 +571,14 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    <p>This ten-kilometre fence will keep out goats, <router-link :to="'/captures?species=fox'">foxes,</router-link> <router-link :to="'/captures?species=cat'">cats</router-link> and other feral species.</p>
                 </div>
 
-                <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/peter-upper-cherax.jpg" crop="cropleftquarter" slideclass="noaspect"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="33" :class="{'hide':currentSlide > 33}" type="img" :src="assetPath+'narrative/peter-upper-cherax.jpg'" crop="cropleftquarter" slideclass="noaspect"></ScrollyImg>
 
                 <div class="story">
                    <!-- <p>For the Morton family, this work and these wetlands will be their legacy.</p> -->
                    <p>With the support of the NSW government and the Commonwealth Environmental Water Holder, landholders like the Mortons are doing vital work to sustain our wetlands</p>
                 </div>
 
-                <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" src="https://storage.googleapis.com/cherax-media/narrative/upper-cherax-red-weed.jpg" slideclass="noaspect"></ScrollyImg>
+                <ScrollyImg class="step" data-slide="34" :class="{'hide':currentSlide > 34}" type="img" :src="assetPath+'narrative/upper-cherax-red-weed.jpg'" slideclass="noaspect"></ScrollyImg>
 
                 <div class="story step less-bottom-margin" data-slide="35">
                    <p>Keep exploring to experience this living mosaic</p>

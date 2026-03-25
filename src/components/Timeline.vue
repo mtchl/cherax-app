@@ -19,8 +19,8 @@
         playing:false,
         timelapseCams:["cam1","cam2"],
         activeCam:["cam1"],
-        audioUrl: "https://storage.googleapis.com/cherax-media/audio",
-        imageUrl: "https://storage.googleapis.com/cherax-media"
+        audioUrl: import.meta.env.VITE_ASSETPATH + "audio",
+        imageUrl: import.meta.env.VITE_ASSETPATH
       }
     },
 

@@ -97,7 +97,7 @@
 
       timelapseImagePath(f){
         // in the form {storage URL}/cam1/20241101/cam1-20241101-{frameNum}-thumb.JPG
-        return new URL(`${this.imageUrl}/${this.timelapseCam}/${this.date}/${this.timelapseCam}-${this.date}-${f}-thumb.JPG`, import.meta.url).href
+        return new URL(`${this.imageUrl}${this.timelapseCam}/${this.date}/${this.timelapseCam}-${this.date}-${f}-thumb.JPG`, import.meta.url).href
       }
     },
 

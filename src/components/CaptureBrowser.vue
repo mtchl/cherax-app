@@ -16,7 +16,7 @@
         captureData: jsonData,
         cams: ["A","B","C","D","E","F","G"],
         months: [{label:"nov", dayrange:[0,35]}, {label:"dec", dayrange:[36,67]},{label:"jan", dayrange: [68,98]},{label:"feb", dayrange:[99,122]} ],
-        baseUrl: "https://storage.googleapis.com/cherax-media/",
+        baseUrl: import.meta.env.VITE_ASSETPATH,
         viewItems: 10,
         faves: []
       }
@@ -205,8 +205,8 @@
         if (this.filterSpecies) {
             let matchingTag = this.tags.find(t => t.routeTag == this.filterSpecies)
             if (!matchingTag) {
-              console.log(" no matching tag ")
-              console.log(this.filterSpecies)
+              //console.log(" no matching tag ")
+              //console.log(this.filterSpecies)
               return this.allCapturesSet
             };
             return new Set(this.captures.filter(c => c.tags.indexOf(matchingTag.tag) > -1))

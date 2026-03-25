@@ -20,7 +20,7 @@ export default {
   computed:{
   	frameUrl(){
   		const framenum = 1 + Math.floor(this.currentPlayTime / (60 * 10))
-  		return new URL(`${this.imageUrl}/${this.cam}/${this.date}/${this.cam}-${this.date}-${framenum}.JPG`, import.meta.url).href
+  		return new URL(`${this.imageUrl}${this.cam}/${this.date}/${this.cam}-${this.date}-${framenum}.JPG`, import.meta.url).href
   	}
   }
 }
