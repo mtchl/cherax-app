@@ -668,9 +668,10 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
    .section-nav a{
     display: inline-block;
     font-size: 0.8rem;
+    font-weight: 400;
     padding:0.4rem;
     color:#aaa;
-    margin:0 0 0 1rem;
+    margin:0 0.4rem 0 0.4rem;
     text-decoration: none;
     flex-basis: 1;
     white-space: nowrap;
