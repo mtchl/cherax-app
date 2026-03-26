@@ -34,7 +34,9 @@
 
     methods: {
 
-      setFilter(key,value){
+      setFilter(key,value,count){
+        console.log("setFilter" , key, value, count);
+        if (count != undefined && count == 0) return;
         const f = {species:this.filterSpecies, cam: this.filterCam, month: this.filterMonth}
         f[key] = value;
         if (key == 'species' && this.filterSpecies == value) delete f.species;
@@ -44,7 +46,7 @@
         if (f.cam == undefined) delete f.cam;
         if (f.species == undefined) delete f.species;
         if (f.month == undefined) delete f.month;
-           console.log(f)
+           //console.log(f)
         this.$router.push({path: '/captures', query: f})
         this.viewItems = 10;
       },
@@ -146,13 +148,6 @@
           const diffDays = Math.round(Math.abs((startdate - capdate) / oneDay));
 
           let camLabel = cam.replace("cam","");
-          // if (cam == "cam3") camLabel = "A"
-          // if (cam == "cam4" && diffDays < 97) camLabel = "B"
-          // if (cam == "cam4" && diffDays >= 97) camLabel = "F"
-          // if (cam == "cam5" && diffDays < 97) camLabel = "C"
-          // if (cam == "cam5" && diffDays >= 97) camLabel = "G"
-          // if (cam == "cam6") camLabel = "D"
-          // if (cam == "cam7") camLabel = "E"
 
           let month;
           let matchMonth = this.months.find(m => ((m.dayrange[0] <= diffDays) && (m.dayrange[1] >= diffDays)));
@@ -205,8 +200,6 @@
         if (this.filterSpecies) {
             let matchingTag = this.tags.find(t => t.routeTag == this.filterSpecies)
             if (!matchingTag) {
-              //console.log(" no matching tag ")
-              //console.log(this.filterSpecies)
               return this.allCapturesSet
             };
             return new Set(this.captures.filter(c => c.tags.indexOf(matchingTag.tag) > -1))
@@ -283,7 +276,7 @@
 
     <div class="headerTags">
       <span class="itemTag big label">Species:</span>
-      <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag)">{{t.tag}} 
+      <span v-for="t in allTags" class="itemTag big" :class="{'active': filterSpecies == t.routeTag, 'mammal': t.group == 'mammal', 'bird': t.group != 'mammal', 'zero':t.count == 0}" @click="setFilter('species',t.routeTag,t.count)">{{t.tag}} 
             <span v-if="t.count > 0">({{t.count}})</span>
         </span>
     </div>
@@ -313,6 +306,8 @@
 
   </div>
 
+<!-- shared item now handled server side in share.php
+
   <div class="sharedModal" v-if="sharedCapture">
     <div class="inner">
     
@@ -327,6 +322,8 @@
     </div>
     
   </div>
+   -->
+
 </template>
 
 <style scoped>
