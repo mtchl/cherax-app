@@ -13,7 +13,7 @@
       
       <div class="metadata">
         <div class="col left">
-          <span class="itemTag cam" :class="{'active':filterState && filterState.cam == capture.camLabel}" @click="setFilter('cam',capture.camLabel)">Cam {{capture.camLabel}}</span>
+          <span class="itemTag cam" :class="{'active':filterState && filterState.cam == capture.camLabel}" @click="setFilter('cam',capture.camLabel)" :title="'Browse captures from Cam '+capture.camLabel">Cam {{capture.camLabel}}</span>
           <span class="captureTime"> {{displayTime}}</span>
           
           <button type="button" class="icon fave" @click="clickFaveButton" >
@@ -27,7 +27,7 @@
 
 
         </div>
-        <div class="col right"><span v-for="t in localTags" class="itemTag" :class="{'active':filterState && filterState.species == t.routeTag}" @click="setFilter('species',t.routeTag)">{{t.tag}}</span> </div>
+        <div class="col right"><span v-for="t in localTags" class="itemTag" :class="{'active':filterState && filterState.species == t.routeTag}" @click="setFilter('species',t.routeTag)" :title="'Browse captures tagged '+t.tag">{{t.tag}}</span> </div>
       </div>
       
       <div class="closebutton" v-if="modal" @click="closeModal">
@@ -101,7 +101,8 @@ export default {
     shareCapture(){
       navigator.share({
         title: 'Mosaic: life on the Western Lakes | Capture ' + this.captureID,
-        url: 'https://cherax.netlify.app/captures/shared/' + this.captureID
+        //url: 'https://cherax.netlify.app/captures/shared/' + this.captureID
+        url: 'https://media.flow-mer.org.au/mosaic/media/share.php?path='+this.capture.path
       })
 
     }
@@ -216,6 +217,10 @@ export default {
   .itemTag.active{
     background-color: #222;
     color: white;
+  }
+
+  .itemTag:hover{
+    background-color: #bbb;
   }
 
   button.icon{
