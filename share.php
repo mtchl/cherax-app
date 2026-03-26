@@ -50,6 +50,7 @@ if ($requestedFile && strpos($requestedFile, $baseDir) === 0 && is_file($request
 <head>
     <meta charset="UTF-8">
     <title>Mosaic: Life on the Western Lakes - Capture <?php echo htmlspecialchars($imagePath); ?></title>
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
