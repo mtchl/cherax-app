@@ -99,10 +99,17 @@ export default {
     },
 
     shareCapture(){
+      let tagString = this.capture.tags.map((t,i) => {
+                        let s = "tag[]="+encodeURIComponent(t)
+                        if (i < this.capture.tags.length-1) s = s + "&";
+                        return s;
+                      }
+        ).join("");
+      console.log(tagString)
       navigator.share({
         title: 'Mosaic: life on the Western Lakes | Capture ' + this.captureID,
         //url: 'https://cherax.netlify.app/captures/shared/' + this.captureID
-        url: 'https://media.flow-mer.org.au/mosaic/media/share.php?path='+this.capture.path
+        url: 'https://media.flow-mer.org.au/mosaic/media/share.php?path='+this.capture.path + "&" + tagString
       })
 
     }
