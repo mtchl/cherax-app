@@ -147,7 +147,6 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
       watch: {
         currentSlide(newSlide,oldSlide){
-            //console.log(newSlide)
 
             if (newSlide == 20 && oldSlide == 21){ // back
                 this.$refs.secnavlinks.children[2].scrollIntoView({inline: 'center',behavior: 'smooth'});
@@ -159,7 +158,6 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
              if (newSlide < 24  && oldSlide >= 24){// going back
                 this.$refs.secnavlinks.children[3].scrollIntoView({inline: 'center',behavior: 'smooth'});
             }
-
 
             if (newSlide == 24 && oldSlide < 24){
                  console.log("Scrolling 4")
@@ -599,6 +597,42 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                     <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
             </div>
 
+            <div class="section-head credits">
+                
+                <h3>Credits & Acknowledgements</h3>
+
+                <p>Mosaic is a product of <a href="https://flow-mer.org.au">Flow-MER</a>, the <a href="https://www.dcceew.gov.au/cewh">Commonwealth Environmental Water Holder’s</a> science program. It was created by researchers from the Australian National University and Charles Sturt University to investigate new approaches to digital engagement with wetland environments.</p>
+
+                <p>We gratefully acknowledge the support of landholder Peter Morton and his family. Peter hosted this experiment and shared crucial images, video and stories with us.</p>
+
+                <table>
+                    <tr>
+                        <td><p class="role">Concept, design and development</p></td>
+                        <td><p><strong><a href="https://mtchl.net">Mitchell Whitelaw</a></strong>, School of Art and Design, ANU</p></td>
+                    </tr>
+
+                    <tr>
+                        <td><p class="role">Project management, additional photography and video</p></td>
+                        <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
+                    </tr>
+
+                    <tr>
+                        <td><p class="role">Deployment and technical support</p></td>
+                        <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
+                    </tr>
+
+                    <tr>
+                        <td><p class="role">Project coordination</p></td>
+                        <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
+                    </tr>
+                </table>
+
+                <div class="logos">
+                    <img src="@/assets/img/CEW-logo.png">
+                    <img src="@/assets/img/flow-mer-logo.png">
+                </div>
+            </div>
+
             </section>
         </div>
      </VueScrollama>
@@ -999,6 +1033,37 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     opacity:0.6;
     display: block;
    }
+
+   .credits p{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+   }
+
+   .credits p.role{
+    text-align: right;
+    padding-right: 1.5rem;
+   }
+
+   .credits .logos{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+   }
+
+   .credits .logos img{
+    max-width: 100%;
+    height:4rem;
+    margin:0.5rem;
+   }
+
+   .credits a{
+    color:#888;
+   }
+
 
 
     /* MOBILE */
