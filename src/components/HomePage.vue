@@ -606,25 +606,27 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                 <p>We gratefully acknowledge the support of landholder Peter Morton and his family. Peter hosted this experiment and shared crucial images, video and stories with us.</p>
 
                 <table>
-                    <tr>
-                        <td><p class="role">Concept, design and development</p></td>
-                        <td><p><strong><a href="https://mtchl.net">Mitchell Whitelaw</a></strong>, School of Art and Design, ANU</p></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><p class="role">Concept, design and development</p></td>
+                            <td><p><strong><a href="https://mtchl.net">Mitchell Whitelaw</a></strong>, School of Art and Design, ANU</p></td>
+                        </tr>
 
-                    <tr>
-                        <td><p class="role">Project management, additional photography and video</p></td>
-                        <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
-                    </tr>
+                        <tr>
+                            <td><p class="role">Project management, additional photography and video</p></td>
+                            <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
+                        </tr>
 
-                    <tr>
-                        <td><p class="role">Deployment and technical support</p></td>
-                        <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
-                    </tr>
+                        <tr>
+                            <td><p class="role">Deployment and technical support</p></td>
+                            <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
+                        </tr>
 
-                    <tr>
-                        <td><p class="role">Project coordination</p></td>
-                        <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
-                    </tr>
+                        <tr>
+                            <td><p class="role">Project coordination</p></td>
+                            <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div class="logos">
