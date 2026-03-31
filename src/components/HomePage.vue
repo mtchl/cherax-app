@@ -582,56 +582,58 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
                    <p>Keep exploring to experience this living mosaic</p>
                 </div>
 
-             <div class="inline-nav">    
-                <div class="col captures" @click="$router.push('/captures')">
-                    <h2>Captures</h2>
-                    <p>Browse over 1700 images and videos</p>
+             <div class="foot">
+                 <div class="inline-nav">    
+                    <div class="col captures" @click="$router.push('/captures')">
+                        <h2>Captures</h2>
+                        <p>Browse over 1700 images and videos</p>
+                    </div>
+                    <div class="col timeline" @click="$router.push('/timeline')">
+                        <h2>Timeline</h2>
+                        <p>Dive into 24 hours<br/> of wetland soundscape</p>
+                    </div>
                 </div>
-                <div class="col timeline" @click="$router.push('/timeline')">
-                    <h2>Timeline</h2>
-                    <p>Dive into 24 hours<br/> of wetland soundscape</p>
+
+                <div class="section-head">
+                        <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
                 </div>
-            </div>
 
-            <div class="section-head">
-                    <img src="@/assets/img/mosaic-graphic.svg" class="section-graphic">
-            </div>
+                <div class="section-head credits">
+                    
+                    <h3>Credits & Acknowledgements</h3>
 
-            <div class="section-head credits">
-                
-                <h3>Credits & Acknowledgements</h3>
+                    <p>Mosaic is a product of <a href="https://flow-mer.org.au">Flow-MER</a>, the <a href="https://www.dcceew.gov.au/cewh">Commonwealth Environmental Water Holder’s</a> science program. It was created by researchers from the Australian National University and Charles Sturt University to investigate new approaches to digital engagement with wetland environments.</p>
 
-                <p>Mosaic is a product of <a href="https://flow-mer.org.au">Flow-MER</a>, the <a href="https://www.dcceew.gov.au/cewh">Commonwealth Environmental Water Holder’s</a> science program. It was created by researchers from the Australian National University and Charles Sturt University to investigate new approaches to digital engagement with wetland environments.</p>
+                    <p>We gratefully acknowledge the support of landholder Peter Morton and his family. Peter hosted this experiment and shared crucial images, video and stories with us.</p>
 
-                <p>We gratefully acknowledge the support of landholder Peter Morton and his family. Peter hosted this experiment and shared crucial images, video and stories with us.</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><p class="role">Concept, design and development</p></td>
+                                <td><p><strong><a href="https://mtchl.net">Mitchell Whitelaw</a></strong>, School of Art and Design, ANU</p></td>
+                            </tr>
 
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><p class="role">Concept, design and development</p></td>
-                            <td><p><strong><a href="https://mtchl.net">Mitchell Whitelaw</a></strong>, School of Art and Design, ANU</p></td>
-                        </tr>
+                            <tr>
+                                <td><p class="role">Project management, additional photography and video</p></td>
+                                <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
+                            </tr>
 
-                        <tr>
-                            <td><p class="role">Project management, additional photography and video</p></td>
-                            <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
-                        </tr>
+                            <tr>
+                                <td><p class="role">Deployment and technical support</p></td>
+                                <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
+                            </tr>
 
-                        <tr>
-                            <td><p class="role">Deployment and technical support</p></td>
-                            <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
-                        </tr>
+                            <tr>
+                                <td><p class="role">Project coordination</p></td>
+                                <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <tr>
-                            <td><p class="role">Project coordination</p></td>
-                            <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="logos">
-                    <img src="@/assets/img/CEW-logo.png">
-                    <img src="@/assets/img/flow-mer-logo.png">
+                    <div class="logos">
+                        <img src="@/assets/img/CEW-logo.png">
+                        <img src="@/assets/img/flow-mer-logo.png">
+                    </div>
                 </div>
             </div>
 
@@ -1035,6 +1037,15 @@ background: linear-gradient(180deg, rgba(145, 186, 196, 1) 0%, rgba(195, 218, 22
     opacity:0.6;
     display: block;
    }
+
+   .foot{
+    position:relative;
+    z-index:2;
+    padding-top:2rem;
+    background: rgba(226, 227, 216, 1);
+   }
+
+
 
    .credits p{
     font-family: 'Lato', sans-serif;

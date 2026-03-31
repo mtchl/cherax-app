@@ -14,6 +14,7 @@ $metadata = [
 ];
 
 if ($requestedFile && strpos($requestedFile, $baseDir) === 0 && is_file($requestedFile)) {
+    $originalext = pathinfo($requestedFile, PATHINFO_EXTENSION);
     $ext = strtolower(pathinfo($requestedFile, PATHINFO_EXTENSION));
     $filename = pathinfo($requestedFile, PATHINFO_FILENAME);
 
@@ -41,6 +42,8 @@ if ($requestedFile && strpos($requestedFile, $baseDir) === 0 && is_file($request
             $timeObj = DateTime::createFromFormat('His', $parts[2]);
             if ($timeObj) $metadata['time'] = $timeObj->format('g:i:s A');
         }
+
+        $thumbPath = 'https://media.flow-mer.org.au/mosaic/media/cam' . $metadata['camera'] .'/thumbnails/thumb_'. str_replace('mp4','jpg',$filename . '.' . $originalext);
     }
 }
 ?>
@@ -49,11 +52,17 @@ if ($requestedFile && strpos($requestedFile, $baseDir) === 0 && is_file($request
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:title" content="Mosaic: Life on the Western Lakes - Shared Capture" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://media.flow-mer.org.au/mosaic/" />
+    <meta property="og:description" content="Mosaic: a digital portrait of life in the wetlands of the Western Lakes" />
+    <meta property="og:image" content="<?php echo $thumbPath ?>" />
     <title>Mosaic: Life on the Western Lakes - Capture <?php echo htmlspecialchars($imagePath); ?></title>
     <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KW6C9FSM7"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7KW6C9FSM7'); </script>
     <style lang="css">
 
     html, body{
