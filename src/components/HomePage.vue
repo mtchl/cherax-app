@@ -606,6 +606,8 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                     <p>We gratefully acknowledge the support of landholder Peter Morton and his family. Peter hosted this experiment and shared crucial images, video and stories with us.</p>
 
+                    <p>We also acknowledge the substantial investment of work and funding contributed to the restoration of these wetlands by the NSW Government and environmental water managers.</p>
+
                     <table>
                         <tbody>
                             <tr>
@@ -615,17 +617,17 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
                             <tr>
                                 <td><p class="role">Project management, additional photography and video</p></td>
-                                <td><p><strong>Fleur Stelling</strong>, Gubali Institute, CSU</p></td>
+                                <td><p><strong>Fleur Stelling</strong>, Gulbali Institute, CSU</p></td>
                             </tr>
 
                             <tr>
                                 <td><p class="role">Deployment and technical support</p></td>
-                                <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gubali Institute, CSU</p></td>
+                                <td><p><strong>Emmalie Sanders</strong> and <strong>Sarah Talbot</strong>, Gulbali Institute, CSU</p></td>
                             </tr>
 
                             <tr>
                                 <td><p class="role">Project coordination</p></td>
-                                <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gubali Institute, CSU</p></td>
+                                <td><p><strong>Skye Wassens</strong>, leader, Murrumbidgee Monitoring, Evaluation and Research program, Gulbali Institute, CSU</p></td>
                             </tr>
                         </tbody>
                     </table>
