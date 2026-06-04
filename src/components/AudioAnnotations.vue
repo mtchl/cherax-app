@@ -16,7 +16,7 @@
 			<!-- <div class="annotationChunk" v-for="c in s.chunks" :style="{'left': ((c.startTime*99.88) / dayLenSeconds)+'%', 'width': (chunkLen*0.1067)+'px', 'opacity': 0.2 + 0.1*Math.sqrt(c.detections.length)}"> -->
 			<!-- {{c.detections.length}} -->
 			<!-- </div> -->
-			<div class="detect" v-for="d in s.detections" :class="{'playing': audioTime > d.startTime && audioTime < d.endTime }" :style="{'left': ((d.startTime*100) / dayLenSeconds)+'%'}"></div>
+			<div class="detect" v-for="d in s.detections" :class="{'playing': audioTime > d.startTime && audioTime < d.endTime }" :style="{'left': ((d.startTime*spectroWidth) / dayLenSeconds)+'px'}"></div>
 		</div>
 	</div>
 	<SpeciesInfo v-if="focusedSpeciesFull" :species-name="focusedSpeciesFull.scientificName" context="timeline"/>
@@ -30,7 +30,7 @@
 	export default {
 
 	  name: 'AudioAnnotations',
-	  props: ['date','audioTime','focusSpecies'],
+	  props: ['date','audioTime','focusSpecies','spectroWidth'],
 	  emits: ['jumpAudio','stopAudio'],
 
 	  	data () {

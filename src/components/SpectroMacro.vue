@@ -142,11 +142,11 @@
 
       <img class="fcs" ref="fcs"  src="@/assets/img/20241102.jpg" draggable="false" :style="{width: bigSpectroWidth+'px'}">
 
-      <div class="tick" v-for="h in 24" :style="{left: 100*((h-1)/24)+'%'}">
+      <div class="tick" v-for="h in 24" :style="{left: bigSpectroWidth*((h-1)/24)+'px'}">
         <span>{{h-1}}:00</span>
       </div>
 
-      <AudioAnnotations :date="date" :audio-time="playSeconds" @jump-audio="jumpAudio" @stop-audio="stopAudio" :focus-species="focusSpecies"> </AudioAnnotations>
+      <AudioAnnotations :date="date" :audio-time="playSeconds" @jump-audio="jumpAudio" @stop-audio="stopAudio" :focus-species="focusSpecies" :spectro-width="bigSpectroWidth"> </AudioAnnotations>
     </div>
 
 
