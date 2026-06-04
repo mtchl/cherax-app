@@ -52,6 +52,7 @@
         this.spectroMouseInit = evt.pageX;
         this.spectroDragInit = this.$refs.spectro.scrollLeft;
         this.$refs.spectro.addEventListener('mousemove', this.mouseDragging)
+        console.log("startmousedrag")
       },
 
       startTouchDrag(){
@@ -70,13 +71,16 @@
         this.dragging = false;
         this.$refs.spectro.removeEventListener('mousemove', this.mouseDragging)
         this.updateAudioAfterScroll();
+         console.log("endmousedrag")
       },
 
       mouseDragging(evt){
         if (!this.dragging) return;
         evt.preventDefault();
         const diff = evt.pageX - this.spectroMouseInit
+        //console.log(diff)
         this.$refs.spectro.scrollLeft = this.spectroDragInit - diff; // Apply scroll
+        console.log(this.$refs.spectro.scrollLeft)
       },
 
       
@@ -130,7 +134,8 @@
     <div class="wrapper"  :class="{'dragging':dragging}" >
 
       <div class="timelapse">
-        <div class="frame" v-for="i in 144" :style="{left: 100 * ((i-1)/144) + '%'}">
+        <!-- <div class="frame" v-for="i in 144" :style="{left: 100 * ((i-1)/144) + '%'}"> -->
+        <div class="frame" v-for="i in 144" :style="{left: (i*66.25)+'px'}">
             <v-lazy-image :src="timelapseImagePath(i)" draggable="false" />
         </div>
       </div>
@@ -175,6 +180,7 @@
 
   .spectro .fcs{
     margin-top:2px;
+    padding-right:50vw;
   }
 
   .spectro .wrapper{
