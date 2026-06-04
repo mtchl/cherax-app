@@ -35,6 +35,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
             animations:{},
             progress:{},
             introParallax:0,
+            introFadeIn:0,
             audio:{
                 intro: {
                     src: import.meta.env.VITE_ASSETPATH + "narrative/intro-faded.mp3",
@@ -63,6 +64,12 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
       },
 
       methods: {
+
+          splashLoad(){
+            this.introFadeIn = 1;
+
+          },
+
           stepEnterHandler ({element, index, direction}) {
             if (element.dataset.playtrigger){
                 this.triggers[element.dataset.playtrigger] = true;
@@ -186,12 +193,12 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
     <div class="splash" :style="{'top': introParallax * -40 + 'vh'}" >
 
             <div class="sky-extender"></div>
-            <img src="@/assets/img/splash-aerial.webp"/>
+            <img src="@/assets/img/splash-aerial.webp" @load="splashLoad" :class="{'fadeIn':introFadeIn}"/>
 
     </div>
 
 
-     <section class="intro">
+     <section class="intro" >
 
         <h1 class="title"><span class="bigM">M</span>osa<span class="littleI">i</span>c</h1>
         <h2 class="title">Life on the Western Lakes</h2>
@@ -731,12 +738,16 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
    .splash{
         position:fixed;
         top:0;
-        transition: opacity 2s;
         pointer-events: none;
    }
 
-   .splash.fade{
+   .splash img{
+    transition: opacity 2s;
     opacity:0;
+   }
+
+   .splash img.fadeIn{
+    opacity:1;
    }
 
    .splash img{
