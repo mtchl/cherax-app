@@ -186,7 +186,7 @@
   .spectro .wrapper{
     position:absolute;
     cursor: grab;
-    left:50vw;
+    left:50%;
 /*    margin-bottom:60px;*/
   }
 
